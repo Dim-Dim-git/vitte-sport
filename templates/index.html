@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>МУИВ Спорт — главная</title>
+</head>
+<body>
+
+<h1>Спортивный портал МУИВ</h1>
+
+<hr>
+
+<h2>Виды спорта ({{ sports.count }})</h2>
+{% for sport in sports %}
+  <div>
+    <h3>{{ sport.name }}</h3>
+    <p>{{ sport.description }}</p>
+  </div>
+{% empty %}
+  <p>Виды спорта не добавлены</p>
+{% endfor %}
+
+<hr>
+
+<h2>Новости ({{ news.count }})</h2>
+{% for item in news %}
+  <div>
+    <h3>{{ item.title }}</h3>
+    <p>{{ item.created|date:"d.m.Y" }}</p>
+    <p>{{ item.content }}</p>
+  </div>
+{% empty %}
+  <p>Новости не добавлены</p>
+{% endfor %}
+
+</body>
+</html>
