@@ -11,14 +11,27 @@
 <body>
 
   <header>
-    <div class="container">
-      <div class="logo">МУИВ <span>Спорт</span></div>
-      <nav>
-        <a href="#">Расписание</a>
-        <a href="#">Секции</a>
-        <a href="#">Турниры</a>
-        <a href="#">Новости</a>
-      </nav>
+    <div style="background: var(--white); border-bottom: 3px solid var(--red); padding: 16px 0;">
+      <div class="container" style="display: flex; align-items: center; justify-content: space-between;">
+        <a href="/" style="font-size: 20px; font-weight: 700; color: var(--dark);">
+          МУИВ <span style="color: var(--red);">Спорт</span>
+        </a>
+        <nav>
+          <a href="#" style="margin-left: 24px; font-size: 14px; font-weight: 600; color: var(--dark);">Расписание</a>
+          <a href="#" style="margin-left: 24px; font-size: 14px; font-weight: 600; color: var(--dark);">Секции</a>
+          <a href="#" style="margin-left: 24px; font-size: 14px; font-weight: 600; color: var(--dark);">Турниры</a>
+          <a href="#" style="margin-left: 24px; font-size: 14px; font-weight: 600; color: var(--dark);">Новости</a>
+        </nav>
+        {% if user.is_authenticated %}
+          <a href="/accounts/logout/" style="font-size: 14px; font-weight: 600; color: var(--muted);">
+            {{ user.username }} — Выйти
+          </a>
+        {% else %}
+          <a href="/accounts/login/" style="padding: 8px 20px; background: var(--red); color: var(--white); border-radius: 4px; font-size: 14px; font-weight: 600;">
+            Войти
+          </a>
+        {% endif %}
+      </div>
     </div>
   </header>
 
