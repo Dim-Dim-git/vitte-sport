@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <title>Регистрация — МУИВ Спорт</title>
+</head>
+<body>
+
+  <div style="background: var(--white); border-bottom: 3px solid var(--red); padding: 16px 20px;">
+    <a href="/" style="font-size: 20px; font-weight: 700; color: var(--dark);">
+      МУИВ <span style="color: var(--red);">Спорт</span>
+    </a>
+  </div>
+
+  <div style="max-width: 420px; margin: 60px auto; padding: 0 20px;">
+    <h2>Регистрация</h2>
+    <form method="post" style="margin-top: 24px;">
+      {% csrf_token %}
+      {% for field in form %}
+        <div style="margin-bottom: 16px;">
+          <label style="display: block; font-size: 14px; font-weight: 600; margin-bottom: 6px;">
+            {{ field.label }}
+          </label>
+          <input type="{{ field.field.widget.input_type }}"
+            name="{{ field.html_name }}"
+            placeholder="{{ field.label }}"
+            style="display: block; width: 100%; padding: 10px 14px; border: 1.5px solid var(--border); border-radius: 4px; font-size: 14px; font-family: inherit; outline: none;">
+          {% if field.errors %}
+            <p style="color: var(--red); font-size: 12px; margin-top: 4px;">{{ field.errors.0 }}</p>
+          {% endif %}
+        </div>
+      {% endfor %}
+      <button type="submit"
+        style="display: block; width: 100%; padding: 12px; background: var(--red); color: var(--white); border: none; border-radius: 4px; font-size: 14px; font-weight: 600; font-family: inherit; cursor: pointer;">
+        Зарегистрироваться
+      </button>
+    </form>
+    <p style="margin-top: 16px; font-size: 13px;">
+      Уже есть аккаунт? <a href="/accounts/login/">Войти</a>
+    </p>
+  </div>
+
+</body>
+</html>
