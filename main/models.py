@@ -49,3 +49,37 @@ class UserProfile(models.Model):
 
     def __str__(self):
         return f'{self.user.username} ({self.get_role_display()})'
+    
+class Training(models.Model):
+    DAYS = [
+        ('mon', 'Понедельник'),
+        ('tue', 'Вторник'),
+        ('wed', 'Среда'),
+        ('thu', 'Четверг'),
+        ('fri', 'Пятница'),
+        ('sat', 'Суббота'),
+        ('sun', 'Воскресенье'),
+    ]
+    TYPES = [
+        ('home',    'Индивидуальная'),
+        ('gym',     'Тренажёрный зал'),
+        ('section', 'Секция'),
+        ('workout', 'Воркаут'),
+    ]
+
+    sport      = models.ForeignKey(Sport, on_delete=models.CASCADE, verbose_name='Вид спорта')
+    type       = models.CharField(max_length=20, choices=TYPES, default='section', verbose_name='Тип')
+    day        = models.CharField(max_length=3, choices=DAYS, verbose_name='День недели')
+    time_start = models.TimeField(verbose_name='Начало')
+    time_end   = models.TimeField(verbose_name='Конец')
+    location   = models.CharField(max_length=200, blank=True, verbose_name='Место')
+    capacity   = models.PositiveIntegerField(default=20, verbose_name='Мест всего')
+    notes      = models.TextField(blank=True, verbose_name='Описание / задание')
+
+    class Meta:
+        verbose_name        = 'Тренировка'
+        verbose_name_plural = 'Расписание'
+        ordering            = ['day', 'time_start']
+
+    def __str__(self):
+        return f'{self.get_type_display()} — {self.sport} — {self.get_day_display()}'
