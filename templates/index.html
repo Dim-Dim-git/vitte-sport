@@ -23,24 +23,23 @@
           <a href="#" style="margin-left: 24px; font-size: 14px; font-weight: 600; color: var(--dark);">Новости</a>
         </nav>
         {% if user.is_authenticated %}
-          <a href="/accounts/logout/" style="font-size: 14px; font-weight: 600; color: var(--muted);">
-            {{ user.username }} — Выйти
+          <a href="/profile/" style="font-size: 14px; font-weight: 600; color: var(--muted);">
+            {{ user.username }}
           </a>
-          {% if user.is_authenticated %}
-            <a href="/profile/" style="font-size: 14px; font-weight: 600; color: var(--muted);">
-              {{ user.username }}
-            </a>
-            <a href="/accounts/logout/" style="font-size: 14px; font-weight: 600; color: var(--muted); margin-left: 16px;">
-              Выйти
-            </a>
-          {% else %}
+          <a href="/accounts/logout/" style="font-size: 14px; font-weight: 600; color: var(--muted); margin-left: 16px;">
+            Выйти
+          </a>
+        {% else %}
+          <a href="/accounts/login/" style="padding: 8px 20px; background: var(--red); color: var(--white); border-radius: 4px; font-size: 14px; font-weight: 600;">
+            Войти
+          </a>
+        {% endif %}
       </div>
     </div>
   </header>
 
   <div class="container">
 
-    <!-- HERO -->
     <section style="padding: 40px 0;">
       <div style="background: var(--dark); border-radius: 8px; padding: 40px; color: white;">
         <h1 style="color: white;">Спортивный портал МУИВ</h1>
@@ -50,7 +49,6 @@
 
     <hr style="border-color: var(--border); margin-bottom: 40px;">
 
-    <!-- ЦИФРЫ -->
     <section style="margin-bottom: 40px;">
       <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;">
         <div style="background: var(--red); border-radius: 8px; padding: 24px; color: white; text-align: center;">
@@ -74,7 +72,6 @@
 
     <hr style="border-color: var(--border); margin-bottom: 40px;">
 
-    <!-- ВИДЫ СПОРТА -->
     <section style="margin-bottom: 40px;">
       <h2>Виды спорта</h2>
       {% for sport in sports %}
@@ -89,7 +86,6 @@
 
     <hr style="border-color: var(--border); margin-bottom: 40px;">
 
-    <!-- ТУРНИРЫ -->
     <section style="margin-bottom: 40px;">
       <h2>Ближайшие турниры</h2>
       <p style="color: var(--muted);">Раздел в разработке</p>
@@ -97,7 +93,6 @@
 
     <hr style="border-color: var(--border); margin-bottom: 40px;">
 
-    <!-- НОВОСТИ -->
     <section style="margin-bottom: 40px;">
       <h2>Новости</h2>
       {% for item in news %}
@@ -113,7 +108,6 @@
 
     <hr style="border-color: var(--border); margin-bottom: 40px;">
 
-    <!-- ОБРАТНАЯ СВЯЗЬ -->
     <section style="margin-bottom: 60px;">
       <h2>Обратная связь</h2>
       <p style="color: var(--muted);">Раздел в разработке</p>
