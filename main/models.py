@@ -1,4 +1,7 @@
 from django.db import models
+from django.contrib.auth.models import User
+
+
 
 
 class Sport(models.Model):
@@ -12,6 +15,8 @@ class Sport(models.Model):
     def __str__(self):
         return self.name
     
+    
+    
 class News(models.Model):
     title   = models.CharField(max_length=200, verbose_name='Заголовок')
     content = models.TextField(verbose_name='Текст')
@@ -24,3 +29,23 @@ class News(models.Model):
 
     def __str__(self):
         return self.title
+    
+    
+    
+class UserProfile(models.Model):
+    ROLES = [
+        ('student', 'Студент'),
+        ('coach',   'Тренер'),
+        ('admin',   'Администратор'),
+    ]
+    user  = models.OneToOneField(User, on_delete=models.CASCADE, verbose_name='Пользователь')
+    role  = models.CharField(max_length=20, choices=ROLES, default='student', verbose_name='Роль')
+    phone = models.CharField(max_length=20, blank=True, verbose_name='Телефон')
+    group = models.CharField(max_length=20, blank=True, verbose_name='Учебная группа')
+
+    class Meta:
+        verbose_name        = 'Профиль'
+        verbose_name_plural = 'Профили пользователей'
+
+    def __str__(self):
+        return f'{self.user.username} ({self.get_role_display()})'
