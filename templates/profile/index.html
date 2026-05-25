@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <title>Личный кабинет — МУИВ Спорт</title>
+</head>
+<body>
+
+  <div style="background: var(--white); border-bottom: 3px solid var(--red); padding: 16px 20px;">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between;">
+      <a href="/" style="font-size: 20px; font-weight: 700; color: var(--dark);">
+        МУИВ <span style="color: var(--red);">Спорт</span>
+      </a>
+      <a href="/accounts/logout/" style="font-size: 14px; color: var(--muted);">Выйти</a>
+    </div>
+  </div>
+
+  <div style="max-width: 800px; margin: 40px auto; padding: 0 20px;">
+    <h2>Личный кабинет</h2>
+
+    <div style="background: var(--white); border: 1px solid var(--border); border-radius: 6px; padding: 24px; margin-top: 20px;">
+      <p style="font-size: 13px; color: var(--muted); margin-bottom: 4px;">Пользователь</p>
+      <p style="font-size: 18px; font-weight: 700; color: var(--dark); margin-bottom: 16px;">{{ user.username }}</p>
+
+      <p style="font-size: 13px; color: var(--muted); margin-bottom: 4px;">Роль</p>
+      <p style="font-size: 16px; font-weight: 600; color: var(--dark); margin-bottom: 16px;">
+        {% if user.userprofile %}
+          {{ user.userprofile.get_role_display }}
+        {% else %}
+          Не назначена
+        {% endif %}
+      </p>
+
+      <p style="font-size: 13px; color: var(--muted); margin-bottom: 4px;">Телефон</p>
+      <p style="font-size: 16px; color: var(--dark); margin-bottom: 16px;">
+        {{ user.userprofile.phone|default:"Не указан" }}
+      </p>
+
+      <p style="font-size: 13px; color: var(--muted); margin-bottom: 4px;">Учебная группа</p>
+      <p style="font-size: 16px; color: var(--dark);">
+        {{ user.userprofile.group|default:"Не указана" }}
+      </p>
+    </div>
+
+  </div>
+
+</body>
+</html>

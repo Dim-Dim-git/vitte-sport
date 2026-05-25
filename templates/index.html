@@ -26,11 +26,14 @@
           <a href="/accounts/logout/" style="font-size: 14px; font-weight: 600; color: var(--muted);">
             {{ user.username }} — Выйти
           </a>
-        {% else %}
-          <a href="/accounts/login/" style="padding: 8px 20px; background: var(--red); color: var(--white); border-radius: 4px; font-size: 14px; font-weight: 600;">
-            Войти
-          </a>
-        {% endif %}
+          {% if user.is_authenticated %}
+            <a href="/profile/" style="font-size: 14px; font-weight: 600; color: var(--muted);">
+              {{ user.username }}
+            </a>
+            <a href="/accounts/logout/" style="font-size: 14px; font-weight: 600; color: var(--muted); margin-left: 16px;">
+              Выйти
+            </a>
+          {% else %}
       </div>
     </div>
   </header>
