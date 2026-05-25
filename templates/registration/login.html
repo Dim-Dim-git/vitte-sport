@@ -1,45 +1,53 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="ru">
-
-
-
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{% static 'css/style.css' %}">
   <title>Вход — МУИВ Спорт</title>
 </head>
-
-
-
 <body>
 
-  <header>
-    <div class="container">
-      <div class="logo">МУИВ <span>Спорт</span></div>
-    </div>
-  </header>
-
-
-  
-  <div class="container" style="max-width: 400px; padding-top: 60px;">
-    <h2>Вход</h2>
-    <form method="post" style="margin-top: 20px;">
-      {% csrf_token %}
-      <div class="form-group">
-        <label>Логин</label>
-        <input type="text" name="username" placeholder="Введите логин">
-      </div>
-      <div class="form-group">
-        <label>Пароль</label>
-        <input type="password" name="password" placeholder="Введите пароль">
-      </div>
-      <button type="submit" class="btn btn-primary" style="width: 100%;">Войти</button>
-    </form>
+  <div style="background: var(--white); border-bottom: 3px solid var(--red); padding: 16px 20px;">
+    <a href="/" style="font-size: 20px; font-weight: 700; color: var(--dark);">
+      МУИВ <span style="color: var(--red);">Спорт</span>
+    </a>
   </div>
 
+  <div style="max-width: 420px; margin: 60px auto; padding: 0 20px;">
+    <h2>Вход</h2>
 
+    <form method="post" style="margin-top: 24px;">
+      {% csrf_token %}
+
+      <div style="margin-bottom: 16px;">
+        <label style="display: block; font-size: 14px; font-weight: 600; margin-bottom: 6px;">Логин</label>
+        <input type="text" name="username" placeholder="Введите логин"
+          style="display: block; width: 100%; padding: 10px 14px; border: 1.5px solid var(--border); border-radius: 4px; font-size: 14px; font-family: inherit; outline: none;">
+      </div>
+
+      <div style="margin-bottom: 16px;">
+        <label style="display: block; font-size: 14px; font-weight: 600; margin-bottom: 6px;">Пароль</label>
+        <input type="password" name="password" placeholder="Введите пароль"
+          style="display: block; width: 100%; padding: 10px 14px; border: 1.5px solid var(--border); border-radius: 4px; font-size: 14px; font-family: inherit; outline: none;">
+      </div>
+
+      {% if form.errors %}
+        <p style="color: var(--red); font-size: 13px; margin-bottom: 12px;">Неверный логин или пароль</p>
+      {% endif %}
+
+      <button type="submit"
+        style="display: block; width: 100%; padding: 12px; background: var(--red); color: var(--white); border: none; border-radius: 4px; font-size: 14px; font-weight: 600; font-family: inherit; cursor: pointer;">
+        Войти
+      </button>
+    </form>
+
+    <p style="margin-top: 16px; font-size: 13px;">
+      Нет аккаунта? <a href="/accounts/register/">Зарегистрироваться</a>
+    </p>
+  </div>
 
 </body>
 </html>
