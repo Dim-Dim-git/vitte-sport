@@ -20,6 +20,7 @@ from main import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('accounts/logout/', views.logout_view, name='logout'),
     path('accounts/', include('django.contrib.auth.urls')),
     path('', views.index, name='index'),
 ]
