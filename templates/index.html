@@ -10,7 +10,6 @@
 </head>
 <body>
 
-  <!-- HEADER -->
   <header>
     <div class="container">
       <div class="logo">МУИВ <span>Спорт</span></div>
@@ -23,12 +22,38 @@
     </div>
   </header>
 
-  <!-- ГЛАВНАЯ -->
   <div class="container">
 
+    <!-- HERO -->
     <section style="padding: 40px 0;">
-      <h1>Спортивный портал МУИВ</h1>
-      <p>Записывайся в секции, следи за расписанием и участвуй в турнирах.</p>
+      <div style="background: var(--dark); border-radius: 8px; padding: 40px; color: white;">
+        <h1 style="color: white;">Спортивный портал МУИВ</h1>
+        <p style="color: rgba(255,255,255,.7);">Записывайся в секции, следи за расписанием и участвуй в турнирах.</p>
+      </div>
+    </section>
+
+    <hr style="border-color: var(--border); margin-bottom: 40px;">
+
+    <!-- ЦИФРЫ -->
+    <section style="margin-bottom: 40px;">
+      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;">
+        <div style="background: var(--red); border-radius: 8px; padding: 24px; color: white; text-align: center;">
+          <div style="font-size: 32px; font-weight: 700;">3200+</div>
+          <div style="font-size: 13px; margin-top: 6px;">студентов</div>
+        </div>
+        <div style="background: var(--dark); border-radius: 8px; padding: 24px; color: white; text-align: center;">
+          <div style="font-size: 32px; font-weight: 700;">12</div>
+          <div style="font-size: 13px; margin-top: 6px;">секций</div>
+        </div>
+        <div style="background: var(--muted); border-radius: 8px; padding: 24px; color: white; text-align: center;">
+          <div style="font-size: 32px; font-weight: 700;">38</div>
+          <div style="font-size: 13px; margin-top: 6px;">турниров</div>
+        </div>
+        <div style="background: var(--red); border-radius: 8px; padding: 24px; color: white; text-align: center;">
+          <div style="font-size: 32px; font-weight: 700;">8</div>
+          <div style="font-size: 13px; margin-top: 6px;">тренеров</div>
+        </div>
+      </div>
     </section>
 
     <hr style="border-color: var(--border); margin-bottom: 40px;">
@@ -48,6 +73,14 @@
 
     <hr style="border-color: var(--border); margin-bottom: 40px;">
 
+    <!-- ТУРНИРЫ -->
+    <section style="margin-bottom: 40px;">
+      <h2>Ближайшие турниры</h2>
+      <p style="color: var(--muted);">Раздел в разработке</p>
+    </section>
+
+    <hr style="border-color: var(--border); margin-bottom: 40px;">
+
     <!-- НОВОСТИ -->
     <section style="margin-bottom: 40px;">
       <h2>Новости</h2>
@@ -62,9 +95,16 @@
       {% endfor %}
     </section>
 
+    <hr style="border-color: var(--border); margin-bottom: 40px;">
+
+    <!-- ОБРАТНАЯ СВЯЗЬ -->
+    <section style="margin-bottom: 60px;">
+      <h2>Обратная связь</h2>
+      <p style="color: var(--muted);">Раздел в разработке</p>
+    </section>
+
   </div>
 
-  <!-- FOOTER -->
   <footer>
     <div class="container">
       <p>© 2025 МУИВ Спортивный портал</p>
