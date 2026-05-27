@@ -40,3 +40,9 @@ def schedule(request):
         'trainings': trainings,
         'days': days,
     })
+    
+def sports(request):
+    sports = Sport.objects.all()
+    return render(request, 'sports.html', {
+        'sports': sports
+    })
