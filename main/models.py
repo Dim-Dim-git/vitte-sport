@@ -83,3 +83,19 @@ class Training(models.Model):
 
     def __str__(self):
         return f'{self.get_type_display()} — {self.sport} — {self.get_day_display()}'
+    
+# Обратная связь, сообщения от пользователей портала
+class Feedback(models.Model):
+    name    = models.CharField(max_length=100, verbose_name='Имя')
+    email   = models.EmailField(verbose_name='Email')
+    message = models.TextField(verbose_name='Сообщение')
+    created = models.DateTimeField(auto_now_add=True, verbose_name='Дата')
+    is_read = models.BooleanField(default=False, verbose_name='Прочитано')
+
+    class Meta:
+        verbose_name        = 'Обращение'
+        verbose_name_plural = 'Обратная связь'
+        ordering            = ['-created']
+
+    def __str__(self):
+        return f'{self.name} — {self.email}'

@@ -14,5 +14,29 @@
     <p>Режим работы: Пн–Чт 09:30–18:15, Пт 09:30–17:00</p>
   </div>
 
+  <div style="background: var(--white); border: 1px solid var(--border); border-radius: 6px; padding: 24px;">
+  <h3>Написать нам</h3>
+  {% if success %}
+    <p style="margin-top: 12px; color: var(--dark); font-weight: 600;">Сообщение отправлено!</p>
+  {% else %}
+    <form method="post" style="margin-top: 12px;">
+      {% csrf_token %}
+      <div style="margin-bottom: 12px;">
+        <label style="display: block; font-size: 14px; font-weight: 600; margin-bottom: 4px;">Имя</label>
+        <input type="text" name="name" required placeholder="Ваше имя" style="display: block; width: 100%; padding: 10px 14px; border: 1.5px solid var(--border); border-radius: 4px; font-size: 14px; font-family: inherit; outline: none;">
+      </div>
+      <div style="margin-bottom: 12px;">
+        <label style="display: block; font-size: 14px; font-weight: 600; margin-bottom: 4px;">Email</label>
+        <input type="email" name="email" required placeholder="your@email.com" style="display: block; width: 100%; padding: 10px 14px; border: 1.5px solid var(--border); border-radius: 4px; font-size: 14px; font-family: inherit; outline: none;">
+      </div>
+      <div style="margin-bottom: 12px;">
+        <label style="display: block; font-size: 14px; font-weight: 600; margin-bottom: 4px;">Сообщение</label>
+        <textarea name="message" required rows="4" style="display: block; width: 100%; padding: 10px 14px; border: 1.5px solid var(--border); border-radius: 4px; font-size: 14px; font-family: inherit; outline: none;"></textarea>
+      </div>
+      <button type="submit" style="padding: 10px 24px; background: var(--red); color: var(--white); border: none; border-radius: 4px; font-size: 14px; font-weight: 600; font-family: inherit; cursor: pointer;">Отправить</button>
+    </form>
+  {% endif %}
+  </div>
+
 </div>
 {% endblock %}

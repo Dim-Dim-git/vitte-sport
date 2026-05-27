@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import logout, login
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
-from .models import Sport, News, UserProfile, Training
+from .models import Sport, News, UserProfile, Training, Feedback
 
 # Главная страница
 def index(request):
@@ -60,9 +60,17 @@ def news(request):
         'news': news
     })
 
-# Страница контактов
+# Страница контактов с формой обратной связи
 def contacts(request):
-    return render(request, 'contacts.html')
+    success = False
+    if request.method == 'POST':
+        name    = request.POST.get('name')
+        email   = request.POST.get('email')
+        message = request.POST.get('message')
+        # Сохраняем сообщение в БД
+        Feedback.objects.create(name=name, email=email, message=message)
+        success = True
+    return render(request, 'contacts.html', {'success': success})
 
 # Страница о портале
 def about(request):
