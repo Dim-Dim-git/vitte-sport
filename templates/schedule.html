@@ -1,60 +1,28 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="{% static 'css/style.css' %}">
-  <title>Расписание — МУИВ Спорт</title>
-</head>
-<body>
+{% extends 'base.html' %}
 
-  <div style="background: var(--white); border-bottom: 3px solid var(--red); padding: 16px 0;">
-    <div class="container" style="display: flex; align-items: center; justify-content: space-between;">
-      <a href="/" style="font-size: 20px; font-weight: 700; color: var(--dark);">МУИВ <span style="color: var(--red);">Спорт</span></a>
-      <nav>
-        <a href="/schedule/" style="margin-left: 24px; font-size: 14px; font-weight: 600; color: var(--red);">Расписание</a>
-        <a href="#" style="margin-left: 24px; font-size: 14px; font-weight: 600; color: var(--dark);">Секции</a>
-        <a href="#" style="margin-left: 24px; font-size: 14px; font-weight: 600; color: var(--dark);">Новости</a>
-      </nav>
-      {% if user.is_authenticated %}
-        <a href="/profile/" style="font-size: 14px; color: var(--muted);">{{ user.username }}</a>
-        <a href="/accounts/logout/" style="font-size: 14px; color: var(--muted); margin-left: 16px;">Выйти</a>
-      {% else %}
-        <a href="/accounts/login/" style="padding: 8px 20px; background: var(--red); color: var(--white); border-radius: 4px; font-size: 14px; font-weight: 600;">Войти</a>
-      {% endif %}
-    </div>
-  </div>
+{% block title %}Расписание — МУИВ Спорт{% endblock %}
 
-  <div class="container" style="padding-top: 40px; padding-bottom: 60px;">
-    <h2>Расписание тренировок</h2>
+{% block content %}
+<div class="container" style="padding-top: 40px; padding-bottom: 60px;">
+  <h2>Расписание тренировок</h2>
 
-    {% for day_code, day_name in days %}
-      <div style="margin-top: 32px;">
-        <h3>{{ day_name }}</h3>
-        {% for t in trainings %}
-          {% if t.day == day_code %}
-            <div style="background: var(--white); border: 1px solid var(--border); border-radius: 6px; padding: 16px; margin-top: 8px; display: flex; gap: 16px; align-items: center;">
-              <div style="background: var(--dark); color: var(--white); border-radius: 4px; padding: 8px 12px; font-size: 13px; font-weight: 600; white-space: nowrap;">
-                {{ t.time_start|time:"H:i" }} — {{ t.time_end|time:"H:i" }}
-              </div>
-              <div>
-                <div style="font-weight: 600;">{{ t.sport }}</div>
-                <div style="font-size: 13px; color: var(--muted);">{{ t.get_type_display }} — {{ t.location }}</div>
-              </div>
+  {% for day_code, day_name in days %}
+    <div style="margin-top: 32px;">
+      <h3>{{ day_name }}</h3>
+      {% for t in trainings %}
+        {% if t.day == day_code %}
+          <div style="background: var(--white); border: 1px solid var(--border); border-radius: 6px; padding: 16px; margin-top: 8px; display: flex; gap: 16px; align-items: center;">
+            <div style="background: var(--dark); color: var(--white); border-radius: 4px; padding: 8px 12px; font-size: 13px; font-weight: 600; white-space: nowrap;">
+              {{ t.time_start|time:"H:i" }} — {{ t.time_end|time:"H:i" }}
             </div>
-          {% endif %}
-        {% endfor %}
-      </div>
-    {% endfor %}
-  </div>
-
-  <footer>
-    <div class="container">
-      <p>© 2025 МУИВ Спортивный портал</p>
+            <div>
+              <div style="font-weight: 600;">{{ t.sport }}</div>
+              <div style="font-size: 13px; color: var(--muted);">{{ t.get_type_display }} — {{ t.location }}</div>
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
     </div>
-  </footer>
-
-</body>
-</html>
+  {% endfor %}
+</div>
+{% endblock %}

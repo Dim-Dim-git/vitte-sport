@@ -1,125 +1,82 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="{% static 'css/style.css' %}">
-  <title>МУИВ Спорт</title>
-</head>
-<body>
+{% extends 'base.html' %}
 
-  <header>
-    <div style="background: var(--white); border-bottom: 3px solid var(--red); padding: 16px 0;">
-      <div class="container" style="display: flex; align-items: center; justify-content: space-between;">
-        <a href="/" style="font-size: 20px; font-weight: 700; color: var(--dark);">
-          МУИВ <span style="color: var(--red);">Спорт</span>
-        </a>
-        <nav>
-          <a href="/schedule/" style="margin-left: 24px; font-size: 14px; font-weight: 600; color: var(--dark);">Расписание</a>
-          <a href="#" style="margin-left: 24px; font-size: 14px; font-weight: 600; color: var(--dark);">Секции</a>
-          <a href="#" style="margin-left: 24px; font-size: 14px; font-weight: 600; color: var(--dark);">Турниры</a>
-          <a href="#" style="margin-left: 24px; font-size: 14px; font-weight: 600; color: var(--dark);">Новости</a>
-        </nav>
-        {% if user.is_authenticated %}
-          <a href="/profile/" style="font-size: 14px; font-weight: 600; color: var(--muted);">
-            {{ user.username }}
-          </a>
-          <a href="/accounts/logout/" style="font-size: 14px; font-weight: 600; color: var(--muted); margin-left: 16px;">
-            Выйти
-          </a>
-        {% else %}
-          <a href="/accounts/login/" style="padding: 8px 20px; background: var(--red); color: var(--white); border-radius: 4px; font-size: 14px; font-weight: 600;">
-            Войти
-          </a>
-        {% endif %}
+{% block title %}МУИВ Спорт{% endblock %}
+
+{% block content %}
+<div class="container">
+
+  <section style="padding: 40px 0;">
+    <div style="background: var(--dark); border-radius: 8px; padding: 40px; color: white;">
+      <h1 style="color: white;">Спортивный портал МУИВ</h1>
+      <p style="color: rgba(255,255,255,.7);">Записывайся в секции, следи за расписанием и участвуй в турнирах.</p>
+    </div>
+  </section>
+
+  <hr style="border-color: var(--border); margin-bottom: 40px;">
+
+  <section style="margin-bottom: 40px;">
+    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;">
+      <div style="background: var(--red); border-radius: 8px; padding: 24px; color: white; text-align: center;">
+        <div style="font-size: 32px; font-weight: 700;">3200+</div>
+        <div style="font-size: 13px; margin-top: 6px;">студентов</div>
+      </div>
+      <div style="background: var(--dark); border-radius: 8px; padding: 24px; color: white; text-align: center;">
+        <div style="font-size: 32px; font-weight: 700;">12</div>
+        <div style="font-size: 13px; margin-top: 6px;">секций</div>
+      </div>
+      <div style="background: var(--muted); border-radius: 8px; padding: 24px; color: white; text-align: center;">
+        <div style="font-size: 32px; font-weight: 700;">38</div>
+        <div style="font-size: 13px; margin-top: 6px;">турниров</div>
+      </div>
+      <div style="background: var(--red); border-radius: 8px; padding: 24px; color: white; text-align: center;">
+        <div style="font-size: 32px; font-weight: 700;">8</div>
+        <div style="font-size: 13px; margin-top: 6px;">тренеров</div>
       </div>
     </div>
-  </header>
+  </section>
 
-  <div class="container">
+  <hr style="border-color: var(--border); margin-bottom: 40px;">
 
-    <section style="padding: 40px 0;">
-      <div style="background: var(--dark); border-radius: 8px; padding: 40px; color: white;">
-        <h1 style="color: white;">Спортивный портал МУИВ</h1>
-        <p style="color: rgba(255,255,255,.7);">Записывайся в секции, следи за расписанием и участвуй в турнирах.</p>
+  <section style="margin-bottom: 40px;">
+    <h2>Виды спорта</h2>
+    {% for sport in sports %}
+      <div class="card" style="margin-bottom: 12px;">
+        <h3>{{ sport.name }}</h3>
+        <p>{{ sport.description }}</p>
       </div>
-    </section>
+    {% empty %}
+      <p>Виды спорта не добавлены</p>
+    {% endfor %}
+  </section>
 
-    <hr style="border-color: var(--border); margin-bottom: 40px;">
+  <hr style="border-color: var(--border); margin-bottom: 40px;">
 
-    <section style="margin-bottom: 40px;">
-      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;">
-        <div style="background: var(--red); border-radius: 8px; padding: 24px; color: white; text-align: center;">
-          <div style="font-size: 32px; font-weight: 700;">3200+</div>
-          <div style="font-size: 13px; margin-top: 6px;">студентов</div>
-        </div>
-        <div style="background: var(--dark); border-radius: 8px; padding: 24px; color: white; text-align: center;">
-          <div style="font-size: 32px; font-weight: 700;">12</div>
-          <div style="font-size: 13px; margin-top: 6px;">секций</div>
-        </div>
-        <div style="background: var(--muted); border-radius: 8px; padding: 24px; color: white; text-align: center;">
-          <div style="font-size: 32px; font-weight: 700;">38</div>
-          <div style="font-size: 13px; margin-top: 6px;">турниров</div>
-        </div>
-        <div style="background: var(--red); border-radius: 8px; padding: 24px; color: white; text-align: center;">
-          <div style="font-size: 32px; font-weight: 700;">8</div>
-          <div style="font-size: 13px; margin-top: 6px;">тренеров</div>
-        </div>
+  <section style="margin-bottom: 40px;">
+    <h2>Ближайшие турниры</h2>
+    <p style="color: var(--muted);">Раздел в разработке</p>
+  </section>
+
+  <hr style="border-color: var(--border); margin-bottom: 40px;">
+
+  <section style="margin-bottom: 40px;">
+    <h2>Новости</h2>
+    {% for item in news %}
+      <div class="card" style="margin-bottom: 12px;">
+        <h3>{{ item.title }}</h3>
+        <p style="font-size: 12px; color: var(--muted);">{{ item.created|date:"d.m.Y" }}</p>
+        <p>{{ item.content }}</p>
       </div>
-    </section>
+    {% empty %}
+      <p>Новости не добавлены</p>
+    {% endfor %}
+  </section>
 
-    <hr style="border-color: var(--border); margin-bottom: 40px;">
+  <hr style="border-color: var(--border); margin-bottom: 40px;">
 
-    <section style="margin-bottom: 40px;">
-      <h2>Виды спорта</h2>
-      {% for sport in sports %}
-        <div class="card" style="margin-bottom: 12px;">
-          <h3>{{ sport.name }}</h3>
-          <p>{{ sport.description }}</p>
-        </div>
-      {% empty %}
-        <p>Виды спорта не добавлены</p>
-      {% endfor %}
-    </section>
+  <section style="margin-bottom: 60px;">
+    <h2>Обратная связь</h2>
+    <p style="color: var(--muted);">Раздел в разработке</p>
+  </section>
 
-    <hr style="border-color: var(--border); margin-bottom: 40px;">
-
-    <section style="margin-bottom: 40px;">
-      <h2>Ближайшие турниры</h2>
-      <p style="color: var(--muted);">Раздел в разработке</p>
-    </section>
-
-    <hr style="border-color: var(--border); margin-bottom: 40px;">
-
-    <section style="margin-bottom: 40px;">
-      <h2>Новости</h2>
-      {% for item in news %}
-        <div class="card" style="margin-bottom: 12px;">
-          <h3>{{ item.title }}</h3>
-          <p style="font-size: 12px; color: var(--muted);">{{ item.created|date:"d.m.Y" }}</p>
-          <p>{{ item.content }}</p>
-        </div>
-      {% empty %}
-        <p>Новости не добавлены</p>
-      {% endfor %}
-    </section>
-
-    <hr style="border-color: var(--border); margin-bottom: 40px;">
-
-    <section style="margin-bottom: 60px;">
-      <h2>Обратная связь</h2>
-      <p style="color: var(--muted);">Раздел в разработке</p>
-    </section>
-
-  </div>
-
-  <footer>
-    <div class="container">
-      <p>© 2025 МУИВ Спортивный портал</p>
-    </div>
-  </footer>
-
-</body>
-</html>
+</div>
+{% endblock %}
