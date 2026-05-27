@@ -99,3 +99,18 @@ class Feedback(models.Model):
 
     def __str__(self):
         return f'{self.name} — {self.email}'
+    
+# Запись студента на тренировку
+class TrainingRecord(models.Model):
+    user     = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='Студент')
+    training = models.ForeignKey(Training, on_delete=models.CASCADE, verbose_name='Тренировка')
+    created  = models.DateTimeField(auto_now_add=True, verbose_name='Дата записи')
+    attended = models.BooleanField(default=False, verbose_name='Явился')
+
+    class Meta:
+        verbose_name        = 'Запись на тренировку'
+        verbose_name_plural = 'Записи на тренировки'
+        unique_together     = ('user', 'training')
+
+    def __str__(self):
+        return f'{self.user.username} — {self.training}'

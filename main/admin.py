@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Sport, News, UserProfile, Training, Feedback
+from .models import Sport, News, UserProfile, Training, Feedback, TrainingRecord
 
 
 
@@ -8,3 +8,4 @@ admin.site.register(News)
 admin.site.register(UserProfile)
 admin.site.register(Training)
 admin.site.register(Feedback)
+admin.site.register(TrainingRecord)
