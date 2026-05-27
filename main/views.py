@@ -59,3 +59,7 @@ def news(request):
     return render(request, 'news.html', {
         'news': news
     })
+
+# Страница контактов
+def contacts(request):
+    return render(request, 'contacts.html')
