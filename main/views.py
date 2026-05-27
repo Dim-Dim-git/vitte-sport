@@ -46,3 +46,9 @@ def sports(request):
     return render(request, 'sports.html', {
         'sports': sports
     })
+    
+def news(request):
+    news = News.objects.all()
+    return render(request, 'news.html', {
+        'news': news
+    })
