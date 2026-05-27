@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import logout, login
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
-from .models import Sport, News, UserProfile, Training, Feedback
+from .models import Sport, News, UserProfile, Training, Feedback, TrainingRecord
 
 # Главная страница
 def index(request):
@@ -76,3 +76,11 @@ def contacts(request):
 def about(request):
     return render(request, 'about.html')
 
+# Страница рейтингов, топ студентов по количеству посещённых тренировок
+def ratings(request):
+    from django.db.models import Count
+    top = TrainingRecord.objects.filter(attended=True)\
+        .values('user__username')\
+        .annotate(count=Count('id'))\
+        .order_by('-count')[:20]
+    return render(request, 'ratings.html', {'top': top})

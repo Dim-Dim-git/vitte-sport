@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}Рейтинги — МУИВ Спорт{% endblock %}
+
+{% block content %}
+<div class="container" style="padding-top: 40px; padding-bottom: 60px;">
+  <h2>Рейтинг активности</h2>
+  <p style="margin-top: 8px;">Топ студентов по количеству посещённых тренировок</p>
+
+  <table style="margin-top: 24px;">
+    <thead>
+      <tr>
+        <th style="width: 60px;">Место</th>
+        <th>Студент</th>
+        <th>Тренировок</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for entry in top %}
+        <tr>
+          <td>{{ forloop.counter }}</td>
+          <td>{{ entry.user__username }}</td>
+          <td>{{ entry.count }}</td>
+        </tr>
+      {% empty %}
+        <tr><td colspan="3">Данных пока нет</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

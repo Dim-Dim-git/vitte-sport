@@ -30,4 +30,6 @@ urlpatterns = [
     path('news/', views.news, name='news'),
     path('contacts/', views.contacts, name='contacts'),
     path('about/', views.about, name='about'),
+    path('ratings/', views.ratings, name='ratings'),
 ]
+
