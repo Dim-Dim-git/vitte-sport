@@ -37,4 +37,5 @@ urlpatterns = [
     path('news/<int:pk>/', views.news_detail, name='news_detail'),
     path('sports/<int:pk>/', views.sport_detail, name='sport_detail'),
     path('gallery/', views.gallery, name='gallery'),
+    path('profile/edit/', views.profile_edit, name='profile_edit'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

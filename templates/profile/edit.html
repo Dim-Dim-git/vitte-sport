@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}Редактирование профиля — МУИВ Спорт{% endblock %}
+
+{% block content %}
+<div style="max-width: 600px; margin: 40px auto; padding: 0 20px;">
+  <a href="/profile/" style="font-size: 14px;">← Личный кабинет</a>
+  <h2 style="margin-top: 16px;">Редактирование профиля</h2>
+
+  <div style="background: var(--white); border: 1px solid var(--border); border-radius: 6px; padding: 24px; margin-top: 20px;">
+    <form method="post">
+      {% csrf_token %}
+      <div style="margin-bottom: 16px;">
+        <label style="display: block; font-size: 14px; font-weight: 600; margin-bottom: 6px;">Телефон</label>
+        <input type="text" name="phone" value="{{ profile.phone }}"
+          style="display: block; width: 100%; padding: 10px 14px; border: 1.5px solid var(--border); border-radius: 4px; font-size: 14px; font-family: inherit; outline: none;">
+      </div>
+      <div style="margin-bottom: 16px;">
+        <label style="display: block; font-size: 14px; font-weight: 600; margin-bottom: 6px;">Учебная группа</label>
+        <input type="text" name="group" value="{{ profile.group }}"
+          style="display: block; width: 100%; padding: 10px 14px; border: 1.5px solid var(--border); border-radius: 4px; font-size: 14px; font-family: inherit; outline: none;">
+      </div>
+      <button type="submit"
+        style="padding: 10px 24px; background: var(--red); color: var(--white); border: none; border-radius: 4px; font-size: 14px; font-weight: 600; font-family: inherit; cursor: pointer;">
+        Сохранить
+      </button>
+    </form>
+  </div>
+</div>
+{% endblock %}

@@ -103,3 +103,14 @@ def sport_detail(request, pk):
 def gallery(request):
     photos = Gallery.objects.all()
     return render(request, 'gallery.html', {'photos': photos})
+
+# Редактирование профиля пользователя
+@login_required
+def profile_edit(request):
+    profile = request.user.userprofile
+    if request.method == 'POST':
+        profile.phone = request.POST.get('phone')
+        profile.group = request.POST.get('group')
+        profile.save()
+        return redirect('/profile/')
+    return render(request, 'profile/edit.html', {'profile': profile})
