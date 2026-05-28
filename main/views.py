@@ -41,10 +41,19 @@ def profile(request):
 def schedule(request):
     trainings = Training.objects.all()
     days = Training.DAYS
+    
+    # ID тренировок на которые уже записан пользователь
+    registered_ids = []
+    if request.user.is_authenticated:
+        registered_ids = TrainingRecord.objects.filter(
+            user=request.user
+        ).values_list('training_id', flat=True)    
+       
     return render(request, 'schedule.html', {
         'trainings': trainings,
         'days': days,
-        'user': request.user
+        'user': request.user,
+        'registered_ids': registered_ids
     })
 
 # Страница секци    

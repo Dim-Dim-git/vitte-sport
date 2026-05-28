@@ -20,12 +20,18 @@
               <div style="font-size: 13px; color: var(--muted);">{{ t.get_type_display }} — {{ t.location }}</div>
             </div>
             {% if user.is_authenticated %}
-              <form method="post" action="/schedule/register/{{ t.pk }}/">
-                {% csrf_token %}
-                <button type="submit" style="padding: 8px 16px; background: var(--red); color: var(--white); border: none; border-radius: 4px; font-size: 13px; font-weight: 600; font-family: inherit; cursor: pointer;">
-                  Записаться
-                </button>
-              </form>
+              {% if t.pk in registered_ids %}
+                <span style="padding: 8px 16px; background: #e6f7ee; color: #1d7a44; border-radius: 4px; font-size: 13px; font-weight: 600;">
+                  Записан
+                </span>
+              {% else %}
+                <form method="post" action="/schedule/register/{{ t.pk }}/">
+                  {% csrf_token %}
+                  <button type="submit" style="padding: 8px 16px; background: var(--red); color: var(--white); border: none; border-radius: 4px; font-size: 13px; font-weight: 600; font-family: inherit; cursor: pointer;">
+                    Записаться
+                  </button>
+                </form>
+              {% endif %}
             {% endif %}
           </div>
         {% endif %}
