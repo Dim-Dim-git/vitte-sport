@@ -41,5 +41,7 @@ urlpatterns = [
     path('profile/edit/', views.profile_edit, name='profile_edit'),
     path('profile/trainings/', views.profile_trainings, name='profile_trainings'),
     path('profile/coach/', views.coach_dashboard, name='coach_dashboard'),
+    path('profile/coach/<int:pk>/', views.mark_attendance, name='mark_attendance'),
+    path('schedule/register/<int:pk>/', views.training_register, name='training_register'),
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

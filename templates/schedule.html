@@ -15,10 +15,18 @@
             <div style="background: var(--dark); color: var(--white); border-radius: 4px; padding: 8px 12px; font-size: 13px; font-weight: 600; white-space: nowrap;">
               {{ t.time_start|time:"H:i" }} — {{ t.time_end|time:"H:i" }}
             </div>
-            <div>
+            <div style="flex: 1;">
               <div style="font-weight: 600;">{{ t.sport }}</div>
               <div style="font-size: 13px; color: var(--muted);">{{ t.get_type_display }} — {{ t.location }}</div>
             </div>
+            {% if user.is_authenticated %}
+              <form method="post" action="/schedule/register/{{ t.pk }}/">
+                {% csrf_token %}
+                <button type="submit" style="padding: 8px 16px; background: var(--red); color: var(--white); border: none; border-radius: 4px; font-size: 13px; font-weight: 600; font-family: inherit; cursor: pointer;">
+                  Записаться
+                </button>
+              </form>
+            {% endif %}
           </div>
         {% endif %}
       {% endfor %}

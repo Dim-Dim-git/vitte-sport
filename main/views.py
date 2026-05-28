@@ -44,6 +44,7 @@ def schedule(request):
     return render(request, 'schedule.html', {
         'trainings': trainings,
         'days': days,
+        'user': request.user
     })
 
 # Страница секци    
@@ -133,3 +134,28 @@ def coach_dashboard(request):
     
     trainings = Training.objects.all()
     return render(request, 'profile/coach.html', {'trainings': trainings})
+
+# Страница отметки явки студентов
+@login_required
+def mark_attendance(request, pk):
+    training = get_object_or_404(Training, pk=pk)
+    records = TrainingRecord.objects.filter(training=training)
+    
+    if request.method == 'POST':
+        for record in records:
+            attended = request.POST.get(f'attended_{record.pk}')
+            record.attended = attended == 'on'
+            record.save()
+        return redirect('/profile/coach/')
+    
+    return render(request, 'profile/attendance.html', {
+        'training': training,
+        'records': records
+    })
+    
+# Запись студента на тренировку
+@login_required
+def training_register(request, pk):
+    training = get_object_or_404(Training, pk=pk)
+    TrainingRecord.objects.get_or_create(user=request.user, training=training)
+    return redirect('/schedule/')
