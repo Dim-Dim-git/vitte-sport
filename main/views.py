@@ -120,3 +120,16 @@ def profile_edit(request):
 def profile_trainings(request):
     records = TrainingRecord.objects.filter(user=request.user)
     return render(request, 'profile/trainings.html', {'records': records})
+
+# Страница тренера, управление тренировками
+@login_required
+def coach_dashboard(request):
+    try:
+        profile = request.user.userprofile
+        if profile.role != 'coach':
+            return redirect('/profile/')
+    except:
+        return redirect('/profile/')
+    
+    trainings = Training.objects.all()
+    return render(request, 'profile/coach.html', {'trainings': trainings})

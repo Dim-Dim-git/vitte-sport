@@ -40,5 +40,6 @@ urlpatterns = [
     path('gallery/', views.gallery, name='gallery'),
     path('profile/edit/', views.profile_edit, name='profile_edit'),
     path('profile/trainings/', views.profile_trainings, name='profile_trainings'),
+    path('profile/coach/', views.coach_dashboard, name='coach_dashboard'),
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
