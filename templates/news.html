@@ -9,7 +9,7 @@
     {% for item in news %}
       <div style="background: var(--white); border: 1px solid var(--border); border-radius: 6px; padding: 24px; margin-bottom: 16px;">
         <div style="font-size: 12px; color: var(--muted); margin-bottom: 8px;">{{ item.created|date:"d.m.Y" }}</div>
-        <h3>{{ item.title }}</h3>
+        <h3><a href="/news/{{ item.pk }}/" style="color: var(--dark);">{{ item.title }}</a></h3>
         <p style="margin-top: 8px;">{{ item.content }}</p>
       </div>
     {% empty %}

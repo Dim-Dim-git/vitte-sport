@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import logout, login
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
@@ -84,3 +84,8 @@ def ratings(request):
         .annotate(count=Count('id'))\
         .order_by('-count')[:20]
     return render(request, 'ratings.html', {'top': top})
+
+# Детальная страница новости
+def news_detail(request, pk):
+    item = get_object_or_404(News, pk=pk)
+    return render(request, 'news_detail.html', {'item': item})

@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ item.title }} — МУИВ Спорт{% endblock %}
+
+{% block content %}
+<div class="container" style="padding-top: 40px; padding-bottom: 60px; max-width: 800px;">
+  <a href="/news/" style="font-size: 14px;">← Все новости</a>
+  <h2 style="margin-top: 16px;">{{ item.title }}</h2>
+  <p style="font-size: 13px; color: var(--muted);">{{ item.created|date:"d.m.Y" }}</p>
+  <p style="margin-top: 16px;">{{ item.content }}</p>
+</div>
+{% endblock %}
