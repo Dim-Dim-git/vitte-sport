@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import logout, login
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
-from .models import Sport, News, UserProfile, Training, Feedback, TrainingRecord
+from .models import Sport, News, UserProfile, Training, Feedback, TrainingRecord, Gallery
 
 # Главная страница
 def index(request):
@@ -98,3 +98,8 @@ def sport_detail(request, pk):
         'sport': sport,
         'trainings': trainings
     })
+
+# Страница галереи
+def gallery(request):
+    photos = Gallery.objects.all()
+    return render(request, 'gallery.html', {'photos': photos})

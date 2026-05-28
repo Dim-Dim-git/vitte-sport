@@ -114,3 +114,18 @@ class TrainingRecord(models.Model):
 
     def __str__(self):
         return f'{self.user.username} — {self.training}'
+    
+# Фото с тренировок
+class Gallery(models.Model):
+    title   = models.CharField(max_length=200, verbose_name='Подпись')
+    image   = models.ImageField(upload_to='gallery/', verbose_name='Фото')
+    sport   = models.ForeignKey(Sport, on_delete=models.SET_NULL, null=True, blank=True, verbose_name='Вид спорта')
+    created = models.DateTimeField(auto_now_add=True, verbose_name='Дата загрузки')
+
+    class Meta:
+        verbose_name        = 'Фото'
+        verbose_name_plural = 'Галерея'
+        ordering            = ['-created']
+
+    def __str__(self):
+        return self.title
