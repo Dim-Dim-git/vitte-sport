@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}Мои тренировки - МУИВ Спорт{% endblock %}
+
+{% block content %}
+<div style="max-width: 800px; margin: 40px auto; padding: 0 20px;">
+  <a href="/profile/" style="font-size: 14px;">← Личный кабинет</a>
+  <h2 style="margin-top: 16px;">Мои тренировки</h2>
+
+  <div style="margin-top: 20px;">
+    {% for record in records %}
+      <div style="background: var(--white); border: 1px solid var(--border); border-radius: 6px; padding: 16px; margin-bottom: 8px; display: flex; align-items: center; justify-content: space-between;">
+        <div>
+          <div style="font-weight: 600;">{{ record.training.sport }}</div>
+          <div style="font-size: 13px; color: var(--muted);">{{ record.training.get_day_display }} {{ record.training.time_start|time:"H:i" }} - {{ record.training.location }}</div>
+        </div>
+        <div>
+          {% if record.attended %}
+            <span style="background: #e6f7ee; color: #1d7a44; padding: 4px 10px; border-radius: 999px; font-size: 12px; font-weight: 600;">Посетил</span>
+          {% else %}
+            <span style="background: var(--tint); color: var(--muted); padding: 4px 10px; border-radius: 999px; font-size: 12px; font-weight: 600;">Записан</span>
+          {% endif %}
+        </div>
+      </div>
+    {% empty %}
+      <p>Вы ещё не записаны ни на одну тренировку</p>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

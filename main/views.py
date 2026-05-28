@@ -114,3 +114,9 @@ def profile_edit(request):
         profile.save()
         return redirect('/profile/')
     return render(request, 'profile/edit.html', {'profile': profile})
+
+# Мои тренировки, список записей пользователя
+@login_required
+def profile_trainings(request):
+    records = TrainingRecord.objects.filter(user=request.user)
+    return render(request, 'profile/trainings.html', {'records': records})

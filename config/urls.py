@@ -22,6 +22,7 @@ from main import views
 
 
 urlpatterns = [
+    
     path('admin/', admin.site.urls),
     path('accounts/logout/', views.logout_view, name='logout'),
     path('accounts/register/', views.register, name='register'),
@@ -38,4 +39,6 @@ urlpatterns = [
     path('sports/<int:pk>/', views.sport_detail, name='sport_detail'),
     path('gallery/', views.gallery, name='gallery'),
     path('profile/edit/', views.profile_edit, name='profile_edit'),
+    path('profile/trainings/', views.profile_trainings, name='profile_trainings'),
+    
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
