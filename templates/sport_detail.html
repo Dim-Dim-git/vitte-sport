@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ sport.name }} — МУИВ Спорт{% endblock %}
+
+{% block content %}
+<div class="container" style="padding-top: 40px; padding-bottom: 60px;">
+  <a href="/sports/" style="font-size: 14px;">← Все секции</a>
+  <h2 style="margin-top: 16px;">{{ sport.name }}</h2>
+  <p style="margin-top: 8px;">{{ sport.description }}</p>
+
+  <h3 style="margin-top: 32px;">Расписание тренировок</h3>
+  <div style="margin-top: 16px;">
+    {% for t in trainings %}
+      <div style="background: var(--white); border: 1px solid var(--border); border-radius: 6px; padding: 16px; margin-bottom: 8px; display: flex; gap: 16px; align-items: center;">
+        <div style="background: var(--dark); color: var(--white); border-radius: 4px; padding: 8px 12px; font-size: 13px; font-weight: 600; white-space: nowrap;">
+          {{ t.time_start|time:"H:i" }} - {{ t.time_end|time:"H:i" }}
+        </div>
+        <div>
+          <div style="font-weight: 600;">{{ t.get_day_display }}</div>
+          <div style="font-size: 13px; color: var(--muted);">{{ t.get_type_display }} - {{ t.location }}</div>
+        </div>
+      </div>
+    {% empty %}
+      <p>Тренировок пока нет</p>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

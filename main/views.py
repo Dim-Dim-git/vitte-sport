@@ -89,3 +89,12 @@ def ratings(request):
 def news_detail(request, pk):
     item = get_object_or_404(News, pk=pk)
     return render(request, 'news_detail.html', {'item': item})
+
+# Детальная страница секции
+def sport_detail(request, pk):
+    sport = get_object_or_404(Sport, pk=pk)
+    trainings = Training.objects.filter(sport=sport)
+    return render(request, 'sport_detail.html', {
+        'sport': sport,
+        'trainings': trainings
+    })

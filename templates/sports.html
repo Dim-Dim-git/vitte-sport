@@ -8,7 +8,7 @@
   <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 24px;">
     {% for sport in sports %}
       <div style="background: var(--white); border: 1px solid var(--border); border-radius: 6px; padding: 24px;">
-        <h3>{{ sport.name }}</h3>
+        <h3><a href="/sports/{{ sport.pk }}/" style="color: var(--dark);">{{ sport.name }}</a></h3>
         <p>{{ sport.description }}</p>
         <a href="/schedule/?sport={{ sport.id }}" style="font-size: 14px; font-weight: 600;">Расписание →</a>
       </div>
