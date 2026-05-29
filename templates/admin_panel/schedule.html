@@ -5,7 +5,41 @@
   <h2>Панель администратора - Расписание</h2>
   <a href="/admin_panel/users/" style="font-size: 14px;">- Назад</a>
 
-  <p style="margin-top: 16px; color: var(--muted);">teeeeeest</p>
+  <form method="post" style="margin-top: 24px;">
+    {% csrf_token %}
+    <select name="sport" required>
+      <option value="" disabled selected>Вид спорта</option>
+      {% for sport in sports %}
+        <option value="{{ sport.pk }}">{{ sport.name }}</option>
+      {% endfor %}
+    </select>
+    <select name="type" required>
+      <option value="" disabled selected>Тип</option>
+      {% for code, name in types %}
+        <option value="{{ code }}">{{ name }}</option>
+      {% endfor %}
+    </select>
+    <select name="day" required>
+      <option value="" disabled selected>День</option>
+      {% for code, name in days %}
+        <option value="{{ code }}">{{ name }}</option>
+      {% endfor %}
+    </select>
+    <input type="text" name="location" placeholder="Место">
+    <input type="time" name="time_start" required>
+    <input type="time" name="time_end" required>
+    <button type="submit">Добавить</button>
+  </form>
 
+  <div style="margin-top: 24px;">
+    {% for t in trainings %}
+      <div style="padding: 8px 0; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between;">
+        <span>{{ t.sport }} - {{ t.get_day_display }} {{ t.time_start|time:"H:i" }} - {{ t.location }}</span>
+        <a href="/admin_panel/schedule/delete/{{ t.pk }}/" style="color: var(--red);">Удалить</a>
+      </div>
+    {% empty %}
+      <p>Тренировок нет</p>
+    {% endfor %}
+  </div>
 </div>
 {% endblock %}
