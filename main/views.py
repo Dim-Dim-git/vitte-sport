@@ -168,3 +168,18 @@ def training_register(request, pk):
     training = get_object_or_404(Training, pk=pk)
     TrainingRecord.objects.get_or_create(user=request.user, training=training)
     return redirect('/schedule/')
+
+# Проверка роли администратора портала
+def is_portal_admin(user):
+    try:
+        return user.userprofile.role == 'portal_admin'
+    except:
+        return False
+
+# Панель администратора - список пользователей
+@login_required
+def admin_panel_users(request):
+    if not is_portal_admin(request.user):
+        return redirect('/profile/')
+    users = UserProfile.objects.all()
+    return render(request, 'admin_panel/users.html', {'users': users})

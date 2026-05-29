@@ -43,5 +43,6 @@ urlpatterns = [
     path('profile/coach/', views.coach_dashboard, name='coach_dashboard'),
     path('profile/coach/<int:pk>/', views.mark_attendance, name='mark_attendance'),
     path('schedule/register/<int:pk>/', views.training_register, name='training_register'),
+    path('admin_panel/users/', views.admin_panel_users, name='admin_panel_users'),
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}Пользователи - Панель администратора{% endblock %}
+
+{% block content %}
+<div class="container" style="padding-top: 40px; padding-bottom: 60px;">
+  <h2>Панель администратора</h2>
+
+  <div style="display: flex; gap: 12px; margin-top: 16px; margin-bottom: 32px;">
+    <a href="/admin_panel/users/" style="padding: 8px 16px; background: var(--red); color: var(--white); border-radius: 4px; font-size: 13px; font-weight: 600;">Пользователи</a>
+    <a href="/admin_panel/news/" style="padding: 8px 16px; background: var(--dark); color: var(--white); border-radius: 4px; font-size: 13px; font-weight: 600;">Новости</a>
+    <a href="/admin_panel/feedback/" style="padding: 8px 16px; background: var(--dark); color: var(--white); border-radius: 4px; font-size: 13px; font-weight: 600;">Обратная связь</a>
+    <a href="/admin_panel/schedule/" style="padding: 8px 16px; background: var(--dark); color: var(--white); border-radius: 4px; font-size: 13px; font-weight: 600;">Расписание</a>
+    <a href="/admin_panel/gallery/" style="padding: 8px 16px; background: var(--dark); color: var(--white); border-radius: 4px; font-size: 13px; font-weight: 600;">Галерея</a>
+  </div>
+
+  <h3>Пользователи портала</h3>
+  <table style="margin-top: 16px;">
+    <thead>
+      <tr>
+        <th>Логин</th>
+        <th>Роль</th>
+        <th>Телефон</th>
+        <th>Группа</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for profile in users %}
+        <tr>
+          <td>{{ profile.user.username }}</td>
+          <td>{{ profile.get_role_display }}</td>
+          <td>{{ profile.phone|default:"-" }}</td>
+          <td>{{ profile.group|default:"-" }}</td>
+        </tr>
+      {% empty %}
+        <tr><td colspan="4">Пользователей нет</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}
