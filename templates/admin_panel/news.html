@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %}Новости - Панель администратора{% endblock %}
+{% block content %}
+<div class="container" style="padding-top: 40px; padding-bottom: 60px;">
+  <h2>Панель администратора - Новости</h2>
+  <a href="/admin_panel/users/" style="font-size: 14px;">- Назад</a>
+
+  <form method="post" style="margin-top: 24px;">
+    {% csrf_token %}
+    <input type="text" name="title" placeholder="Заголовок" required style="display: block; width: 100%; padding: 10px; border: 1.5px solid var(--border); border-radius: 4px; font-size: 14px; font-family: inherit; margin-bottom: 8px;">
+    <textarea name="content" placeholder="Текст" required rows="3" style="display: block; width: 100%; padding: 10px; border: 1.5px solid var(--border); border-radius: 4px; font-size: 14px; font-family: inherit; margin-bottom: 8px;"></textarea>
+    <button type="submit" style="padding: 8px 20px; background: var(--red); color: var(--white); border: none; border-radius: 4px; font-size: 14px; font-weight: 600; font-family: inherit; cursor: pointer;">Добавить</button>
+  </form>
+
+  <div style="margin-top: 32px;">
+    {% for item in news %}
+      <div style="display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid var(--border);">
+        <span>{{ item.title }} <span style="font-size: 12px; color: var(--muted);">{{ item.created|date:"d.m.Y" }}</span></span>
+        <a href="/admin_panel/news/delete/{{ item.pk }}/" style="color: var(--red); font-size: 13px;">Удалить</a>
+      </div>
+    {% empty %}
+      <p>Новостей нет</p>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

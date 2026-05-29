@@ -45,5 +45,7 @@ urlpatterns = [
     path('schedule/register/<int:pk>/', views.training_register, name='training_register'),
     path('admin_panel/users/', views.admin_panel_users, name='admin_panel_users'),
     path('admin_panel/feedback/', views.admin_panel_feedback, name='admin_panel_feedback'),
+    path('admin_panel/news/', views.admin_panel_news, name='admin_panel_news'),
+    path('admin_panel/news/delete/<int:pk>/', views.admin_panel_news_delete, name='admin_panel_news_delete'),
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

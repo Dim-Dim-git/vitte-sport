@@ -191,3 +191,25 @@ def admin_panel_feedback(request):
         return redirect('/profile/')
     feedbacks = Feedback.objects.all()
     return render(request, 'admin_panel/feedback.html', {'feedbacks': feedbacks})
+
+# Панель администратора - управление новостями
+@login_required
+def admin_panel_news(request):
+    if not is_portal_admin(request.user):
+        return redirect('/profile/')
+    if request.method == 'POST':
+        title   = request.POST.get('title')
+        content = request.POST.get('content')
+        News.objects.create(title=title, content=content)
+        return redirect('/admin_panel/news/')
+    news = News.objects.all()
+    return render(request, 'admin_panel/news.html', {'news': news})
+
+# Удаление новости
+@login_required
+def admin_panel_news_delete(request, pk):
+    if not is_portal_admin(request.user):
+        return redirect('/profile/')
+    news = get_object_or_404(News, pk=pk)
+    news.delete()
+    return redirect('/admin_panel/news/')
