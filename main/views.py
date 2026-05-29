@@ -183,3 +183,11 @@ def admin_panel_users(request):
         return redirect('/profile/')
     users = UserProfile.objects.all()
     return render(request, 'admin_panel/users.html', {'users': users})
+
+# Панель администратора - обратная связь
+@login_required
+def admin_panel_feedback(request):
+    if not is_portal_admin(request.user):
+        return redirect('/profile/')
+    feedbacks = Feedback.objects.all()
+    return render(request, 'admin_panel/feedback.html', {'feedbacks': feedbacks})
