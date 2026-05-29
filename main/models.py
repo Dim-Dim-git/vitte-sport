@@ -36,7 +36,7 @@ class UserProfile(models.Model):
     ROLES = [
         ('student', 'Студент'),
         ('coach',   'Тренер'),
-        ('admin',   'Администратор'),
+        ('portal_admin', 'Администратор портала'),
     ]
     user  = models.OneToOneField(User, on_delete=models.CASCADE, verbose_name='Пользователь')
     role  = models.CharField(max_length=20, choices=ROLES, default='student', verbose_name='Роль')
