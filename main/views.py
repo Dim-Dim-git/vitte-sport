@@ -255,3 +255,11 @@ def admin_panel(request):
     if not is_portal_admin(request.user):
         return redirect('/profile/')
     return redirect('/admin_panel/users/')
+
+# Панель администратора - галерея
+@login_required
+def admin_panel_gallery(request):
+    if not is_portal_admin(request.user):
+        return redirect('/profile/')
+    photos = Gallery.objects.all()
+    return render(request, 'admin_panel/gallery.html', {'photos': photos})

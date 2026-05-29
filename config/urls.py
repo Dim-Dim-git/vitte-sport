@@ -50,5 +50,6 @@ urlpatterns = [
     path('admin_panel/schedule/', views.admin_panel_schedule, name='admin_panel_schedule'),
     path('admin_panel/schedule/delete/<int:pk>/', views.admin_panel_schedule_delete, name='admin_panel_schedule_delete'),
     path('admin_panel/', views.admin_panel, name='admin_panel'),
+    path('admin_panel/gallery/', views.admin_panel_gallery, name='admin_panel_gallery'),
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

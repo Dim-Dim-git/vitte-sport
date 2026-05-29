@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %}Галерея - Панель администратора{% endblock %}
+{% block content %}
+<div class="container" style="padding-top: 40px; padding-bottom: 60px;">
+  <h2>Панель администратора - Галерея</h2>
+
+  <div style="display: flex; gap: 12px; margin-top: 16px; margin-bottom: 32px;">
+    <a href="/admin_panel/users/" style="padding: 8px 16px; background: var(--dark); color: var(--white); border-radius: 4px; font-size: 13px; font-weight: 600;">Пользователи</a>
+    <a href="/admin_panel/news/" style="padding: 8px 16px; background: var(--dark); color: var(--white); border-radius: 4px; font-size: 13px; font-weight: 600;">Новости</a>
+    <a href="/admin_panel/feedback/" style="padding: 8px 16px; background: var(--dark); color: var(--white); border-radius: 4px; font-size: 13px; font-weight: 600;">Обратная связь</a>
+    <a href="/admin_panel/schedule/" style="padding: 8px 16px; background: var(--dark); color: var(--white); border-radius: 4px; font-size: 13px; font-weight: 600;">Расписание</a>
+    <a href="/admin_panel/gallery/" style="padding: 8px 16px; background: var(--red); color: var(--white); border-radius: 4px; font-size: 13px; font-weight: 600;">Галерея</a>
+  </div>
+
+  <div style="margin-top: 16px;">
+    {% for photo in photos %}
+      <div style="display: flex; align-items: center; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid var(--border);">
+        <span>{{ photo.title }} - {{ photo.created|date:"d.m.Y" }}</span>
+        <img src="{{ photo.image.url }}" style="width: 60px; height: 40px; object-fit: cover; border-radius: 4px;">
+      </div>
+    {% empty %}
+      <p>Фото нет</p>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}
