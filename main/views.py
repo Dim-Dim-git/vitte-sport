@@ -213,3 +213,38 @@ def admin_panel_news_delete(request, pk):
     news = get_object_or_404(News, pk=pk)
     news.delete()
     return redirect('/admin_panel/news/')
+
+# Панель администратора - управление расписанием
+@login_required
+def admin_panel_schedule(request):
+    if not is_portal_admin(request.user):
+        return redirect('/profile/')
+    if request.method == 'POST':
+        sport_id   = request.POST.get('sport')
+        type_      = request.POST.get('type')
+        day        = request.POST.get('day')
+        time_start = request.POST.get('time_start')
+        time_end   = request.POST.get('time_end')
+        location   = request.POST.get('location')
+        Training.objects.create(
+            sport_id=sport_id, type=type_, day=day,
+            time_start=time_start, time_end=time_end, location=location
+        )
+        return redirect('/admin_panel/schedule/')
+    trainings = Training.objects.all()
+    sports    = Sport.objects.all()
+    return render(request, 'admin_panel/schedule.html', {
+        'trainings': trainings,
+        'sports': sports,
+        'days': Training.DAYS,
+        'types': Training.TYPES,
+    })
+
+# Удаление тренировки
+@login_required
+def admin_panel_schedule_delete(request, pk):
+    if not is_portal_admin(request.user):
+        return redirect('/profile/')
+    training = get_object_or_404(Training, pk=pk)
+    training.delete()
+    return redirect('/admin_panel/schedule/')
