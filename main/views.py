@@ -248,3 +248,10 @@ def admin_panel_schedule_delete(request, pk):
     training = get_object_or_404(Training, pk=pk)
     training.delete()
     return redirect('/admin_panel/schedule/')
+
+# Главная панели администратора - редирект на пользователей
+@login_required
+def admin_panel(request):
+    if not is_portal_admin(request.user):
+        return redirect('/profile/')
+    return redirect('/admin_panel/users/')
