@@ -31,11 +31,22 @@
     </div>
   </div>
 
+  <div style="background: white; border-bottom: 1px solid var(--border); padding: 10px 0; font-size: 13px;">
+    <div class="container">
+      {% block breadcrumbs %}
+        <a href="/" style="color: var(--muted); font-weight: 500;">Главная</a>
+      {% endblock %}
+    </div>
+  </div>
+
   {% block content %}{% endblock %}
 
-  <footer>
+<footer style="background: var(--dark); color: white; margin-top: 60px; padding: 32px 0 24px;">
     <div class="container">
-      <p>© 2025 МУИВ Спортивный портал</p>
+      <p style="color: white; font-weight: 600; margin-bottom: 8px;">© 2026 ЧОУ ВО «Московский университет им. С.Ю. Витте» - Спортивный портал</p>
+      <p style="color: rgba(255,255,255,.75); font-size: 14px;">
+        Разработал: <strong style="color: white;">Бурдуков Дмитрий Владимирович</strong>, направление 38.03.05 «Бизнес-информатика», профиль «Цифровая экономика»
+      </p>
     </div>
   </footer>
 
