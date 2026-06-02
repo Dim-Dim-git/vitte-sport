@@ -7,7 +7,7 @@
     "user": 1,
     "content_type": 7,
     "object_id": "1",
-    "object_repr": "Бег",
+    "object_repr": "Р‘РµРі",
     "action_flag": 1,
     "change_message": "[{\"added\": {}}]"
   }
@@ -20,7 +20,7 @@
     "user": 1,
     "content_type": 7,
     "object_id": "2",
-    "object_repr": "Велоспорт",
+    "object_repr": "Р’РµР»РѕСЃРїРѕСЂС‚",
     "action_flag": 1,
     "change_message": "[{\"added\": {}}]"
   }
@@ -33,7 +33,7 @@
     "user": 1,
     "content_type": 8,
     "object_id": "1",
-    "object_repr": "Прошли соревонования по бегу",
+    "object_repr": "РџСЂРѕС€Р»Рё СЃРѕСЂРµРІРѕРЅРѕРІР°РЅРёСЏ РїРѕ Р±РµРіСѓ",
     "action_flag": 1,
     "change_message": "[{\"added\": {}}]"
   }
@@ -59,7 +59,7 @@
     "user": 1,
     "content_type": 9,
     "object_id": "1",
-    "object_repr": "student (Студент)",
+    "object_repr": "student (РЎС‚СѓРґРµРЅС‚)",
     "action_flag": 1,
     "change_message": "[{\"added\": {}}]"
   }
@@ -85,7 +85,7 @@
     "user": 1,
     "content_type": 9,
     "object_id": "2",
-    "object_repr": "coach (Тренер)",
+    "object_repr": "coach (РўСЂРµРЅРµСЂ)",
     "action_flag": 1,
     "change_message": "[{\"added\": {}}]"
   }
@@ -98,7 +98,7 @@
     "user": 1,
     "content_type": 9,
     "object_id": "3",
-    "object_repr": "admin (Администратор)",
+    "object_repr": "admin (РђРґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ)",
     "action_flag": 1,
     "change_message": "[{\"added\": {}}]"
   }
@@ -111,7 +111,7 @@
     "user": 1,
     "content_type": 10,
     "object_id": "1",
-    "object_repr": "Воркаут — Бег — Понедельник",
+    "object_repr": "Р’РѕСЂРєР°СѓС‚ вЂ” Р‘РµРі вЂ” РџРѕРЅРµРґРµР»СЊРЅРёРє",
     "action_flag": 1,
     "change_message": "[{\"added\": {}}]"
   }
@@ -124,7 +124,7 @@
     "user": 1,
     "content_type": 10,
     "object_id": "1",
-    "object_repr": "Воркаут — Велоспорт — Понедельник",
+    "object_repr": "Р’РѕСЂРєР°СѓС‚ вЂ” Р’РµР»РѕСЃРїРѕСЂС‚ вЂ” РџРѕРЅРµРґРµР»СЊРЅРёРє",
     "action_flag": 2,
     "change_message": "[{\"changed\": {\"fields\": [\"\\u0412\\u0438\\u0434 \\u0441\\u043f\\u043e\\u0440\\u0442\\u0430\"]}}]"
   }
@@ -137,7 +137,7 @@
     "user": 1,
     "content_type": 10,
     "object_id": "1",
-    "object_repr": "Воркаут — Велоспорт — Понедельник",
+    "object_repr": "Р’РѕСЂРєР°СѓС‚ вЂ” Р’РµР»РѕСЃРїРѕСЂС‚ вЂ” РџРѕРЅРµРґРµР»СЊРЅРёРє",
     "action_flag": 2,
     "change_message": "[{\"changed\": {\"fields\": [\"\\u041d\\u0430\\u0447\\u0430\\u043b\\u043e\"]}}]"
   }
@@ -150,7 +150,7 @@
     "user": 1,
     "content_type": 10,
     "object_id": "1",
-    "object_repr": "Воркаут — Велоспорт — Понедельник",
+    "object_repr": "Р’РѕСЂРєР°СѓС‚ вЂ” Р’РµР»РѕСЃРїРѕСЂС‚ вЂ” РџРѕРЅРµРґРµР»СЊРЅРёРє",
     "action_flag": 2,
     "change_message": "[]"
   }
@@ -163,7 +163,7 @@
     "user": 1,
     "content_type": 10,
     "object_id": "1",
-    "object_repr": "Воркаут — Велоспорт — Понедельник",
+    "object_repr": "Р’РѕСЂРєР°СѓС‚ вЂ” Р’РµР»РѕСЃРїРѕСЂС‚ вЂ” РџРѕРЅРµРґРµР»СЊРЅРёРє",
     "action_flag": 2,
     "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u043e\\u043d\\u0435\\u0446\"]}}]"
   }
@@ -176,7 +176,7 @@
     "user": 1,
     "content_type": 10,
     "object_id": "2",
-    "object_repr": "Тренажёрный зал — Бег — Вторник",
+    "object_repr": "РўСЂРµРЅР°Р¶С‘СЂРЅС‹Р№ Р·Р°Р» вЂ” Р‘РµРі вЂ” Р’С‚РѕСЂРЅРёРє",
     "action_flag": 1,
     "change_message": "[{\"added\": {}}]"
   }
@@ -189,7 +189,7 @@
     "user": 1,
     "content_type": 7,
     "object_id": "3",
-    "object_repr": "Тренажёрный зал",
+    "object_repr": "РўСЂРµРЅР°Р¶С‘СЂРЅС‹Р№ Р·Р°Р»",
     "action_flag": 1,
     "change_message": "[{\"added\": {}}]"
   }
@@ -202,7 +202,7 @@
     "user": 1,
     "content_type": 10,
     "object_id": "2",
-    "object_repr": "Тренажёрный зал — Тренажёрный зал — Вторник",
+    "object_repr": "РўСЂРµРЅР°Р¶С‘СЂРЅС‹Р№ Р·Р°Р» вЂ” РўСЂРµРЅР°Р¶С‘СЂРЅС‹Р№ Р·Р°Р» вЂ” Р’С‚РѕСЂРЅРёРє",
     "action_flag": 2,
     "change_message": "[{\"changed\": {\"fields\": [\"\\u0412\\u0438\\u0434 \\u0441\\u043f\\u043e\\u0440\\u0442\\u0430\"]}}]"
   }
@@ -215,7 +215,7 @@
     "user": 1,
     "content_type": 7,
     "object_id": "4",
-    "object_repr": "Футбол",
+    "object_repr": "Р¤СѓС‚Р±РѕР»",
     "action_flag": 1,
     "change_message": "[{\"added\": {}}]"
   }
@@ -228,7 +228,7 @@
     "user": 1,
     "content_type": 7,
     "object_id": "5",
-    "object_repr": "Волейбол",
+    "object_repr": "Р’РѕР»РµР№Р±РѕР»",
     "action_flag": 1,
     "change_message": "[{\"added\": {}}]"
   }
@@ -241,7 +241,7 @@
     "user": 1,
     "content_type": 7,
     "object_id": "6",
-    "object_repr": "Йога",
+    "object_repr": "Р™РѕРіР°",
     "action_flag": 1,
     "change_message": "[{\"added\": {}}]"
   }
@@ -254,7 +254,7 @@
     "user": 1,
     "content_type": 7,
     "object_id": "7",
-    "object_repr": "Кроссфит",
+    "object_repr": "РљСЂРѕСЃСЃС„РёС‚",
     "action_flag": 1,
     "change_message": "[{\"added\": {}}]"
   }
@@ -267,7 +267,7 @@
     "user": 1,
     "content_type": 7,
     "object_id": "8",
-    "object_repr": "Воркаут",
+    "object_repr": "Р’РѕСЂРєР°СѓС‚",
     "action_flag": 1,
     "change_message": "[{\"added\": {}}]"
   }
@@ -280,7 +280,7 @@
     "user": 1,
     "content_type": 10,
     "object_id": "3",
-    "object_repr": "Воркаут — Футбол — Среда",
+    "object_repr": "Р’РѕСЂРєР°СѓС‚ вЂ” Р¤СѓС‚Р±РѕР» вЂ” РЎСЂРµРґР°",
     "action_flag": 1,
     "change_message": "[{\"added\": {}}]"
   }
@@ -293,7 +293,7 @@
     "user": 1,
     "content_type": 10,
     "object_id": "4",
-    "object_repr": "Секция — Йога — Четверг",
+    "object_repr": "РЎРµРєС†РёСЏ вЂ” Р™РѕРіР° вЂ” Р§РµС‚РІРµСЂРі",
     "action_flag": 1,
     "change_message": "[{\"added\": {}}]"
   }
@@ -306,7 +306,7 @@
     "user": 1,
     "content_type": 10,
     "object_id": "5",
-    "object_repr": "Воркаут — Кроссфит — Пятница",
+    "object_repr": "Р’РѕСЂРєР°СѓС‚ вЂ” РљСЂРѕСЃСЃС„РёС‚ вЂ” РџСЏС‚РЅРёС†Р°",
     "action_flag": 1,
     "change_message": "[{\"added\": {}}]"
   }
@@ -319,7 +319,7 @@
     "user": 1,
     "content_type": 10,
     "object_id": "3",
-    "object_repr": "Воркаут — Футбол — Среда",
+    "object_repr": "Р’РѕСЂРєР°СѓС‚ вЂ” Р¤СѓС‚Р±РѕР» вЂ” РЎСЂРµРґР°",
     "action_flag": 2,
     "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u043e\\u043d\\u0435\\u0446\"]}}]"
   }
@@ -332,7 +332,7 @@
     "user": 1,
     "content_type": 13,
     "object_id": "1",
-    "object_repr": "Студенты готовятся к забегу",
+    "object_repr": "РЎС‚СѓРґРµРЅС‚С‹ РіРѕС‚РѕРІСЏС‚СЃСЏ Рє Р·Р°Р±РµРіСѓ",
     "action_flag": 1,
     "change_message": "[{\"added\": {}}]"
   }
@@ -345,7 +345,7 @@
     "user": 1,
     "content_type": 13,
     "object_id": "2",
-    "object_repr": "Разминка",
+    "object_repr": "Р Р°Р·РјРёРЅРєР°",
     "action_flag": 1,
     "change_message": "[{\"added\": {}}]"
   }
@@ -449,7 +449,7 @@
     "user": 1,
     "content_type": 9,
     "object_id": "3",
-    "object_repr": "portal_admin (Администратор портала)",
+    "object_repr": "portal_admin (РђРґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ РїРѕСЂС‚Р°Р»Р°)",
     "action_flag": 2,
     "change_message": "[{\"changed\": {\"fields\": [\"\\u041f\\u043e\\u043b\\u044c\\u0437\\u043e\\u0432\\u0430\\u0442\\u0435\\u043b\\u044c\", \"\\u0420\\u043e\\u043b\\u044c\"]}}]"
   }
@@ -462,7 +462,7 @@
     "user": 1,
     "content_type": 15,
     "object_id": "1",
-    "object_repr": "Турнир по футболу (Футбол)",
+    "object_repr": "РўСѓСЂРЅРёСЂ РїРѕ С„СѓС‚Р±РѕР»Сѓ (Р¤СѓС‚Р±РѕР»)",
     "action_flag": 1,
     "change_message": "[{\"added\": {}}]"
   }
@@ -551,72 +551,72 @@
   "model": "main.sport",
   "pk": 1,
   "fields": {
-    "name": "Бег",
-    "description": "Бег"
+    "name": "Р‘РµРі",
+    "description": "Р‘РµРі"
   }
 },
 {
   "model": "main.sport",
   "pk": 2,
   "fields": {
-    "name": "Велоспорт",
-    "description": "Велоспорт"
+    "name": "Р’РµР»РѕСЃРїРѕСЂС‚",
+    "description": "Р’РµР»РѕСЃРїРѕСЂС‚"
   }
 },
 {
   "model": "main.sport",
   "pk": 3,
   "fields": {
-    "name": "Тренажёрный зал",
-    "description": "Тренажёрный зал"
+    "name": "РўСЂРµРЅР°Р¶С‘СЂРЅС‹Р№ Р·Р°Р»",
+    "description": "РўСЂРµРЅР°Р¶С‘СЂРЅС‹Р№ Р·Р°Р»"
   }
 },
 {
   "model": "main.sport",
   "pk": 4,
   "fields": {
-    "name": "Футбол",
-    "description": "Футбол"
+    "name": "Р¤СѓС‚Р±РѕР»",
+    "description": "Р¤СѓС‚Р±РѕР»"
   }
 },
 {
   "model": "main.sport",
   "pk": 5,
   "fields": {
-    "name": "Волейбол",
-    "description": "Волейбол"
+    "name": "Р’РѕР»РµР№Р±РѕР»",
+    "description": "Р’РѕР»РµР№Р±РѕР»"
   }
 },
 {
   "model": "main.sport",
   "pk": 6,
   "fields": {
-    "name": "Йога",
-    "description": "Йога"
+    "name": "Р™РѕРіР°",
+    "description": "Р™РѕРіР°"
   }
 },
 {
   "model": "main.sport",
   "pk": 7,
   "fields": {
-    "name": "Кроссфит",
-    "description": "Кроссфит"
+    "name": "РљСЂРѕСЃСЃС„РёС‚",
+    "description": "РљСЂРѕСЃСЃС„РёС‚"
   }
 },
 {
   "model": "main.sport",
   "pk": 8,
   "fields": {
-    "name": "Воркаут",
-    "description": "Воркаут"
+    "name": "Р’РѕСЂРєР°СѓС‚",
+    "description": "Р’РѕСЂРєР°СѓС‚"
   }
 },
 {
   "model": "main.news",
   "pk": 2,
   "fields": {
-    "title": "Мы всех победили",
-    "content": "Снова и снова. Привыкли даже ",
+    "title": "РњС‹ РІСЃРµС… РїРѕР±РµРґРёР»Рё",
+    "content": "РЎРЅРѕРІР° Рё СЃРЅРѕРІР°. РџСЂРёРІС‹РєР»Рё РґР°Р¶Рµ ",
     "created": "2026-05-29T21:11:27.370Z"
   }
 },
@@ -627,7 +627,7 @@
     "user": 4,
     "role": "student",
     "phone": "555",
-    "group": "П-15"
+    "group": "Рџ-15"
   }
 },
 {
@@ -647,7 +647,7 @@
     "user": 2,
     "role": "portal_admin",
     "phone": "1234567890",
-    "group": "Г-110"
+    "group": "Р“-110"
   }
 },
 {
@@ -659,9 +659,9 @@
     "day": "mon",
     "time_start": "20:00:00",
     "time_end": "22:00:00",
-    "location": "Набережная",
+    "location": "РќР°Р±РµСЂРµР¶РЅР°СЏ",
     "capacity": 20,
-    "notes": "Едем вокруг Лужников"
+    "notes": "Р•РґРµРј РІРѕРєСЂСѓРі Р›СѓР¶РЅРёРєРѕРІ"
   }
 },
 {
@@ -673,7 +673,7 @@
     "day": "tue",
     "time_start": "18:00:00",
     "time_end": "19:00:00",
-    "location": "Спортзал МУИВ",
+    "location": "РЎРїРѕСЂС‚Р·Р°Р» РњРЈРР’",
     "capacity": 10,
     "notes": ""
   }
@@ -687,7 +687,7 @@
     "day": "wed",
     "time_start": "16:00:00",
     "time_end": "18:00:00",
-    "location": "Стадион МУИВ",
+    "location": "РЎС‚Р°РґРёРѕРЅ РњРЈРР’",
     "capacity": 20,
     "notes": ""
   }
@@ -701,7 +701,7 @@
     "day": "thu",
     "time_start": "07:00:00",
     "time_end": "08:00:00",
-    "location": "Спортзал МУИВ",
+    "location": "РЎРїРѕСЂС‚Р·Р°Р» РњРЈРР’",
     "capacity": 20,
     "notes": ""
   }
@@ -715,7 +715,7 @@
     "day": "fri",
     "time_start": "19:00:00",
     "time_end": "21:00:00",
-    "location": "Парк",
+    "location": "РџР°СЂРє",
     "capacity": 30,
     "notes": ""
   }
@@ -726,7 +726,7 @@
   "fields": {
     "name": "test1",
     "email": "a@aaa.ru",
-    "message": "проверка связи",
+    "message": "РїСЂРѕРІРµСЂРєР° СЃРІСЏР·Рё",
     "created": "2026-05-27T20:14:36.564Z",
     "is_read": false
   }
@@ -785,7 +785,7 @@
   "model": "main.gallery",
   "pk": 1,
   "fields": {
-    "title": "Студенты готовятся к забегу",
+    "title": "РЎС‚СѓРґРµРЅС‚С‹ РіРѕС‚РѕРІСЏС‚СЃСЏ Рє Р·Р°Р±РµРіСѓ",
     "image": "gallery/1.png",
     "sport": 1,
     "created": "2026-05-28T21:06:41.821Z"
@@ -795,7 +795,7 @@
   "model": "main.gallery",
   "pk": 2,
   "fields": {
-    "title": "Разминка",
+    "title": "Р Р°Р·РјРёРЅРєР°",
     "image": "gallery/2.png",
     "sport": 1,
     "created": "2026-05-28T21:08:03.330Z"
@@ -805,12 +805,12 @@
   "model": "main.tournament",
   "pk": 1,
   "fields": {
-    "title": "Турнир по футболу",
+    "title": "РўСѓСЂРЅРёСЂ РїРѕ С„СѓС‚Р±РѕР»Сѓ",
     "sport": 4,
-    "description": "Турнир среди первокурсников",
+    "description": "РўСѓСЂРЅРёСЂ СЃСЂРµРґРё РїРµСЂРІРѕРєСѓСЂСЃРЅРёРєРѕРІ",
     "date_start": "2026-06-02",
     "date_end": "2026-06-08",
-    "location": "Стадион МУИВ",
+    "location": "РЎС‚Р°РґРёРѕРЅ РњРЈРР’",
     "status": "upcoming",
     "max_participants": 32,
     "created": "2026-06-02T15:33:56.835Z"
@@ -831,7 +831,7 @@
   "fields": {
     "user": 4,
     "sport": 1,
-    "title": "1-е место!!",
+    "title": "1-Рµ РјРµСЃС‚Рѕ!!",
     "date": "2026-06-02"
   }
 },
@@ -841,7 +841,7 @@
   "fields": {
     "training": 1,
     "coach": 3,
-    "text": "Иванов потерял велосипед",
+    "text": "РРІР°РЅРѕРІ РїРѕС‚РµСЂСЏР» РІРµР»РѕСЃРёРїРµРґ",
     "created": "2026-06-02T18:09:27.616Z"
   }
 }
