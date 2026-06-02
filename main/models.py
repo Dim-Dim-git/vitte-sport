@@ -129,3 +129,48 @@ class Gallery(models.Model):
 
     def __str__(self):
         return self.title
+    
+# Турниры и соревнования
+class Tournament(models.Model):
+    # Возможные статусы турнира
+    STATUSES = [
+        ('upcoming', 'Анонсирован'),
+        ('open', 'Идёт регистрация'),
+        ('running', 'Проходит'),
+        ('finished', 'Завершён'),
+        ('cancelled', 'Отменен'),
+    ]
+    title            = models.CharField(max_length=200, verbose_name='Название')
+    sport            = models.ForeignKey(Sport, on_delete=models.CASCADE, verbose_name='Вид спорта')
+    description      = models.TextField(blank=True, verbose_name='Описание')
+    date_start       = models.DateField(verbose_name='Дата начала')
+    date_end         = models.DateField(null=True, blank=True, verbose_name='Дата окончания')
+    location         = models.CharField(max_length=200, blank=True, verbose_name='Место проведения')
+    status           = models.CharField(max_length=20, choices=STATUSES, default='upcoming', verbose_name='Статус')
+    max_participants = models.PositiveIntegerField(default=32, verbose_name='Макс. участников')
+    created          = models.DateTimeField(auto_now_add=True, verbose_name='Дата создания')
+
+    class Meta:
+        verbose_name        = 'Турнир'
+        verbose_name_plural = 'Турниры'
+        ordering            = ['-date_start']
+
+    def __str__(self):
+        return f'{self.title} ({self.sport})'
+
+
+# Заявки студентов на турниры
+class TournamentParticipant(models.Model):
+    tournament = models.ForeignKey(Tournament, on_delete=models.CASCADE, verbose_name='Турнир')
+    user       = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='Участник')
+    # Дата заявки заполняется автоматически
+    registered = models.DateTimeField(auto_now_add=True, verbose_name='Дата заявки')
+
+    class Meta:
+        verbose_name        = 'Участник турнира'
+        verbose_name_plural = 'Участники турниров'
+        # Один студент не может записаться на один турнир дважды
+        unique_together     = ('tournament', 'user')
+
+    def __str__(self):
+        return f'{self.user.username} - {self.tournament.title}'
