@@ -53,5 +53,6 @@ urlpatterns = [
     path('admin_panel/gallery/', views.admin_panel_gallery, name='admin_panel_gallery'),
     path('tournaments/', views.tournaments, name='tournaments'),
     path('tournaments/register/<int:pk>/', views.tournament_register, name='tournament_register'),
+    path('profile/coach/achievement/add/', views.coach_achievement_add, name='coach_achievement_add'),
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

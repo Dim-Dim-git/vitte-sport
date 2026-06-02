@@ -7,6 +7,7 @@
   <a href="/profile/" style="font-size: 14px;">- Личный кабинет</a>
   <h2 style="margin-top: 16px;">Кабинет тренера</h2>
 
+
   <h3 style="margin-top: 32px;">Тренировки</h3>
   <div style="margin-top: 16px;">
     {% for t in trainings %}
@@ -24,6 +25,27 @@
     {% empty %}
       <p>Тренировок пока нет</p>
     {% endfor %}
+
+
+  <h3 style="margin-top: 32px;">Добавить достижение</h3>
+  <form method="post" action="/profile/coach/achievement/add/" style="margin-top: 16px;">
+    {% csrf_token %}
+    <select name="user_id" style="padding: 8px; border: 1px solid var(--border); border-radius: 4px; margin-right: 8px;">
+      {% for u in students %}
+        <option value="{{ u.user.pk }}">{{ u.user.username }}</option>
+      {% endfor %}
+    </select>
+    <select name="sport_id" style="padding: 8px; border: 1px solid var(--border); border-radius: 4px; margin-right: 8px;">
+      {% for s in sports %}
+        <option value="{{ s.pk }}">{{ s.name }}</option>
+      {% endfor %}
+    </select>
+    <input type="text" name="title" placeholder="Достижение" style="padding: 8px; border: 1px solid var(--border); border-radius: 4px; margin-right: 8px; width: 250px;">
+    <input type="date" name="date" style="padding: 8px; border: 1px solid var(--border); border-radius: 4px; margin-right: 8px;">
+    <button type="submit" style="padding: 8px 16px; background: var(--red); color: white; border: none; border-radius: 4px; font-weight: 600; cursor: pointer;">Добавить</button>
+  </form>
+
+  
   </div>
 </div>
 {% endblock %}

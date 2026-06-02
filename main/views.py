@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import logout, login
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
-from .models import Sport, News, UserProfile, Training, Feedback, TrainingRecord, Gallery, Tournament, TournamentParticipant
+from .models import Sport, News, UserProfile, Training, Feedback, TrainingRecord, Gallery, Tournament, TournamentParticipant, Achievement
 
 # Главная страница
 def index(request):
@@ -33,8 +33,10 @@ def register(request):
 # Личный кабинет (доступен только авторизованным пользователям)
 @login_required
 def profile(request):
+    achievements = Achievement.objects.filter(user=request.user)
     return render(request, 'profile/index.html', {
-        'user': request.user
+        'user': request.user,
+        'achievements': achievements,
     })
 
 # Страница расписания    
@@ -146,7 +148,14 @@ def coach_dashboard(request):
         return redirect('/profile/')
     
     trainings = Training.objects.all()
-    return render(request, 'profile/coach.html', {'trainings': trainings})
+    students  = UserProfile.objects.filter(role='student')
+    sports    = Sport.objects.all()
+    
+    return render(request, 'profile/coach.html', {
+        'trainings': trainings,
+        'students': students,
+        'sports': sports,
+        })
 
 # Страница отметки явки студентов
 @login_required
@@ -293,3 +302,22 @@ def tournament_register(request, pk):
         return redirect('/tournaments/')
     TournamentParticipant.objects.get_or_create(user=request.user, tournament=tournament)
     return redirect('/tournaments/')
+
+
+# Тренер добавляет достижение студенту
+@login_required
+def coach_achievement_add(request):
+    try:
+        if request.user.userprofile.role != 'coach':
+            return redirect('/profile/')
+    except:
+        return redirect('/profile/')
+
+    if request.method == 'POST':
+        user_id  = request.POST.get('user_id')
+        sport_id = request.POST.get('sport_id')
+        title    = request.POST.get('title')
+        date     = request.POST.get('date')
+        Achievement.objects.create(user_id=user_id, sport_id=sport_id, title=title, date=date)
+
+    return redirect('/profile/coach/')

@@ -174,3 +174,19 @@ class TournamentParticipant(models.Model):
 
     def __str__(self):
         return f'{self.user.username} - {self.tournament.title}'
+    
+
+# Достижения студентов, вносит тренер
+class Achievement(models.Model):
+    user  = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='Студент')
+    sport = models.ForeignKey(Sport, on_delete=models.CASCADE, verbose_name='Вид спорта')
+    title = models.CharField(max_length=200, verbose_name='Достижение')
+    date  = models.DateField(verbose_name='Дата')
+
+    class Meta:
+        verbose_name        = 'Достижение'
+        verbose_name_plural = 'Достижения'
+        ordering            = ['-date']
+
+    def __str__(self):
+        return f'{self.user.username} - {self.title}'

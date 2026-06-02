@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %}Личный кабинет — МУИВ Спорт{% endblock %}
+{% block title %}Личный кабинет - МУИВ Спорт{% endblock %}
 
 {% block content %}
 <div style="max-width: 800px; margin: 40px auto; padding: 0 20px;">
@@ -39,5 +39,22 @@
       {% endif %}
 
   </div>
+
+
+  <h3 style="margin-top: 32px;">Мои достижения</h3>
+  <div style="margin-top: 16px;">
+    {% for a in achievements %}
+      <div style="background: var(--white); border: 1px solid var(--border); border-radius: 6px; padding: 16px; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center;">
+        <div>
+          <div style="font-weight: 600;">{{ a.title }}</div>
+          <div style="font-size: 13px; color: var(--muted);">{{ a.sport }} / {{ a.date|date:"d.m.Y" }}</div>
+        </div>
+      </div>
+    {% empty %}
+      <p>Достижений пока нет</p>
+    {% endfor %}
+  </div>
+
+
 </div>
 {% endblock %}
