@@ -5,6 +5,9 @@
 {% block content %}
 <div style="max-width: 800px; margin: 40px auto; padding: 0 20px;">
   <a href="/profile/" style="font-size: 14px;">← Личный кабинет</a>
+
+
+
   <h2 style="margin-top: 16px;">Мои тренировки</h2>
 
   <div style="margin-top: 20px;">
@@ -26,5 +29,27 @@
       <p>Вы ещё не записаны ни на одну тренировку</p>
     {% endfor %}
   </div>
+
+
+
+  <h2 style="margin-top: 32px;">Мои турниры</h2>
+
+  <div style="margin-top: 20px;">
+    {% for item in tournament_records %}
+      <div style="background: var(--white); border: 1px solid var(--border); border-radius: 6px; padding: 16px; margin-bottom: 8px; display: flex; align-items: center; justify-content: space-between;">
+        <div>
+          <div style="font-weight: 600;">{{ item.tournament.title }}</div>
+          <div style="font-size: 13px; color: var(--muted);">{{ item.tournament.sport }} / {{ item.tournament.date_start|date:"d.m.Y" }}</div>
+        </div>
+        <span style="background: #e6f7ee; color: #1d7a44; padding: 4px 10px; border-radius: 999px; font-size: 12px; font-weight: 600;">
+          {{ item.tournament.get_status_display }}
+        </span>
+      </div>
+    {% empty %}
+      <p>Вы ещё не записаны ни на один турнир</p>
+    {% endfor %}
+  </div>
+
+
 </div>
 {% endblock %}

@@ -129,7 +129,11 @@ def profile_edit(request):
 @login_required
 def profile_trainings(request):
     records = TrainingRecord.objects.filter(user=request.user)
-    return render(request, 'profile/trainings.html', {'records': records})
+    tournament_records = TournamentParticipant.objects.filter(user=request.user)
+    return render(request, 'profile/trainings.html', 
+        {'records': records,
+        'tournament_records': tournament_records,
+        })
 
 # Страница тренера, управление тренировками
 @login_required
@@ -267,4 +271,25 @@ def admin_panel_gallery(request):
 # Страница со списком турниров
 def tournaments(request):
     items = Tournament.objects.all()
-    return render(request, 'tournaments.html', {'tournaments': items})
+    # ID турниров на которые уже записан пользователь
+    registered_ids = []
+    if request.user.is_authenticated:
+        registered_ids = TournamentParticipant.objects.filter(
+            user=request.user
+        ).values_list('tournament_id', flat=True)
+    return render(request, 'tournaments.html', {
+        'tournaments': items,
+        'registered_ids': registered_ids 
+        })
+
+
+# Запись студента на турнир
+@login_required
+def tournament_register(request, pk):
+    tournament = get_object_or_404(Tournament, pk=pk)
+    # Проверяем не превышен ли лимит участников
+    taken = TournamentParticipant.objects.filter(tournament=tournament).count()
+    if taken >= tournament.max_participants:
+        return redirect('/tournaments/')
+    TournamentParticipant.objects.get_or_create(user=request.user, tournament=tournament)
+    return redirect('/tournaments/')

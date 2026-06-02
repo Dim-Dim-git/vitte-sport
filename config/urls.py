@@ -52,5 +52,6 @@ urlpatterns = [
     path('admin_panel/', views.admin_panel, name='admin_panel'),
     path('admin_panel/gallery/', views.admin_panel_gallery, name='admin_panel_gallery'),
     path('tournaments/', views.tournaments, name='tournaments'),
+    path('tournaments/register/<int:pk>/', views.tournament_register, name='tournament_register'),
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
