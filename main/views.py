@@ -11,9 +11,11 @@ from .models import Sport, News, UserProfile, Training, Feedback, TrainingRecord
 def index(request):
     sports = Sport.objects.all()
     news   = News.objects.all()
+    tournaments = Tournament.objects.filter(status__in=['upcoming', 'open'])[:3]
     return render(request, 'index.html', {
         'sports': sports,
         'news':   news,
+        'tournaments': tournaments,
     })
 
 # Выход из системы 

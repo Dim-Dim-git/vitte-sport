@@ -35,26 +35,6 @@
     </div>
   </section>
 
-  <hr style="border-color: var(--border); margin-bottom: 40px;">
-
-  <section style="margin-bottom: 40px;">
-    <h2>Виды спорта</h2>
-    {% for sport in sports %}
-      <div class="card" style="margin-bottom: 12px;">
-        <h3>{{ sport.name }}</h3>
-        <p>{{ sport.description }}</p>
-      </div>
-    {% empty %}
-      <p>Виды спорта не добавлены</p>
-    {% endfor %}
-  </section>
-
-  <hr style="border-color: var(--border); margin-bottom: 40px;">
-
-  <section style="margin-bottom: 40px;">
-    <h2>Ближайшие турниры</h2>
-    <p style="color: var(--muted);">Раздел в разработке</p>
-  </section>
 
   <hr style="border-color: var(--border); margin-bottom: 40px;">
 
@@ -71,12 +51,29 @@
     {% endfor %}
   </section>
 
+
+
   <hr style="border-color: var(--border); margin-bottom: 40px;">
 
-  <section style="margin-bottom: 60px;">
-    <h2>Обратная связь</h2>
-    <p style="color: var(--muted);">Раздел в разработке</p>
+  <section style="margin-bottom: 40px;">
+    <h2>Ближайшие турниры</h2>
+      <div style="margin-top: 16px;">
+      {% for t in tournaments %}
+        <div style="background: var(--white); border: 1px solid var(--border); border-radius: 6px; padding: 16px; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center;">
+          <div>
+            <div style="font-weight: 600;">{{ t.title }}</div>
+            <div style="font-size: 13px; color: var(--muted);">{{ t.sport }} / {{ t.date_start|date:"d.m.Y" }}</div>
+          </div>
+          <a href="/tournaments/" style="font-size: 13px; font-weight: 600;">Подробнее</a>
+        </div>
+      {% empty %}
+        <p>Турниров пока нет</p>
+      {% endfor %}
+      </div>
+
   </section>
+
+
 
 </div>
 {% endblock %}
