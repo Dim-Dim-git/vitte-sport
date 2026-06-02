@@ -149,3 +149,15 @@ LOGOUT_REDIRECT_URL = '/'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
+
+# Автосоздание суперпользователя на продакшне
+import os
+if not DEBUG:
+    from django.db.models.signals import post_migrate
+    from django.dispatch import receiver
+    
+    @receiver(post_migrate)
+    def create_superuser(sender, **kwargs):
+        from django.contrib.auth.models import User
+        if not User.objects.filter(username='admin').exists():
+            User.objects.create_superuser('admin', 'admin@muiv.ru', 'admin123')
