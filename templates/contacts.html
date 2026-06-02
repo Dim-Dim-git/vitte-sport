@@ -1,6 +1,11 @@
 {% extends 'base.html' %}
 
-{% block title %}Контакты — МУИВ Спорт{% endblock %}
+{% block title %}Контакты - МУИВ Спорт{% endblock %}
+{% block breadcrumbs %}
+  <a href="/" style="color: var(--muted); font-weight: 500;">Главная</a>
+  <span style="color: var(--border); margin: 0 8px;">/</span>
+  <span style="color: var(--dark); font-weight: 600;">Контакты</span>
+{% endblock %}
 
 {% block content %}
 <div class="container" style="padding-top: 40px; padding-bottom: 60px;">
