@@ -1,5 +1,13 @@
 {% extends 'base.html' %}
 {% block title %}Галерея - Панель администратора{% endblock %}
+{% block breadcrumbs %}
+  <a href="/" style="color: var(--muted); font-weight: 500;">Главная</a>
+  <span style="color: var(--border); margin: 0 8px;">/</span>
+  <a href="/admin_panel/" style="color: var(--muted); font-weight: 500;">Панель администратора</a>
+  <span style="color: var(--border); margin: 0 8px;">/</span>
+  <span style="color: var(--dark); font-weight: 600;">Галерея</span>
+{% endblock %}
+
 {% block content %}
 <div class="container" style="padding-top: 40px; padding-bottom: 60px;">
   <h2>Панель администратора - Галерея</h2>
