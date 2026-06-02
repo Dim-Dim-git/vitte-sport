@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from django.http import HttpResponse
-from .models import Sport, News, UserProfile, Training, Feedback, TrainingRecord, Gallery, Tournament, TournamentParticipant, Achievement
+from .models import Sport, News, UserProfile, Training, Feedback, TrainingRecord, Gallery, Tournament, TournamentParticipant, Achievement, TrainingNote
 
 # Главная страница
 def index(request):
@@ -155,11 +155,14 @@ def coach_dashboard(request):
     trainings = Training.objects.all()
     students  = UserProfile.objects.filter(role='student')
     sports    = Sport.objects.all()
+    notes     = TrainingNote.objects.filter(coach=request.user).select_related('training')[:10]
+
     
     return render(request, 'profile/coach.html', {
         'trainings': trainings,
         'students': students,
         'sports': sports,
+        'notes': notes,
         })
 
 # Страница отметки явки студентов
@@ -392,3 +395,20 @@ def coach_students(request):
         return redirect('/profile/')
     students = UserProfile.objects.filter(role='student')
     return render(request, 'profile/students.html', {'students': students})
+
+
+# Тренер добавляет заметку к тренировке
+@login_required
+def coach_note_add(request):
+    try:
+        if request.user.userprofile.role != 'coach':
+            return redirect('/profile/')
+    except:
+        return redirect('/profile/')
+
+    if request.method == 'POST':
+        training_id = request.POST.get('training_id')
+        text        = request.POST.get('text')
+        TrainingNote.objects.create(training_id=training_id, coach=request.user, text=text)
+
+    return redirect('/profile/coach/')

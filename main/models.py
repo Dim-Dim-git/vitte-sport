@@ -190,3 +190,18 @@ class Achievement(models.Model):
 
     def __str__(self):
         return f'{self.user.username} - {self.title}'
+    
+# Заметки тренера к тренировке
+class TrainingNote(models.Model):
+    training = models.ForeignKey(Training, on_delete=models.CASCADE, verbose_name='Тренировка')
+    coach    = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='Тренер')
+    text     = models.TextField(verbose_name='Заметка')
+    created  = models.DateTimeField(auto_now_add=True, verbose_name='Дата')
+
+    class Meta:
+        verbose_name        = 'Заметка тренера'
+        verbose_name_plural = 'Заметки тренеров'
+        ordering            = ['-created']
+
+    def __str__(self):
+        return f'{self.coach.username} - {self.training}'

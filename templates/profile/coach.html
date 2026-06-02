@@ -56,6 +56,29 @@
   </form>
 
 
+  <h3 style="margin-top: 32px;">Добавить заметку к тренировке</h3>
+  <form method="post" action="/profile/coach/note/add/" style="margin-top: 16px;">
+    {% csrf_token %}
+    <select name="training_id" style="padding: 8px; border: 1px solid var(--border); border-radius: 4px; margin-right: 8px;">
+      {% for t in trainings %}
+        <option value="{{ t.pk }}">{{ t.sport }} - {{ t.get_day_display }}</option>
+      {% endfor %}
+    </select>
+    <input type="text" name="text" placeholder="Текст заметки" style="padding: 8px; border: 1px solid var(--border); border-radius: 4px; margin-right: 8px; width: 350px;">
+    <button type="submit" style="padding: 8px 16px; background: var(--dark); color: white; border: none; border-radius: 4px; font-weight: 600; cursor: pointer;">Добавить</button>
+  </form>
+
+  <div style="margin-top: 16px;">
+    {% for note in notes %}
+      <div style="background: var(--white); border: 1px solid var(--border); border-radius: 6px; padding: 12px 16px; margin-bottom: 8px;">
+        <div style="font-size: 13px; color: var(--muted); margin-bottom: 4px;">{{ note.training.sport }} - {{ note.training.get_day_display }} / {{ note.created|date:"d.m.Y" }}</div>
+        <div>{{ note.text }}</div>
+      </div>
+    {% empty %}
+      <p style="font-size: 13px; color: var(--muted);">Заметок пока нет</p>
+    {% endfor %}
+  </div>
+
   </div>
 </div>
 {% endblock %}

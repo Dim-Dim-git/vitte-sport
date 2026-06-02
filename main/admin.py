@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Sport, News, UserProfile, Training, Feedback, TrainingRecord, Gallery, Tournament, TournamentParticipant, Achievement
+from .models import Sport, News, UserProfile, Training, Feedback, TrainingRecord, Gallery, Tournament, TournamentParticipant, Achievement, TrainingNote
 
 
 admin.site.register(Sport)
@@ -35,3 +35,4 @@ admin.site.register(Gallery)
 admin.site.register(Tournament)
 admin.site.register(TournamentParticipant)
 admin.site.register(Achievement)
+admin.site.register(TrainingNote)
