@@ -54,5 +54,6 @@ urlpatterns = [
     path('tournaments/', views.tournaments, name='tournaments'),
     path('tournaments/register/<int:pk>/', views.tournament_register, name='tournament_register'),
     path('profile/coach/achievement/add/', views.coach_achievement_add, name='coach_achievement_add'),
+    path('profile/coach/export/xlsx/', views.export_attendance_xlsx, name='export_attendance_xlsx'),
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

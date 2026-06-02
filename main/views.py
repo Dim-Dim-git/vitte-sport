@@ -1,8 +1,10 @@
+import openpyxl
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import logout, login
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
+from django.http import HttpResponse
 from .models import Sport, News, UserProfile, Training, Feedback, TrainingRecord, Gallery, Tournament, TournamentParticipant, Achievement
 
 # Главная страница
@@ -336,3 +338,38 @@ def coach_achievement_add(request):
         Achievement.objects.create(user_id=user_id, sport_id=sport_id, title=title, date=date)
 
     return redirect('/profile/coach/')
+
+
+# Экспорт отчёта по посещаемости в xlsx
+@login_required
+def export_attendance_xlsx(request):
+    try:
+        if request.user.userprofile.role != 'coach':
+            return redirect('/profile/')
+    except:
+        return redirect('/profile/')
+
+    wb = openpyxl.Workbook()
+    ws = wb.active
+    ws.title = 'Посещаемость'
+
+    # Заголовки
+    ws.append(['Студент', 'Тренировка', 'Вид спорта', 'День', 'Время', 'Явился'])
+
+    records = TrainingRecord.objects.all().select_related('user', 'training', 'training__sport')
+    for r in records:
+        ws.append([
+            r.user.username,
+            str(r.training),
+            r.training.sport.name,
+            r.training.get_day_display(),
+            str(r.training.time_start),
+            'Да' if r.attended else 'Нет',
+        ])
+
+    response = HttpResponse(
+        content_type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+    )
+    response['Content-Disposition'] = 'attachment; filename="attendance.xlsx"'
+    wb.save(response)
+    return response
