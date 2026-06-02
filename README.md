@@ -48,11 +48,12 @@ python manage.py runserver
 
 ## Учётные данные пользователей
 
-Логин:Пароль - Роль 
-student:student - Студент
-coach:coach - Тренер
-portal_admin:portal_admin - Администратор портала
-admin:admin - Django Admin
+Логин / Пароль / Роль
+
+student / student / Студент
+coach / coach / Тренер
+portal_admin / portal_admin / Администратор портала
+admin / admin123 / Django Admin
 
 
 ## Основные команды
@@ -67,4 +68,4 @@ python manage.py runserver
 ## Ссылки
 
 - Репозиторий: https://github.com/Dim-Dim-git/vitte-sport
-- Сайт на хостинге: 
+- Сайт на хостинге: https://vitte-sport.onrender.com
