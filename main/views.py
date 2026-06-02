@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import logout, login
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib import messages
 from .models import Sport, News, UserProfile, Training, Feedback, TrainingRecord, Gallery, Tournament, TournamentParticipant, Achievement
 
 # Главная страница
@@ -175,12 +176,26 @@ def mark_attendance(request, pk):
         'records': records
     })
     
+ 
+    
 # Запись студента на тренировку
 @login_required
 def training_register(request, pk):
     training = get_object_or_404(Training, pk=pk)
-    TrainingRecord.objects.get_or_create(user=request.user, training=training)
+    taken = TrainingRecord.objects.filter(training=training).count()
+    if taken >= training.capacity:
+        messages.error(request, 'Нет свободных мест на эту тренировку.')
+        return redirect('/schedule/')
+    record, created = TrainingRecord.objects.get_or_create(user=request.user, training=training)
+    if created:
+        messages.success(request, 'Вы записаны на тренировку.')
+    else:
+        messages.info(request, 'Вы уже записаны на эту тренировку.')
+    
     return redirect('/schedule/')
+
+
+
 
 # Проверка роли администратора портала
 def is_portal_admin(user):
