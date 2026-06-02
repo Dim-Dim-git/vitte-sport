@@ -373,3 +373,9 @@ def export_attendance_xlsx(request):
     response['Content-Disposition'] = 'attachment; filename="attendance.xlsx"'
     wb.save(response)
     return response
+
+# Страница достижений студента
+@login_required
+def profile_achievements(request):
+    achievements = Achievement.objects.filter(user=request.user)
+    return render(request, 'profile/achievements.html', {'achievements': achievements})
