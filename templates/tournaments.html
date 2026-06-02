@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}Турниры - МУИВ Спорт{% endblock %}
+
+{% block breadcrumbs %}
+  <a href="/" style="color: var(--muted); font-weight: 500;">Главная</a>
+  <span style="color: var(--border); margin: 0 8px;">/</span>
+  <span style="color: var(--dark); font-weight: 600;">Турниры</span>
+{% endblock %}
+
+{% block content %}
+<div class="container" style="padding-top: 40px; padding-bottom: 60px;">
+  <h2>Турниры и соревнования</h2>
+
+  <div style="margin-top: 24px;">
+    {% for t in tournaments %}
+      <div style="background: var(--white); border: 1px solid var(--border); border-radius: 6px; padding: 20px; margin-bottom: 12px;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+          <div>
+            <h3 style="margin-bottom: 6px;">{{ t.title }}</h3>
+            <p style="font-size: 13px; color: var(--muted); margin-bottom: 8px;">
+              {{ t.sport }} / {{ t.date_start|date:"d.m.Y" }}{% if t.date_end %} - {{ t.date_end|date:"d.m.Y" }}{% endif %}
+              {% if t.location %} / {{ t.location }}{% endif %}
+            </p>
+            {% if t.description %}<p>{{ t.description }}</p>{% endif %}
+          </div>
+          <span style="font-size: 12px; font-weight: 600; padding: 4px 10px; border-radius: 4px; background: var(--dark); color: white; white-space: nowrap;">
+            {{ t.get_status_display }}
+          </span>
+        </div>
+      </div>
+    {% empty %}
+      <p>Турниры пока не добавлены</p>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

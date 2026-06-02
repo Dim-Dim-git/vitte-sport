@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import logout, login
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
-from .models import Sport, News, UserProfile, Training, Feedback, TrainingRecord, Gallery
+from .models import Sport, News, UserProfile, Training, Feedback, TrainingRecord, Gallery, Tournament, TournamentParticipant
 
 # Главная страница
 def index(request):
@@ -263,3 +263,8 @@ def admin_panel_gallery(request):
         return redirect('/profile/')
     photos = Gallery.objects.all()
     return render(request, 'admin_panel/gallery.html', {'photos': photos})
+
+# Страница со списком турниров
+def tournaments(request):
+    items = Tournament.objects.all()
+    return render(request, 'tournaments.html', {'tournaments': items})
