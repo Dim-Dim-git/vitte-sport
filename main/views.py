@@ -379,3 +379,14 @@ def export_attendance_xlsx(request):
 def profile_achievements(request):
     achievements = Achievement.objects.filter(user=request.user)
     return render(request, 'profile/achievements.html', {'achievements': achievements})
+
+# Список студентов для тренера
+@login_required
+def coach_students(request):
+    try:
+        if request.user.userprofile.role != 'coach':
+            return redirect('/profile/')
+    except:
+        return redirect('/profile/')
+    students = UserProfile.objects.filter(role='student')
+    return render(request, 'profile/students.html', {'students': students})

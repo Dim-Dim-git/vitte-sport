@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}Список студентов - МУИВ Спорт{% endblock %}
+
+{% block breadcrumbs %}
+  <a href="/" style="color: var(--muted); font-weight: 500;">Главная</a>
+  <span style="color: var(--border); margin: 0 8px;">/</span>
+  <a href="/profile/coach/" style="color: var(--muted); font-weight: 500;">Кабинет тренера</a>
+  <span style="color: var(--border); margin: 0 8px;">/</span>
+  <span style="color: var(--dark); font-weight: 600;">Список студентов</span>
+{% endblock %}
+
+{% block content %}
+<div style="max-width: 900px; margin: 40px auto; padding: 0 20px;">
+  <a href="/profile/coach/" style="font-size: 14px;">- Кабинет тренера</a>
+  <h2 style="margin-top: 16px;">Список студентов</h2>
+
+  <div style="margin-top: 20px;">
+    {% for s in students %}
+      <div style="background: var(--white); border: 1px solid var(--border); border-radius: 6px; padding: 16px; margin-bottom: 8px; display: flex; align-items: center; justify-content: space-between;">
+        <div>
+          <div style="font-weight: 600;">{{ s.user.username }}</div>
+          <div style="font-size: 13px; color: var(--muted);">Группа: {{ s.group|default:"не указана" }} / Телефон: {{ s.phone|default:"не указан" }}</div>
+        </div>
+        <span style="font-size: 12px; color: var(--muted);">{{ s.user.email }}</span>
+      </div>
+    {% empty %}
+      <p>Студентов пока нет</p>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}
