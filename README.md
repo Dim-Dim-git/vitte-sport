@@ -51,10 +51,12 @@ python manage.py runserver
 Логин / Пароль / Роль
 
 student / student / Студент
-coach / coach / Тренер
-portal_admin / portal_admin / Администратор портала
-admin / admin123 / Django Admin
 
+coach / coach / Тренер
+
+portal_admin / portal_admin / Администратор портала
+
+admin / admin / Django Admin
 
 ## Основные команды
 
