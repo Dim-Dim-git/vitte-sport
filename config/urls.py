@@ -58,5 +58,7 @@ urlpatterns = [
     path('profile/achievements/', views.profile_achievements, name='profile_achievements'),
     path('profile/coach/students/', views.coach_students, name='coach_students'),
     path('profile/coach/note/add/', views.coach_note_add, name='coach_note_add'),
+    path('admin_panel/gallery/add/', views.admin_panel_gallery_add),
+    path('admin_panel/gallery/<int:pk>/delete/', views.admin_panel_gallery_delete),
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

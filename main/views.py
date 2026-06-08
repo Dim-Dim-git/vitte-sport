@@ -297,7 +297,7 @@ def admin_panel_gallery(request):
     if not is_portal_admin(request.user):
         return redirect('/profile/')
     photos = Gallery.objects.all()
-    return render(request, 'admin_panel/gallery.html', {'photos': photos})
+    return render(request, 'admin_panel/gallery.html', {'photos': photos, 'sports': Sport.objects.all()})
 
 # Страница со списком турниров
 def tournaments(request):
@@ -412,3 +412,29 @@ def coach_note_add(request):
         TrainingNote.objects.create(training_id=training_id, coach=request.user, text=text)
 
     return redirect('/profile/coach/')
+
+
+# Добавляем новое фото в галерею
+@login_required
+def admin_panel_gallery_add(request):
+    if not is_portal_admin(request.user):
+        return redirect('/profile/')
+    if request.method == 'POST':
+        Gallery.objects.create(
+            title=request.POST.get('title'),      
+            sport_id=request.POST.get('sport'),   
+            image=request.FILES.get('image')      
+        )
+    return redirect('/admin_panel/gallery/')
+
+
+
+# Удаляем фото из галереи по его id
+@login_required
+def admin_panel_gallery_delete(request, pk):
+    
+    if not is_portal_admin(request.user):
+        return redirect('/profile/')
+    
+    get_object_or_404(Gallery, pk=pk).delete()
+    return redirect('/admin_panel/gallery/')
