@@ -27,20 +27,55 @@
         <th>Роль</th>
         <th>Телефон</th>
         <th>Группа</th>
+        <th>Изменить роль</th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
       {% for profile in users %}
         <tr>
-          <td>{{ profile.user.username }}</td>
-          <td>{{ profile.get_role_display }}</td>
-          <td>{{ profile.phone|default:"-" }}</td>
-          <td>{{ profile.group|default:"-" }}</td>
+            <td>{{ profile.user.username }}</td>
+            <td>{{ profile.get_role_display }}</td>
+            <td>{{ profile.phone|default:"-" }}</td>
+            <td>{{ profile.group|default:"-" }}</td>
+                <td>
+                  <form method="post" action="/admin_panel/users/{{ profile.pk }}/role/" style="display:inline;">
+                    {% csrf_token %}
+                    <select name="role" onchange="this.form.submit()" style="padding: 4px; border-radius: 4px;">
+                      <option value="student" {% if profile.role == 'student' %}selected{% endif %}>Студент</option>
+                      <option value="coach" {% if profile.role == 'coach' %}selected{% endif %}>Тренер</option>
+                      <option value="portal_admin" {% if profile.role == 'portal_admin' %}selected{% endif %}>Админ</option>
+                    </select>
+                  </form>
+                </td>
+                <td>
+                  <form method="post" action="/admin_panel/users/{{ profile.user.pk }}/delete/">
+                    {% csrf_token %}
+                    <button type="submit" style="padding: 4px 10px; background: var(--red); color: var(--white); border: none; border-radius: 4px; cursor: pointer;">Удалить</button>
+                  </form>
+                </td>
         </tr>
       {% empty %}
         <tr><td colspan="4">Пользователей нет</td></tr>
       {% endfor %}
     </tbody>
   </table>
+
+
+  <form method="post" action="/admin_panel/users/add/" style="margin-bottom: 24px;">
+  {% csrf_token %}
+  <input name="username" placeholder="Логин" required style="padding: 6px 10px; border: 1px solid var(--border); border-radius: 4px;">
+  <input name="password" type="password" placeholder="Пароль" required style="padding: 6px 10px; border: 1px solid var(--border); border-radius: 4px;">
+  <select name="role" style="padding: 6px 10px; border: 1px solid var(--border); border-radius: 4px;">
+    <option value="student">Студент</option>
+    <option value="coach">Тренер</option>
+    <option value="portal_admin">Админ</option>
+  </select>
+  <button type="submit" style="padding: 8px 16px; background: var(--dark); color: var(--white); border: none; border-radius: 4px; cursor: pointer;">Добавить</button>
+</form>
+
 </div>
+
+
+
 {% endblock %}

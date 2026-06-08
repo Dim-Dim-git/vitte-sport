@@ -438,3 +438,38 @@ def admin_panel_gallery_delete(request, pk):
     
     get_object_or_404(Gallery, pk=pk).delete()
     return redirect('/admin_panel/gallery/')
+
+
+# Добавить пользователя в админке
+@login_required
+def admin_panel_users_add(request):
+    if not is_portal_admin(request.user):
+        return redirect('/profile/')
+    if request.method == 'POST':
+        from django.contrib.auth.models import User
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        role     = request.POST.get('role')
+        user = User.objects.create_user(username=username, password=password)
+        UserProfile.objects.create(user=user, role=role)
+    return redirect('/admin_panel/users/')
+
+# Удалить пользователя в админке
+@login_required
+def admin_panel_users_delete(request, pk):
+    if not is_portal_admin(request.user):
+        return redirect('/profile/')
+    from django.contrib.auth.models import User
+    get_object_or_404(User, pk=pk).delete()
+    return redirect('/admin_panel/users/')
+
+# Смена роли 
+@login_required
+def admin_panel_users_role(request, pk):
+    if not is_portal_admin(request.user):
+        return redirect('/profile/')
+    if request.method == 'POST':
+        profile = get_object_or_404(UserProfile, pk=pk)
+        profile.role = request.POST.get('role')
+        profile.save()
+    return redirect('/admin_panel/users/')

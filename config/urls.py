@@ -60,5 +60,8 @@ urlpatterns = [
     path('profile/coach/note/add/', views.coach_note_add, name='coach_note_add'),
     path('admin_panel/gallery/add/', views.admin_panel_gallery_add),
     path('admin_panel/gallery/<int:pk>/delete/', views.admin_panel_gallery_delete),
+    path('admin_panel/users/add/', views.admin_panel_users_add),
+    path('admin_panel/users/<int:pk>/delete/', views.admin_panel_users_delete),
+    path('admin_panel/users/<int:pk>/role/', views.admin_panel_users_role),
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
