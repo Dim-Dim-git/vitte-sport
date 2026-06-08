@@ -423,7 +423,7 @@ def admin_panel_gallery_add(request):
         Gallery.objects.create(
             title=request.POST.get('title'),      
             sport_id=request.POST.get('sport'),   
-            image=request.FILES.get('image')      
+            image=request.POST.get('image')    
         )
     return redirect('/admin_panel/gallery/')
 
