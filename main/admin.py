@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Sport, News, UserProfile, Training, Feedback, TrainingRecord, Gallery, Tournament, TournamentParticipant, Achievement, TrainingNote
+from .models import Sport, News, UserProfile, Training, Feedback, TrainingRecord, Gallery, Tournament, TournamentParticipant, Achievement, TrainingNote, TrainingBlock
 
 
 admin.site.register(Sport)
@@ -36,3 +36,9 @@ admin.site.register(Tournament)
 admin.site.register(TournamentParticipant)
 admin.site.register(Achievement)
 admin.site.register(TrainingNote)
+
+@admin.register(TrainingBlock)
+class TrainingBlockAdmin(admin.ModelAdmin):
+    list_display  = ('title', 'sport', 'kind', 'duration_min')
+    list_filter   = ('kind', 'sport')
+    search_fields = ('title', 'equipment', 'description')

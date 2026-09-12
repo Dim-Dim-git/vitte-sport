@@ -205,3 +205,32 @@ class TrainingNote(models.Model):
 
     def __str__(self):
         return f'{self.coach.username} - {self.training}'
+    
+    
+# Блок занятия. Элемент, из которого тренер собирает программу тренировок
+class TrainingBlock(models.Model):
+    KINDS = [
+        ('warmup', 'Разминка'),
+        ('main',   'Основная часть'),
+        ('final',  'Заключительная часть'),
+    ]
+
+    title        = models.CharField(max_length=200, verbose_name='Название')
+    sport        = models.ForeignKey(Sport, on_delete=models.CASCADE, null=True, blank=True,
+                                     related_name='blocks', verbose_name='Вид спорта',
+                                     help_text='Оставьте пустым, если блок подходит для любого вида спорта')
+    kind         = models.CharField(max_length=20, choices=KINDS, default='main', verbose_name='Тип блока')
+    duration_min = models.PositiveIntegerField(default=10, verbose_name='Длительность, мин')
+    equipment    = models.CharField(max_length=200, blank=True, verbose_name='Инвентарь')
+    description  = models.TextField(verbose_name='Содержание блока')
+    scheme       = models.CharField(max_length=200, blank=True, verbose_name='Файл схемы',
+                                    help_text='Путь к SVG в статике, например schemes/football-slalom.svg')
+
+
+    class Meta:
+        verbose_name        = 'Блок занятия'
+        verbose_name_plural = 'Блоки занятий'
+        ordering            = ['sport__name', 'kind', 'title']
+
+    def __str__(self):
+        return self.title

@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from django.http import HttpResponse
-from .models import Sport, News, UserProfile, Training, Feedback, TrainingRecord, Gallery, Tournament, TournamentParticipant, Achievement, TrainingNote
+from .models import Sport, News, UserProfile, Training, Feedback, TrainingRecord, Gallery, Tournament, TournamentParticipant, Achievement, TrainingNote, TrainingBlock
 
 # Главная страница
 def index(request):
@@ -473,3 +473,29 @@ def admin_panel_users_role(request, pk):
         profile.role = request.POST.get('role')
         profile.save()
     return redirect('/admin_panel/users/')
+
+
+# Библиотека блоков занятий доступна тренеру и администратору портала
+@login_required
+def coach_blocks(request):
+    role = getattr(request.user.userprofile, 'role', None)
+    if role not in ('coach', 'portal_admin'):
+        return redirect('/profile/')
+
+    blocks = TrainingBlock.objects.select_related('sport')
+
+    # Фильтры из строки запроса
+    sport_id = request.GET.get('sport', '')
+    kind     = request.GET.get('kind', '')
+    if sport_id.isdigit():
+        blocks = blocks.filter(sport_id=sport_id)
+    if kind:
+        blocks = blocks.filter(kind=kind)
+
+    return render(request, 'profile/blocks.html', {
+        'blocks': blocks,
+        'sports': Sport.objects.all(),
+        'kinds': TrainingBlock.KINDS,
+        'selected_sport': sport_id,
+        'selected_kind': kind,
+    })

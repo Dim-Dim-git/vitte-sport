@@ -41,6 +41,7 @@ urlpatterns = [
     path('profile/edit/', views.profile_edit, name='profile_edit'),
     path('profile/trainings/', views.profile_trainings, name='profile_trainings'),
     path('profile/coach/', views.coach_dashboard, name='coach_dashboard'),
+    path('profile/coach/blocks/', views.coach_blocks, name='coach_blocks'),
     path('profile/coach/<int:pk>/', views.mark_attendance, name='mark_attendance'),
     path('schedule/register/<int:pk>/', views.training_register, name='training_register'),
     path('admin_panel/users/', views.admin_panel_users, name='admin_panel_users'),
@@ -63,5 +64,6 @@ urlpatterns = [
     path('admin_panel/users/add/', views.admin_panel_users_add),
     path('admin_panel/users/<int:pk>/delete/', views.admin_panel_users_delete),
     path('admin_panel/users/<int:pk>/role/', views.admin_panel_users_role),
+
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

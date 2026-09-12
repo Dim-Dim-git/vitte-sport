@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block title %}Блоки занятий - МУИВ Спорт{% endblock %}
+
+{% block breadcrumbs %}
+  <a href="/" style="color: var(--muted); font-weight: 500;">Главная</a>
+  <span style="color: var(--border); margin: 0 8px;">/</span>
+  <a href="/profile/coach/" style="color: var(--muted); font-weight: 500;">Кабинет тренера</a>
+  <span style="color: var(--border); margin: 0 8px;">/</span>
+  <span style="color: var(--dark); font-weight: 600;">Блоки занятий</span>
+{% endblock %}
+
+{% block content %}
+<div style="max-width: 900px; margin: 40px auto; padding: 0 20px;">
+  <a href="/profile/coach/" style="font-size: 14px;">- Кабинет тренера</a>
+  <h2 style="margin-top: 16px;">Блоки занятий</h2>
+  <p>Готовые блоки, из которых собирается программа тренировок.</p>
+
+  <form method="get" style="margin-top: 20px; display: flex; flex-wrap: wrap; gap: 8px;">
+    <select name="sport" style="padding: 8px; border: 1px solid var(--border); border-radius: 4px;">
+      <option value="">Все виды спорта</option>
+      {% for s in sports %}
+        <option value="{{ s.pk }}"{% if s.pk|stringformat:"s" == selected_sport %} selected{% endif %}>{{ s.name }}</option>
+      {% endfor %}
+    </select>
+    <select name="kind" style="padding: 8px; border: 1px solid var(--border); border-radius: 4px;">
+      <option value="">Любой тип</option>
+      {% for value, label in kinds %}
+        <option value="{{ value }}"{% if value == selected_kind %} selected{% endif %}>{{ label }}</option>
+      {% endfor %}
+    </select>
+    <button type="submit" style="padding: 8px 16px; background: var(--dark); color: white; border: none; border-radius: 4px; font-weight: 600; cursor: pointer;">Показать</button>
+    <a href="/profile/coach/blocks/" style="padding: 8px 16px; border: 1.5px solid var(--dark); color: var(--dark); border-radius: 4px; font-size: 13px; font-weight: 600;">Сбросить</a>
+  </form>
+
+  <div style="margin-top: 20px;">
+    {% for b in blocks %}
+      <div style="background: var(--white); border: 1px solid var(--border); border-radius: 6px; padding: 16px; margin-bottom: 8px;">
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px;">
+          <div>
+            <div style="font-weight: 600;">{{ b.title }}</div>
+            <div style="font-size: 13px; color: var(--muted);">
+              {{ b.sport.name|default:"Любой вид спорта" }} / {{ b.get_kind_display }} / {{ b.duration_min }} мин
+              {% if b.equipment %} / {{ b.equipment }}{% endif %}
+            </div>
+          </div>
+          <span style="font-size: 12px; color: var(--muted); white-space: nowrap;">
+            {% if b.scheme %}со схемой{% endif %}
+          </span>
+        </div>
+        <div style="font-size: 14px; color: var(--muted); margin-top: 8px;">{{ b.description|truncatewords:25 }}</div>
+      </div>
+    {% empty %}
+      <p>Блоков пока нет</p>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}
