@@ -13,17 +13,21 @@
 {% block content %}
 <div style="max-width: 900px; margin: 40px auto; padding: 0 20px;">
   <a href="/profile/coach/" style="font-size: 14px;">- Кабинет тренера</a>
-  <h2 style="margin-top: 16px;">Блоки занятий</h2>
-  <p>Готовые блоки, из которых собирается программа тренировок.</p>
+
+  <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-top: 16px;">
+    <h2 style="margin: 0;">Блоки занятий</h2>
+    <a href="/profile/coach/blocks/add/" style="padding: 10px 20px; background: var(--red); color: white; border-radius: 4px; font-size: 14px; font-weight: 600;">Новый блок</a>
+  </div>
+  <p style="margin-top: 8px;">Готовые блоки, из которых собирается программа тренировок.</p>
 
   <form method="get" style="margin-top: 20px; display: flex; flex-wrap: wrap; gap: 8px;">
-    <select name="sport" style="padding: 8px; border: 1px solid var(--border); border-radius: 4px;">
+    <select name="sport" style="width: auto; min-width: 180px;">
       <option value="">Все виды спорта</option>
       {% for s in sports %}
         <option value="{{ s.pk }}"{% if s.pk|stringformat:"s" == selected_sport %} selected{% endif %}>{{ s.name }}</option>
       {% endfor %}
     </select>
-    <select name="kind" style="padding: 8px; border: 1px solid var(--border); border-radius: 4px;">
+    <select name="kind" style="width: auto; min-width: 180px;">
       <option value="">Любой тип</option>
       {% for value, label in kinds %}
         <option value="{{ value }}"{% if value == selected_kind %} selected{% endif %}>{{ label }}</option>
@@ -36,7 +40,7 @@
   <div style="margin-top: 20px;">
     {% for b in blocks %}
       <div style="background: var(--white); border: 1px solid var(--border); border-radius: 6px; padding: 16px; margin-bottom: 8px;">
-        <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px;">
+        <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 16px;">
           <div>
             <div style="font-weight: 600;">{{ b.title }}</div>
             <div style="font-size: 13px; color: var(--muted);">
@@ -44,9 +48,14 @@
               {% if b.equipment %} / {{ b.equipment }}{% endif %}
             </div>
           </div>
-          <span style="font-size: 12px; color: var(--muted); white-space: nowrap;">
-            {% if b.scheme %}со схемой{% endif %}
-          </span>
+            <div style="display: flex; align-items: center; gap: 12px; white-space: nowrap;">
+            {% if b.scheme %}<span style="font-size: 12px; color: var(--muted);">со схемой</span>{% endif %}
+            <a href="/profile/coach/blocks/{{ b.pk }}/edit/" style="font-size: 14px;">Изменить</a>
+            <form method="post" action="/profile/coach/blocks/{{ b.pk }}/delete/" style="display: inline;" onsubmit="return confirm('Удалить блок «{{ b.title }}»?')">
+              {% csrf_token %}
+              <button type="submit" style="background: none; border: none; color: var(--red); font: 500 14px 'Montserrat', sans-serif; cursor: pointer; padding: 0;">Удалить</button>
+            </form>
+          </div>
         </div>
         <div style="font-size: 14px; color: var(--muted); margin-top: 8px;">{{ b.description|truncatewords:25 }}</div>
       </div>

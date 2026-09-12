@@ -26,3 +26,13 @@ body {
 h1, h2, h3 { font-weight: 700; margin-bottom: 16px; }
 p { color: var(--muted); margin-bottom: 12px; }
 a { color: var(--red); text-decoration: none; }
+
+input[type="text"], input[type="number"], input[type="password"], select, textarea {
+  width: 100%;
+  padding: 9px 12px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font: 400 15px 'Montserrat', sans-serif;
+  color: var(--dark);
+  background: var(--white);
+}

@@ -6,6 +6,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from django.http import HttpResponse
 from .models import Sport, News, UserProfile, Training, Feedback, TrainingRecord, Gallery, Tournament, TournamentParticipant, Achievement, TrainingNote, TrainingBlock
+from .forms import TrainingBlockForm
 
 # Главная страница
 def index(request):
@@ -499,3 +500,36 @@ def coach_blocks(request):
         'selected_sport': sport_id,
         'selected_kind': kind,
     })
+    
+    
+# Создание и редактирование блока занятия
+@login_required
+def block_edit(request, pk=None):
+    role = getattr(request.user.userprofile, 'role', None)
+    if role not in ('coach', 'portal_admin'):
+        return redirect('/profile/')
+
+    block = get_object_or_404(TrainingBlock, pk=pk) if pk else None
+
+    if request.method == 'POST':
+        form = TrainingBlockForm(request.POST, instance=block)
+        if form.is_valid():
+            form.save()
+            return redirect('/profile/coach/blocks/')
+    else:
+        form = TrainingBlockForm(instance=block)
+
+    return render(request, 'profile/block_form.html', {
+        'form': form,
+        'training_block': block,
+    })
+
+
+
+# Удаление блока занятия
+@login_required
+def block_delete(request, pk):
+    role = getattr(request.user.userprofile, 'role', None)
+    if role in ('coach', 'portal_admin') and request.method == 'POST':
+        TrainingBlock.objects.filter(pk=pk).delete()
+    return redirect('/profile/coach/blocks/')
