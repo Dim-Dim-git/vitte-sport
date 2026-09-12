@@ -1,1 +1,1 @@
-web: gunicorn config.wsgi:application
+web: python manage.py migrate --noinput && python manage.py loaddata data.json && gunicorn config.wsgi:application
