@@ -21,7 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Каталог для данных: база и загружаемые файлы.
 # Локально - папка data в проекте, на хостинге - постоянный диск.
 DATA_DIR = Path(os.environ.get('DATA_DIR', BASE_DIR / 'data'))
-DATA_DIR.mkdir(parents=True, exist_ok=True)
+# DATA_DIR.mkdir(parents=True, exist_ok=True) // ломает деплой
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
