@@ -1,1173 +1,5 @@
 [
 {
-  "model": "admin.logentry",
-  "pk": 1,
-  "fields": {
-    "action_time": "2026-05-22T10:20:27.882Z",
-    "user": 1,
-    "content_type": 7,
-    "object_id": "1",
-    "object_repr": "Бег",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 2,
-  "fields": {
-    "action_time": "2026-05-22T10:20:52.715Z",
-    "user": 1,
-    "content_type": 7,
-    "object_id": "2",
-    "object_repr": "Велоспорт",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 3,
-  "fields": {
-    "action_time": "2026-05-22T10:21:34.614Z",
-    "user": 1,
-    "content_type": 8,
-    "object_id": "1",
-    "object_repr": "Прошли соревонования по бегу",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 4,
-  "fields": {
-    "action_time": "2026-05-25T21:03:50.503Z",
-    "user": 1,
-    "content_type": 4,
-    "object_id": "4",
-    "object_repr": "student",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 5,
-  "fields": {
-    "action_time": "2026-05-25T21:04:46.654Z",
-    "user": 1,
-    "content_type": 9,
-    "object_id": "1",
-    "object_repr": "student (Студент)",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 6,
-  "fields": {
-    "action_time": "2026-05-25T21:05:49.931Z",
-    "user": 1,
-    "content_type": 4,
-    "object_id": "3",
-    "object_repr": "coach",
-    "action_flag": 2,
-    "change_message": "[{\"changed\": {\"fields\": [\"Username\"]}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 7,
-  "fields": {
-    "action_time": "2026-05-25T21:06:04.973Z",
-    "user": 1,
-    "content_type": 9,
-    "object_id": "2",
-    "object_repr": "coach (Тренер)",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 8,
-  "fields": {
-    "action_time": "2026-05-25T21:48:14.880Z",
-    "user": 1,
-    "content_type": 9,
-    "object_id": "3",
-    "object_repr": "admin (Администратор)",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 9,
-  "fields": {
-    "action_time": "2026-05-25T22:18:52.269Z",
-    "user": 1,
-    "content_type": 10,
-    "object_id": "1",
-    "object_repr": "Воркаут — Бег — Понедельник",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 10,
-  "fields": {
-    "action_time": "2026-05-25T22:19:06.159Z",
-    "user": 1,
-    "content_type": 10,
-    "object_id": "1",
-    "object_repr": "Воркаут — Велоспорт — Понедельник",
-    "action_flag": 2,
-    "change_message": "[{\"changed\": {\"fields\": [\"\\u0412\\u0438\\u0434 \\u0441\\u043f\\u043e\\u0440\\u0442\\u0430\"]}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 11,
-  "fields": {
-    "action_time": "2026-05-25T22:19:22.596Z",
-    "user": 1,
-    "content_type": 10,
-    "object_id": "1",
-    "object_repr": "Воркаут — Велоспорт — Понедельник",
-    "action_flag": 2,
-    "change_message": "[{\"changed\": {\"fields\": [\"\\u041d\\u0430\\u0447\\u0430\\u043b\\u043e\"]}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 12,
-  "fields": {
-    "action_time": "2026-05-25T22:19:31.847Z",
-    "user": 1,
-    "content_type": 10,
-    "object_id": "1",
-    "object_repr": "Воркаут — Велоспорт — Понедельник",
-    "action_flag": 2,
-    "change_message": "[]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 13,
-  "fields": {
-    "action_time": "2026-05-27T18:34:43.326Z",
-    "user": 1,
-    "content_type": 10,
-    "object_id": "1",
-    "object_repr": "Воркаут — Велоспорт — Понедельник",
-    "action_flag": 2,
-    "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u043e\\u043d\\u0435\\u0446\"]}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 14,
-  "fields": {
-    "action_time": "2026-05-27T18:35:52.477Z",
-    "user": 1,
-    "content_type": 10,
-    "object_id": "2",
-    "object_repr": "Тренажёрный зал — Бег — Вторник",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 15,
-  "fields": {
-    "action_time": "2026-05-27T18:36:18.979Z",
-    "user": 1,
-    "content_type": 7,
-    "object_id": "3",
-    "object_repr": "Тренажёрный зал",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 16,
-  "fields": {
-    "action_time": "2026-05-27T18:36:34.341Z",
-    "user": 1,
-    "content_type": 10,
-    "object_id": "2",
-    "object_repr": "Тренажёрный зал — Тренажёрный зал — Вторник",
-    "action_flag": 2,
-    "change_message": "[{\"changed\": {\"fields\": [\"\\u0412\\u0438\\u0434 \\u0441\\u043f\\u043e\\u0440\\u0442\\u0430\"]}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 17,
-  "fields": {
-    "action_time": "2026-05-27T18:39:17.348Z",
-    "user": 1,
-    "content_type": 7,
-    "object_id": "4",
-    "object_repr": "Футбол",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 18,
-  "fields": {
-    "action_time": "2026-05-27T18:39:26.358Z",
-    "user": 1,
-    "content_type": 7,
-    "object_id": "5",
-    "object_repr": "Волейбол",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 19,
-  "fields": {
-    "action_time": "2026-05-27T18:39:42.401Z",
-    "user": 1,
-    "content_type": 7,
-    "object_id": "6",
-    "object_repr": "Йога",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 20,
-  "fields": {
-    "action_time": "2026-05-27T18:39:49.268Z",
-    "user": 1,
-    "content_type": 7,
-    "object_id": "7",
-    "object_repr": "Кроссфит",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 21,
-  "fields": {
-    "action_time": "2026-05-27T18:40:02.188Z",
-    "user": 1,
-    "content_type": 7,
-    "object_id": "8",
-    "object_repr": "Воркаут",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 22,
-  "fields": {
-    "action_time": "2026-05-27T18:40:56.002Z",
-    "user": 1,
-    "content_type": 10,
-    "object_id": "3",
-    "object_repr": "Воркаут — Футбол — Среда",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 23,
-  "fields": {
-    "action_time": "2026-05-27T18:41:39.187Z",
-    "user": 1,
-    "content_type": 10,
-    "object_id": "4",
-    "object_repr": "Секция — Йога — Четверг",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 24,
-  "fields": {
-    "action_time": "2026-05-27T18:42:11.288Z",
-    "user": 1,
-    "content_type": 10,
-    "object_id": "5",
-    "object_repr": "Воркаут — Кроссфит — Пятница",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 25,
-  "fields": {
-    "action_time": "2026-05-27T18:42:30.398Z",
-    "user": 1,
-    "content_type": 10,
-    "object_id": "3",
-    "object_repr": "Воркаут — Футбол — Среда",
-    "action_flag": 2,
-    "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u043e\\u043d\\u0435\\u0446\"]}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 26,
-  "fields": {
-    "action_time": "2026-05-28T21:06:41.822Z",
-    "user": 1,
-    "content_type": 13,
-    "object_id": "1",
-    "object_repr": "Студенты готовятся к забегу",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 27,
-  "fields": {
-    "action_time": "2026-05-28T21:08:03.330Z",
-    "user": 1,
-    "content_type": 13,
-    "object_id": "2",
-    "object_repr": "Разминка",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 28,
-  "fields": {
-    "action_time": "2026-05-28T21:40:22.073Z",
-    "user": 1,
-    "content_type": 4,
-    "object_id": "3",
-    "object_repr": "coach",
-    "action_flag": 2,
-    "change_message": "[{\"changed\": {\"fields\": [\"password\"]}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 29,
-  "fields": {
-    "action_time": "2026-05-28T21:48:23.274Z",
-    "user": 1,
-    "content_type": 4,
-    "object_id": "4",
-    "object_repr": "student",
-    "action_flag": 2,
-    "change_message": "[{\"changed\": {\"fields\": [\"password\"]}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 30,
-  "fields": {
-    "action_time": "2026-05-29T20:39:33.293Z",
-    "user": 1,
-    "content_type": 4,
-    "object_id": "2",
-    "object_repr": "11",
-    "action_flag": 2,
-    "change_message": "[{\"changed\": {\"fields\": [\"password\"]}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 31,
-  "fields": {
-    "action_time": "2026-05-29T20:39:48.020Z",
-    "user": 1,
-    "content_type": 4,
-    "object_id": "2",
-    "object_repr": "11",
-    "action_flag": 2,
-    "change_message": "[]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 32,
-  "fields": {
-    "action_time": "2026-05-29T20:40:01.991Z",
-    "user": 1,
-    "content_type": 4,
-    "object_id": "2",
-    "object_repr": "portal_admin",
-    "action_flag": 2,
-    "change_message": "[{\"changed\": {\"fields\": [\"Username\"]}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 33,
-  "fields": {
-    "action_time": "2026-05-29T20:40:07.805Z",
-    "user": 1,
-    "content_type": 4,
-    "object_id": "2",
-    "object_repr": "portal_admin",
-    "action_flag": 2,
-    "change_message": "[{\"changed\": {\"fields\": [\"password\"]}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 34,
-  "fields": {
-    "action_time": "2026-05-29T20:40:11.652Z",
-    "user": 1,
-    "content_type": 4,
-    "object_id": "2",
-    "object_repr": "portal_admin",
-    "action_flag": 2,
-    "change_message": "[]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 35,
-  "fields": {
-    "action_time": "2026-05-29T20:40:39.385Z",
-    "user": 1,
-    "content_type": 9,
-    "object_id": "3",
-    "object_repr": "portal_admin (Администратор портала)",
-    "action_flag": 2,
-    "change_message": "[{\"changed\": {\"fields\": [\"\\u041f\\u043e\\u043b\\u044c\\u0437\\u043e\\u0432\\u0430\\u0442\\u0435\\u043b\\u044c\", \"\\u0420\\u043e\\u043b\\u044c\"]}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 36,
-  "fields": {
-    "action_time": "2026-06-02T15:33:56.844Z",
-    "user": 1,
-    "content_type": 15,
-    "object_id": "1",
-    "object_repr": "Турнир по футболу (Футбол)",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 37,
-  "fields": {
-    "action_time": "2026-09-12T15:12:29.752Z",
-    "user": 1,
-    "content_type": 18,
-    "object_id": "1",
-    "object_repr": "Бег с конусами",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 38,
-  "fields": {
-    "action_time": "2026-09-12T15:14:28.072Z",
-    "user": 1,
-    "content_type": 18,
-    "object_id": "1",
-    "object_repr": "Ведение мяча между стойками",
-    "action_flag": 2,
-    "change_message": "[{\"changed\": {\"fields\": [\"\\u041d\\u0430\\u0437\\u0432\\u0430\\u043d\\u0438\\u0435\", \"\\u0421\\u043e\\u0434\\u0435\\u0440\\u0436\\u0430\\u043d\\u0438\\u0435 \\u0431\\u043b\\u043e\\u043a\\u0430\", \"\\u0424\\u0430\\u0439\\u043b \\u0441\\u0445\\u0435\\u043c\\u044b\"]}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 39,
-  "fields": {
-    "action_time": "2026-09-12T15:15:08.215Z",
-    "user": 1,
-    "content_type": 18,
-    "object_id": "1",
-    "object_repr": "Ведение мяча между стойками",
-    "action_flag": 2,
-    "change_message": "[]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 40,
-  "fields": {
-    "action_time": "2026-09-12T15:15:33.549Z",
-    "user": 1,
-    "content_type": 18,
-    "object_id": "2",
-    "object_repr": "Передачи в парах в движении",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 1,
-  "fields": {
-    "name": "Can add log entry",
-    "content_type": 1,
-    "codename": "add_logentry"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 2,
-  "fields": {
-    "name": "Can change log entry",
-    "content_type": 1,
-    "codename": "change_logentry"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 3,
-  "fields": {
-    "name": "Can delete log entry",
-    "content_type": 1,
-    "codename": "delete_logentry"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 4,
-  "fields": {
-    "name": "Can view log entry",
-    "content_type": 1,
-    "codename": "view_logentry"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 5,
-  "fields": {
-    "name": "Can add permission",
-    "content_type": 2,
-    "codename": "add_permission"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 6,
-  "fields": {
-    "name": "Can change permission",
-    "content_type": 2,
-    "codename": "change_permission"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 7,
-  "fields": {
-    "name": "Can delete permission",
-    "content_type": 2,
-    "codename": "delete_permission"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 8,
-  "fields": {
-    "name": "Can view permission",
-    "content_type": 2,
-    "codename": "view_permission"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 9,
-  "fields": {
-    "name": "Can add group",
-    "content_type": 3,
-    "codename": "add_group"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 10,
-  "fields": {
-    "name": "Can change group",
-    "content_type": 3,
-    "codename": "change_group"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 11,
-  "fields": {
-    "name": "Can delete group",
-    "content_type": 3,
-    "codename": "delete_group"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 12,
-  "fields": {
-    "name": "Can view group",
-    "content_type": 3,
-    "codename": "view_group"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 13,
-  "fields": {
-    "name": "Can add user",
-    "content_type": 4,
-    "codename": "add_user"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 14,
-  "fields": {
-    "name": "Can change user",
-    "content_type": 4,
-    "codename": "change_user"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 15,
-  "fields": {
-    "name": "Can delete user",
-    "content_type": 4,
-    "codename": "delete_user"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 16,
-  "fields": {
-    "name": "Can view user",
-    "content_type": 4,
-    "codename": "view_user"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 17,
-  "fields": {
-    "name": "Can add content type",
-    "content_type": 5,
-    "codename": "add_contenttype"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 18,
-  "fields": {
-    "name": "Can change content type",
-    "content_type": 5,
-    "codename": "change_contenttype"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 19,
-  "fields": {
-    "name": "Can delete content type",
-    "content_type": 5,
-    "codename": "delete_contenttype"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 20,
-  "fields": {
-    "name": "Can view content type",
-    "content_type": 5,
-    "codename": "view_contenttype"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 21,
-  "fields": {
-    "name": "Can add session",
-    "content_type": 6,
-    "codename": "add_session"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 22,
-  "fields": {
-    "name": "Can change session",
-    "content_type": 6,
-    "codename": "change_session"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 23,
-  "fields": {
-    "name": "Can delete session",
-    "content_type": 6,
-    "codename": "delete_session"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 24,
-  "fields": {
-    "name": "Can view session",
-    "content_type": 6,
-    "codename": "view_session"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 25,
-  "fields": {
-    "name": "Can add Вид спорта",
-    "content_type": 7,
-    "codename": "add_sport"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 26,
-  "fields": {
-    "name": "Can change Вид спорта",
-    "content_type": 7,
-    "codename": "change_sport"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 27,
-  "fields": {
-    "name": "Can delete Вид спорта",
-    "content_type": 7,
-    "codename": "delete_sport"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 28,
-  "fields": {
-    "name": "Can view Вид спорта",
-    "content_type": 7,
-    "codename": "view_sport"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 29,
-  "fields": {
-    "name": "Can add Новость",
-    "content_type": 8,
-    "codename": "add_news"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 30,
-  "fields": {
-    "name": "Can change Новость",
-    "content_type": 8,
-    "codename": "change_news"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 31,
-  "fields": {
-    "name": "Can delete Новость",
-    "content_type": 8,
-    "codename": "delete_news"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 32,
-  "fields": {
-    "name": "Can view Новость",
-    "content_type": 8,
-    "codename": "view_news"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 33,
-  "fields": {
-    "name": "Can add Профиль",
-    "content_type": 9,
-    "codename": "add_userprofile"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 34,
-  "fields": {
-    "name": "Can change Профиль",
-    "content_type": 9,
-    "codename": "change_userprofile"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 35,
-  "fields": {
-    "name": "Can delete Профиль",
-    "content_type": 9,
-    "codename": "delete_userprofile"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 36,
-  "fields": {
-    "name": "Can view Профиль",
-    "content_type": 9,
-    "codename": "view_userprofile"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 37,
-  "fields": {
-    "name": "Can add Тренировка",
-    "content_type": 10,
-    "codename": "add_training"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 38,
-  "fields": {
-    "name": "Can change Тренировка",
-    "content_type": 10,
-    "codename": "change_training"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 39,
-  "fields": {
-    "name": "Can delete Тренировка",
-    "content_type": 10,
-    "codename": "delete_training"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 40,
-  "fields": {
-    "name": "Can view Тренировка",
-    "content_type": 10,
-    "codename": "view_training"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 41,
-  "fields": {
-    "name": "Can add Обращение",
-    "content_type": 11,
-    "codename": "add_feedback"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 42,
-  "fields": {
-    "name": "Can change Обращение",
-    "content_type": 11,
-    "codename": "change_feedback"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 43,
-  "fields": {
-    "name": "Can delete Обращение",
-    "content_type": 11,
-    "codename": "delete_feedback"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 44,
-  "fields": {
-    "name": "Can view Обращение",
-    "content_type": 11,
-    "codename": "view_feedback"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 45,
-  "fields": {
-    "name": "Can add Запись на тренировку",
-    "content_type": 12,
-    "codename": "add_trainingrecord"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 46,
-  "fields": {
-    "name": "Can change Запись на тренировку",
-    "content_type": 12,
-    "codename": "change_trainingrecord"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 47,
-  "fields": {
-    "name": "Can delete Запись на тренировку",
-    "content_type": 12,
-    "codename": "delete_trainingrecord"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 48,
-  "fields": {
-    "name": "Can view Запись на тренировку",
-    "content_type": 12,
-    "codename": "view_trainingrecord"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 49,
-  "fields": {
-    "name": "Can add Фото",
-    "content_type": 13,
-    "codename": "add_gallery"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 50,
-  "fields": {
-    "name": "Can change Фото",
-    "content_type": 13,
-    "codename": "change_gallery"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 51,
-  "fields": {
-    "name": "Can delete Фото",
-    "content_type": 13,
-    "codename": "delete_gallery"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 52,
-  "fields": {
-    "name": "Can view Фото",
-    "content_type": 13,
-    "codename": "view_gallery"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 53,
-  "fields": {
-    "name": "Can add Турнир",
-    "content_type": 14,
-    "codename": "add_tournament"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 54,
-  "fields": {
-    "name": "Can change Турнир",
-    "content_type": 14,
-    "codename": "change_tournament"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 55,
-  "fields": {
-    "name": "Can delete Турнир",
-    "content_type": 14,
-    "codename": "delete_tournament"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 56,
-  "fields": {
-    "name": "Can view Турнир",
-    "content_type": 14,
-    "codename": "view_tournament"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 57,
-  "fields": {
-    "name": "Can add Участник турнира",
-    "content_type": 15,
-    "codename": "add_tournamentparticipant"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 58,
-  "fields": {
-    "name": "Can change Участник турнира",
-    "content_type": 15,
-    "codename": "change_tournamentparticipant"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 59,
-  "fields": {
-    "name": "Can delete Участник турнира",
-    "content_type": 15,
-    "codename": "delete_tournamentparticipant"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 60,
-  "fields": {
-    "name": "Can view Участник турнира",
-    "content_type": 15,
-    "codename": "view_tournamentparticipant"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 61,
-  "fields": {
-    "name": "Can add Достижение",
-    "content_type": 16,
-    "codename": "add_achievement"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 62,
-  "fields": {
-    "name": "Can change Достижение",
-    "content_type": 16,
-    "codename": "change_achievement"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 63,
-  "fields": {
-    "name": "Can delete Достижение",
-    "content_type": 16,
-    "codename": "delete_achievement"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 64,
-  "fields": {
-    "name": "Can view Достижение",
-    "content_type": 16,
-    "codename": "view_achievement"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 65,
-  "fields": {
-    "name": "Can add Заметка тренера",
-    "content_type": 17,
-    "codename": "add_trainingnote"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 66,
-  "fields": {
-    "name": "Can change Заметка тренера",
-    "content_type": 17,
-    "codename": "change_trainingnote"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 67,
-  "fields": {
-    "name": "Can delete Заметка тренера",
-    "content_type": 17,
-    "codename": "delete_trainingnote"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 68,
-  "fields": {
-    "name": "Can view Заметка тренера",
-    "content_type": 17,
-    "codename": "view_trainingnote"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 69,
-  "fields": {
-    "name": "Can add Блок занятия",
-    "content_type": 18,
-    "codename": "add_trainingblock"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 70,
-  "fields": {
-    "name": "Can change Блок занятия",
-    "content_type": 18,
-    "codename": "change_trainingblock"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 71,
-  "fields": {
-    "name": "Can delete Блок занятия",
-    "content_type": 18,
-    "codename": "delete_trainingblock"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 72,
-  "fields": {
-    "name": "Can view Блок занятия",
-    "content_type": 18,
-    "codename": "view_trainingblock"
-  }
-},
-{
   "model": "auth.user",
   "pk": 1,
   "fields": {
@@ -1240,150 +72,6 @@
   }
 },
 {
-  "model": "contenttypes.contenttype",
-  "pk": 1,
-  "fields": {
-    "app_label": "admin",
-    "model": "logentry"
-  }
-},
-{
-  "model": "contenttypes.contenttype",
-  "pk": 2,
-  "fields": {
-    "app_label": "auth",
-    "model": "permission"
-  }
-},
-{
-  "model": "contenttypes.contenttype",
-  "pk": 3,
-  "fields": {
-    "app_label": "auth",
-    "model": "group"
-  }
-},
-{
-  "model": "contenttypes.contenttype",
-  "pk": 4,
-  "fields": {
-    "app_label": "auth",
-    "model": "user"
-  }
-},
-{
-  "model": "contenttypes.contenttype",
-  "pk": 5,
-  "fields": {
-    "app_label": "contenttypes",
-    "model": "contenttype"
-  }
-},
-{
-  "model": "contenttypes.contenttype",
-  "pk": 6,
-  "fields": {
-    "app_label": "sessions",
-    "model": "session"
-  }
-},
-{
-  "model": "contenttypes.contenttype",
-  "pk": 7,
-  "fields": {
-    "app_label": "main",
-    "model": "sport"
-  }
-},
-{
-  "model": "contenttypes.contenttype",
-  "pk": 8,
-  "fields": {
-    "app_label": "main",
-    "model": "news"
-  }
-},
-{
-  "model": "contenttypes.contenttype",
-  "pk": 9,
-  "fields": {
-    "app_label": "main",
-    "model": "userprofile"
-  }
-},
-{
-  "model": "contenttypes.contenttype",
-  "pk": 10,
-  "fields": {
-    "app_label": "main",
-    "model": "training"
-  }
-},
-{
-  "model": "contenttypes.contenttype",
-  "pk": 11,
-  "fields": {
-    "app_label": "main",
-    "model": "feedback"
-  }
-},
-{
-  "model": "contenttypes.contenttype",
-  "pk": 12,
-  "fields": {
-    "app_label": "main",
-    "model": "trainingrecord"
-  }
-},
-{
-  "model": "contenttypes.contenttype",
-  "pk": 13,
-  "fields": {
-    "app_label": "main",
-    "model": "gallery"
-  }
-},
-{
-  "model": "contenttypes.contenttype",
-  "pk": 14,
-  "fields": {
-    "app_label": "main",
-    "model": "tournament"
-  }
-},
-{
-  "model": "contenttypes.contenttype",
-  "pk": 15,
-  "fields": {
-    "app_label": "main",
-    "model": "tournamentparticipant"
-  }
-},
-{
-  "model": "contenttypes.contenttype",
-  "pk": 16,
-  "fields": {
-    "app_label": "main",
-    "model": "achievement"
-  }
-},
-{
-  "model": "contenttypes.contenttype",
-  "pk": 17,
-  "fields": {
-    "app_label": "main",
-    "model": "trainingnote"
-  }
-},
-{
-  "model": "contenttypes.contenttype",
-  "pk": 18,
-  "fields": {
-    "app_label": "main",
-    "model": "trainingblock"
-  }
-},
-{
   "model": "sessions.session",
   "pk": "k0t17vto0eqy85obtxp91hqu8qm4zgiu",
   "fields": {
@@ -1403,72 +91,72 @@
   "model": "main.sport",
   "pk": 1,
   "fields": {
-    "name": "Бег",
-    "description": "Бег"
+    "name": "Р‘РµРі",
+    "description": "Р‘РµРі"
   }
 },
 {
   "model": "main.sport",
   "pk": 2,
   "fields": {
-    "name": "Велоспорт",
-    "description": "Велоспорт"
+    "name": "Р’РµР»РѕСЃРїРѕСЂС‚",
+    "description": "Р’РµР»РѕСЃРїРѕСЂС‚"
   }
 },
 {
   "model": "main.sport",
   "pk": 3,
   "fields": {
-    "name": "Тренажёрный зал",
-    "description": "Тренажёрный зал"
+    "name": "РўСЂРµРЅР°Р¶С‘СЂРЅС‹Р№ Р·Р°Р»",
+    "description": "РўСЂРµРЅР°Р¶С‘СЂРЅС‹Р№ Р·Р°Р»"
   }
 },
 {
   "model": "main.sport",
   "pk": 4,
   "fields": {
-    "name": "Футбол",
-    "description": "Футбол"
+    "name": "Р¤СѓС‚Р±РѕР»",
+    "description": "Р¤СѓС‚Р±РѕР»"
   }
 },
 {
   "model": "main.sport",
   "pk": 5,
   "fields": {
-    "name": "Волейбол",
-    "description": "Волейбол"
+    "name": "Р’РѕР»РµР№Р±РѕР»",
+    "description": "Р’РѕР»РµР№Р±РѕР»"
   }
 },
 {
   "model": "main.sport",
   "pk": 6,
   "fields": {
-    "name": "Йога",
-    "description": "Йога"
+    "name": "Р™РѕРіР°",
+    "description": "Р™РѕРіР°"
   }
 },
 {
   "model": "main.sport",
   "pk": 7,
   "fields": {
-    "name": "Кроссфит",
-    "description": "Кроссфит"
+    "name": "РљСЂРѕСЃСЃС„РёС‚",
+    "description": "РљСЂРѕСЃСЃС„РёС‚"
   }
 },
 {
   "model": "main.sport",
   "pk": 8,
   "fields": {
-    "name": "Воркаут",
-    "description": "Воркаут"
+    "name": "Р’РѕСЂРєР°СѓС‚",
+    "description": "Р’РѕСЂРєР°СѓС‚"
   }
 },
 {
   "model": "main.news",
   "pk": 2,
   "fields": {
-    "title": "Мы всех победили",
-    "content": "Снова и снова. Привыкли даже ",
+    "title": "РњС‹ РІСЃРµС… РїРѕР±РµРґРёР»Рё",
+    "content": "РЎРЅРѕРІР° Рё СЃРЅРѕРІР°. РџСЂРёРІС‹РєР»Рё РґР°Р¶Рµ ",
     "created": "2026-05-29T21:11:27.370Z"
   }
 },
@@ -1479,7 +167,7 @@
     "user": 4,
     "role": "student",
     "phone": "555",
-    "group": "П-15"
+    "group": "Рџ-15"
   }
 },
 {
@@ -1499,7 +187,7 @@
     "user": 2,
     "role": "portal_admin",
     "phone": "1234567890",
-    "group": "Г-110"
+    "group": "Р“-110"
   }
 },
 {
@@ -1511,9 +199,9 @@
     "day": "mon",
     "time_start": "20:00:00",
     "time_end": "22:00:00",
-    "location": "Набережная",
+    "location": "РќР°Р±РµСЂРµР¶РЅР°СЏ",
     "capacity": 20,
-    "notes": "Едем вокруг Лужников"
+    "notes": "Р•РґРµРј РІРѕРєСЂСѓРі Р›СѓР¶РЅРёРєРѕРІ"
   }
 },
 {
@@ -1525,7 +213,7 @@
     "day": "tue",
     "time_start": "18:00:00",
     "time_end": "19:00:00",
-    "location": "Спортзал МУИВ",
+    "location": "РЎРїРѕСЂС‚Р·Р°Р» РњРЈРР’",
     "capacity": 10,
     "notes": ""
   }
@@ -1539,7 +227,7 @@
     "day": "wed",
     "time_start": "16:00:00",
     "time_end": "18:00:00",
-    "location": "Стадион МУИВ",
+    "location": "РЎС‚Р°РґРёРѕРЅ РњРЈРР’",
     "capacity": 20,
     "notes": ""
   }
@@ -1553,7 +241,7 @@
     "day": "thu",
     "time_start": "07:00:00",
     "time_end": "08:00:00",
-    "location": "Спортзал МУИВ",
+    "location": "РЎРїРѕСЂС‚Р·Р°Р» РњРЈРР’",
     "capacity": 20,
     "notes": ""
   }
@@ -1567,7 +255,7 @@
     "day": "fri",
     "time_start": "19:00:00",
     "time_end": "21:00:00",
-    "location": "Парк",
+    "location": "РџР°СЂРє",
     "capacity": 30,
     "notes": ""
   }
@@ -1578,7 +266,7 @@
   "fields": {
     "name": "test1",
     "email": "a@aaa.ru",
-    "message": "проверка связи",
+    "message": "РїСЂРѕРІРµСЂРєР° СЃРІСЏР·Рё",
     "created": "2026-05-27T20:14:36.564Z",
     "is_read": false
   }
@@ -1637,7 +325,7 @@
   "model": "main.gallery",
   "pk": 1,
   "fields": {
-    "title": "Студенты готовятся к забегу",
+    "title": "РЎС‚СѓРґРµРЅС‚С‹ РіРѕС‚РѕРІСЏС‚СЃСЏ Рє Р·Р°Р±РµРіСѓ",
     "image": "gallery/1.png",
     "sport": 1,
     "created": "2026-05-28T21:06:41.821Z"
@@ -1647,7 +335,7 @@
   "model": "main.gallery",
   "pk": 2,
   "fields": {
-    "title": "Разминка",
+    "title": "Р Р°Р·РјРёРЅРєР°",
     "image": "gallery/2.png",
     "sport": 1,
     "created": "2026-05-28T21:08:03.330Z"
@@ -1657,12 +345,12 @@
   "model": "main.tournament",
   "pk": 1,
   "fields": {
-    "title": "Турнир по футболу",
+    "title": "РўСѓСЂРЅРёСЂ РїРѕ С„СѓС‚Р±РѕР»Сѓ",
     "sport": 4,
-    "description": "Турнир среди первокурсников",
+    "description": "РўСѓСЂРЅРёСЂ СЃСЂРµРґРё РїРµСЂРІРѕРєСѓСЂСЃРЅРёРєРѕРІ",
     "date_start": "2026-06-02",
     "date_end": "2026-06-08",
-    "location": "Стадион МУИВ",
+    "location": "РЎС‚Р°РґРёРѕРЅ РњРЈРР’",
     "status": "upcoming",
     "max_participants": 32,
     "created": "2026-06-02T15:33:56.835Z"
@@ -1683,7 +371,7 @@
   "fields": {
     "user": 4,
     "sport": 1,
-    "title": "1-е место!!",
+    "title": "1-Рµ РјРµСЃС‚Рѕ!!",
     "date": "2026-06-02"
   }
 },
@@ -1693,7 +381,7 @@
   "fields": {
     "training": 1,
     "coach": 3,
-    "text": "Иванов потерял велосипед",
+    "text": "РРІР°РЅРѕРІ РїРѕС‚РµСЂСЏР» РІРµР»РѕСЃРёРїРµРґ",
     "created": "2026-06-02T18:09:27.616Z"
   }
 },
@@ -1701,12 +389,12 @@
   "model": "main.trainingblock",
   "pk": 1,
   "fields": {
-    "title": "Ведение мяча между стойками",
+    "title": "Р’РµРґРµРЅРёРµ РјСЏС‡Р° РјРµР¶РґСѓ СЃС‚РѕР№РєР°РјРё",
     "sport": 4,
     "kind": "main",
     "duration_min": 10,
-    "equipment": "Мяч",
-    "description": "Ведение мяча между стойками",
+    "equipment": "РњСЏС‡",
+    "description": "Р’РµРґРµРЅРёРµ РјСЏС‡Р° РјРµР¶РґСѓ СЃС‚РѕР№РєР°РјРё",
     "scheme": "schemes/football/dribbling-cones.svg"
   }
 },
@@ -1714,12 +402,12 @@
   "model": "main.trainingblock",
   "pk": 2,
   "fields": {
-    "title": "Передачи в парах в движении",
+    "title": "РџРµСЂРµРґР°С‡Рё РІ РїР°СЂР°С… РІ РґРІРёР¶РµРЅРёРё",
     "sport": 4,
     "kind": "main",
     "duration_min": 10,
-    "equipment": "Мяч",
-    "description": "Передачи в парах в движении",
+    "equipment": "РњСЏС‡",
+    "description": "РџРµСЂРµРґР°С‡Рё РІ РїР°СЂР°С… РІ РґРІРёР¶РµРЅРёРё",
     "scheme": "schemes/football/passing-pairs.svg"
   }
 }
