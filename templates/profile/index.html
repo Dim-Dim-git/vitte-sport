@@ -10,9 +10,51 @@
 {% block content %}
 <div style="max-width: 800px; margin: 40px auto; padding: 0 20px;">
   <h2>Личный кабинет</h2>
-        {% if user.userprofile.role == 'portal_admin' %}
-        <a href="/admin_panel/users/" style="display: inline-block; margin-top: 8px; margin-left: 8px; padding: 10px 24px; background: var(--dark); color: var(--white); border-radius: 4px; font-size: 14px; font-weight: 600;">Панель администратора</a>
-      {% endif %}
+
+  
+  <h3 style="margin-top: 32px;">Разделы</h3>
+  <div style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 16px;">
+
+      {% if user.userprofile.role == 'coach' %}
+      <a class="section-tile" href="/profile/coach/programs/" style="flex: 1 1 240px; padding: 16px; color: var(--dark);">
+        <div style="font-weight: 600;">Программы тренировок</div>
+        <div style="font-size: 13px; color: var(--muted);">Курсы занятий, собранные из блоков</div>
+      </a>
+      <a class="section-tile" href="/profile/coach/blocks/" style="flex: 1 1 240px; padding: 16px; color: var(--dark);">
+        <div style="font-weight: 600;">Блоки занятий</div>
+        <div style="font-size: 13px; color: var(--muted);">Библиотека упражнений и схем</div>
+      </a>
+      <a class="section-tile" href="/profile/coach/" style="flex: 1 1 240px; padding: 16px; color: var(--dark);">
+        <div style="font-weight: 600;">Тренировки и заметки</div>
+        <div style="font-size: 13px; color: var(--muted);">Отметка явки, достижения, заметки</div>
+      </a>
+      <a class="section-tile" href="/profile/coach/students/" style="flex: 1 1 240px; padding: 16px; color: var(--dark);">
+        <div style="font-weight: 600;">Студенты</div>
+        <div style="font-size: 13px; color: var(--muted);">Список студентов секций</div>
+      </a>
+      <a class="section-tile" href="/profile/coach/export/xlsx/" style="flex: 1 1 240px; padding: 16px; color: var(--dark);">
+        <div style="font-weight: 600;">Отчёт по посещаемости</div>
+        <div style="font-size: 13px; color: var(--muted);">Выгрузка в Excel</div>
+      </a>
+      {% elif user.userprofile.role == 'student' %}
+      <a class="section-tile" href="/profile/trainings/" style="flex: 1 1 240px; padding: 16px; color: var(--dark);">
+        <div style="font-weight: 600;">Мои тренировки</div>
+        <div style="font-size: 13px; color: var(--muted);">Записи на тренировки и турниры</div>
+      </a>
+      <a class="section-tile" href="/profile/achievements/" style="flex: 1 1 240px; padding: 16px; color: var(--dark);">
+        <div style="font-weight: 600;">Мои достижения</div>
+        <div style="font-size: 13px; color: var(--muted);">Результаты и награды</div>
+      </a>
+    {% endif %}
+
+    {% if user.userprofile.role == 'portal_admin' %}
+      <a href="/admin_panel/users/" style="flex: 1 1 240px; background: var(--white); border: 1px solid var(--border); border-radius: 6px; padding: 16px; color: var(--dark);">
+        <div style="font-weight: 600;">Панель администратора</div>
+        <div style="font-size: 13px; color: var(--muted);">Пользователи, новости, расписание</div>
+      </a>
+    {% endif %}
+
+  </div>
 
   <div style="background: var(--white); border: 1px solid var(--border); border-radius: 6px; padding: 24px; margin-top: 20px;">
     <p style="font-size: 13px; color: var(--muted); margin-bottom: 4px;">Пользователь</p>
@@ -37,15 +79,9 @@
       {{ user.userprofile.group|default:"Не указана" }}
     </p>
     <a href="/profile/edit/" style="display: inline-block; margin-top: 16px; padding: 10px 24px; background: var(--red); color: var(--white); border-radius: 4px; font-size: 14px; font-weight: 600;">Редактировать профиль</a>
-    <a href="/profile/trainings/" style="display: inline-block; margin-top: 8px; margin-left: 8px; padding: 10px 24px; border: 1.5px solid var(--dark); color: var(--dark); border-radius: 4px; font-size: 14px; font-weight: 600;">Мои тренировки</a>
-    <a href="/profile/achievements/" style="display: inline-block; margin-top: 8px; margin-left: 8px; padding: 10px 24px; border: 1.5px solid var(--dark); color: var(--dark); border-radius: 4px; font-size: 14px; font-weight: 600;">Мои достижения</a>
-    <a href="/accounts/password_change/" style="display: inline-block; margin-top: 8px; margin-left: 8px; padding: 10px 24px; border: 1.5px solid var(--dark); color: var(--dark); border-radius: 4px; font-size: 14px; font-weight: 600;">Сменить пароль</a>
-      {% if user.userprofile.role == 'coach' %}
-        <a href="/profile/coach/" style="display: inline-block; margin-top: 8px; margin-left: 8px; padding: 10px 24px; border: 1.5px solid var(--dark); color: var(--dark); border-radius: 4px; font-size: 14px; font-weight: 600;">Кабинет тренера</a>
-      {% endif %}
+    <a href="/accounts/password_change/" style="display: inline-block; margin-top: 16px; margin-left: 8px; padding: 10px 24px; border: 1.5px solid var(--dark); color: var(--dark); border-radius: 4px; font-size: 14px; font-weight: 600;">Сменить пароль</a>
 
   </div>
-
 
 
 </div>

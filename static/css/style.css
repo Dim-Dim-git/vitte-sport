@@ -36,3 +36,12 @@ input[type="text"], input[type="number"], input[type="password"], select, textar
   color: var(--dark);
   background: var(--white);
 }
+
+/* Плитки разделов в личном кабинете */
+.section-tile {
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--white);
+  transition: border-color .15s;
+}
+.section-tile:hover { border-color: var(--red); }
