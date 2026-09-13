@@ -7,6 +7,7 @@ from django.contrib import messages
 from django.http import HttpResponse
 from .models import Sport, News, UserProfile, Training, Feedback, TrainingRecord, Gallery, Tournament, TournamentParticipant, Achievement, TrainingNote, TrainingBlock, TrainingProgram, ProgramBlock
 from .forms import TrainingBlockForm, TrainingProgramForm, ProgramBlockForm
+from .pdf import build_program_pdf
 
 # Главная страница
 def index(request):
@@ -644,3 +645,17 @@ def program_detail(request, pk):
         'program': program,
         'sessions': sorted(sessions.items()),
     })
+
+# Выгрузка программы тренировок в PDF
+def program_pdf(request, pk):
+    program = get_object_or_404(TrainingProgram, pk=pk)
+
+    sessions = {}
+    for item in program.items.select_related('block'):
+        sessions.setdefault(item.session, []).append(item)
+
+    data = build_program_pdf(program, sorted(sessions.items()))
+
+    response = HttpResponse(data, content_type='application/pdf')
+    response['Content-Disposition'] = f'attachment; filename="program_{program.pk}.pdf"'
+    return response

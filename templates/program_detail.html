@@ -19,6 +19,7 @@
   <a href="/sports/{{ program.sport.pk }}/" style="font-size: 14px;">← Секция «{{ program.sport.name }}»</a>
   <h2 style="margin-top: 16px;">{{ program.title }}</h2>
   <p style="margin-top: 8px;">{{ program.description }}</p>
+    <a href="/programs/{{ program.pk }}/pdf/" style="display: inline-block; margin-top: 8px; padding: 10px 24px; background: var(--red); color: var(--white); border-radius: 4px; font-size: 14px; font-weight: 600;">Скачать программу в PDF</a>
 
   <h3 style="margin-top: 32px;">Содержание программы</h3>
   {% for session, items in sessions %}
