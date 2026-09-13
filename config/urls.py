@@ -37,6 +37,7 @@ urlpatterns = [
     path('ratings/', views.ratings, name='ratings'),
     path('news/<int:pk>/', views.news_detail, name='news_detail'),
     path('sports/<int:pk>/', views.sport_detail, name='sport_detail'),
+    path('programs/<int:pk>/', views.program_detail, name='program_detail'),
     path('gallery/', views.gallery, name='gallery'),
     path('profile/edit/', views.profile_edit, name='profile_edit'),
     path('profile/trainings/', views.profile_trainings, name='profile_trainings'),

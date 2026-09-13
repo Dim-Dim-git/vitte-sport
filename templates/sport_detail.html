@@ -15,6 +15,19 @@
   <h2 style="margin-top: 16px;">{{ sport.name }}</h2>
   <p style="margin-top: 8px;">{{ sport.description }}</p>
 
+  <h3 style="margin-top: 32px;">Программы тренировок</h3>
+  <div style="margin-top: 16px;">
+    {% for p in programs %}
+      <a class="section-tile" href="/programs/{{ p.pk }}/" style="display: block; padding: 16px; margin-bottom: 8px; color: var(--dark);">
+        <div style="font-weight: 600;">{{ p.title }}</div>
+        <div style="font-size: 13px; color: var(--muted);">Блоков: {{ p.items.count }}</div>
+        <div style="font-size: 14px; color: var(--muted); margin-top: 8px;">{{ p.description|truncatewords:30 }}</div>
+      </a>
+    {% empty %}
+      <p>Программ пока нет</p>
+    {% endfor %}
+  </div>
+
   <h3 style="margin-top: 32px;">Расписание тренировок</h3>
   <div style="margin-top: 16px;">
     {% for t in trainings %}

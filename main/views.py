@@ -620,3 +620,27 @@ def program_items(request, pk):
         'sessions': sorted(sessions.items()),
         'form': form,
     })
+
+def sport_detail(request, pk):
+    sport = get_object_or_404(Sport, pk=pk)
+    trainings = Training.objects.filter(sport=sport)
+    programs = TrainingProgram.objects.filter(sport=sport)
+    return render(request, 'sport_detail.html', {
+        'sport': sport,
+        'trainings': trainings,
+        'programs': programs
+    })
+
+# Публичная страница программы тренировок
+def program_detail(request, pk):
+    program = get_object_or_404(TrainingProgram, pk=pk)
+
+    # Группируем блоки по номеру занятия
+    sessions = {}
+    for item in program.items.select_related('block'):
+        sessions.setdefault(item.session, []).append(item)
+
+    return render(request, 'program_detail.html', {
+        'program': program,
+        'sessions': sorted(sessions.items()),
+    })
