@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Sport, News, UserProfile, Training, Feedback, TrainingRecord, Gallery, Tournament, TournamentParticipant, Achievement, TrainingNote, TrainingBlock
+from .models import Sport, News, UserProfile, Training, Feedback, TrainingRecord, Gallery, Tournament, TournamentParticipant, Achievement, TrainingNote, TrainingBlock, TrainingProgram, ProgramBlock
 
 
 admin.site.register(Sport)
@@ -42,3 +42,13 @@ class TrainingBlockAdmin(admin.ModelAdmin):
     list_display  = ('title', 'sport', 'kind', 'duration_min')
     list_filter   = ('kind', 'sport')
     search_fields = ('title', 'equipment', 'description')
+
+class ProgramBlockInline(admin.TabularInline):
+    model = ProgramBlock
+    extra = 1
+
+@admin.register(TrainingProgram)
+class TrainingProgramAdmin(admin.ModelAdmin):
+    list_display = ('title', 'sport')
+    list_filter  = ('sport',)
+    inlines      = [ProgramBlockInline]

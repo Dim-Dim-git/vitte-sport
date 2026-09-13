@@ -4,7 +4,7 @@
   "pk": 1,
   "fields": {
     "password": "pbkdf2_sha256$1000000$xccW1nbofWPCeXZGTY03V9$vm5ssv1+sERzi6YeXGiMjCJKJlV5v3qmPvP6jkb811g=",
-    "last_login": "2026-09-12T15:07:14.407Z",
+    "last_login": "2026-09-13T10:26:11.789Z",
     "is_superuser": true,
     "username": "admin",
     "first_name": "",
@@ -40,7 +40,7 @@
   "pk": 3,
   "fields": {
     "password": "pbkdf2_sha256$1000000$WJJpVWd2P9CGa01kL4lg2e$wOpRceDfPOz1vmG5GAoorVVQSDEi8afOX60pOp7I6FA=",
-    "last_login": "2026-09-12T15:21:31.884Z",
+    "last_login": "2026-09-13T10:59:03.621Z",
     "is_superuser": false,
     "username": "coach",
     "first_name": "",
@@ -73,10 +73,10 @@
 },
 {
   "model": "sessions.session",
-  "pk": "k0t17vto0eqy85obtxp91hqu8qm4zgiu",
+  "pk": "g153p78ckw2s4k9yh1jrtzoedc72wpvu",
   "fields": {
-    "session_data": ".eJxVjEEOwiAQRe_C2hBgoAMu3XuGZhgmUjU0Ke3KeHdt0oVu_3vvv9RI21rHrcsyTkWdFajT75aJH9J2UO7UbrPmua3LlPWu6IN2fZ2LPC-H-3dQqddv7WQAYzi5ISKZaHL04MRBSIjsMSIwAxNKCjZbskUChmS82ADieVDvD6-yNrg:1x5PXn:ybtp_B5-HywwXclnQvkJiYiOvfceE_remFGBSk5BNjQ",
-    "expire_date": "2026-09-26T15:21:31.888Z"
+    "session_data": ".eJxVjEEOwiAQRe_C2hBgoAMu3XuGZhgmUjU0Ke3KeHdt0oVu_3vvv9RI21rHrcsyTkWdFajT75aJH9J2UO7UbrPmua3LlPWu6IN2fZ2LPC-H-3dQqddv7WQAYzi5ISKZaHL04MRBSIjsMSIwAxNKCjZbskUChmS82ADieVDvD6-yNrg:1x5hvL:lYgleqffLWG77P4n9MiJdvxOeroqJB-3Lqw7Dz22X8A",
+    "expire_date": "2026-09-27T10:59:03.624Z"
   }
 },
 {
@@ -409,6 +409,35 @@
     "equipment": "Мяч",
     "description": "Передачи в парах в движении",
     "scheme": "schemes/football/passing-pairs.svg"
+  }
+},
+{
+  "model": "main.trainingprogram",
+  "pk": 1,
+  "fields": {
+    "title": "Введение в футбол",
+    "sport": 4,
+    "description": "тест1"
+  }
+},
+{
+  "model": "main.programblock",
+  "pk": 1,
+  "fields": {
+    "program": 1,
+    "block": 1,
+    "session": 1,
+    "order": 2
+  }
+},
+{
+  "model": "main.programblock",
+  "pk": 2,
+  "fields": {
+    "program": 1,
+    "block": 2,
+    "session": 1,
+    "order": 1
   }
 }
 ]

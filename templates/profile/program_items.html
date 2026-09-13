@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ program.title }} - состав программы{% endblock %}
+
+{% block breadcrumbs %}
+  <a href="/" style="color: var(--muted); font-weight: 500;">Главная</a>
+  <span style="color: var(--border); margin: 0 8px;">/</span>
+  <a href="/profile/coach/" style="color: var(--muted); font-weight: 500;">Кабинет тренера</a>
+  <span style="color: var(--border); margin: 0 8px;">/</span>
+  <a href="/profile/coach/programs/" style="color: var(--muted); font-weight: 500;">Программы тренировок</a>
+  <span style="color: var(--border); margin: 0 8px;">/</span>
+  <span style="color: var(--dark); font-weight: 600;">{{ program.title }}</span>
+{% endblock %}
+
+{% block content %}
+<div style="max-width: 900px; margin: 40px auto; padding: 0 20px;">
+  <a href="/profile/coach/programs/" style="font-size: 14px;">- Программы тренировок</a>
+
+  <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; margin-top: 16px;">
+    <div>
+      <h2 style="margin: 0;">{{ program.title }}</h2>
+      <div style="font-size: 13px; color: var(--muted);">{{ program.sport.name }}</div>
+    </div>
+    <a href="/profile/coach/programs/{{ program.pk }}/edit/" style="padding: 8px 16px; border: 1.5px solid var(--dark); color: var(--dark); border-radius: 4px; font-size: 13px; font-weight: 600;">Изменить описание</a>
+  </div>
+
+  <h3 style="margin-top: 32px;">Добавить блок в программу</h3>
+  <form method="post" style="background: var(--white); border: 1px solid var(--border); border-radius: 6px; padding: 16px; margin-top: 12px; display: flex; flex-wrap: wrap; gap: 12px; align-items: flex-end;">
+    {% csrf_token %}
+    {% for field in form %}
+      <div>
+        <label for="{{ field.id_for_label }}" style="display: block; font-size: 13px; font-weight: 600; margin-bottom: 4px;">{{ field.label }}</label>
+        {{ field }}
+        {% for error in field.errors %}
+          <small style="display: block; color: var(--red); font-size: 13px;">{{ error }}</small>
+        {% endfor %}
+      </div>
+    {% endfor %}
+    <button type="submit" style="padding: 9px 20px; background: var(--red); color: white; border: none; border-radius: 4px; font-weight: 600; cursor: pointer;">Добавить</button>
+  </form>
+
+  <h3 style="margin-top: 32px;">Занятия</h3>
+  {% for session, items in sessions %}
+    <div style="margin-top: 16px;">
+      <div style="font-weight: 600; margin-bottom: 8px;">Занятие {{ session }}</div>
+      {% for item in items %}
+        <form method="post" style="background: var(--white); border: 1px solid var(--border); border-radius: 6px; padding: 12px 16px; margin-bottom: 8px; display: flex; align-items: center; justify-content: space-between; gap: 16px;">
+          {% csrf_token %}
+          <input type="hidden" name="item_id" value="{{ item.pk }}">
+          <div>
+            <div style="font-weight: 600;">{{ item.block.title }}</div>
+            <div style="font-size: 13px; color: var(--muted);">{{ item.block.get_kind_display }} / {{ item.block.duration_min }} мин{% if item.block.equipment %} / {{ item.block.equipment }}{% endif %}</div>
+          </div>
+          <div style="display: flex; align-items: center; gap: 8px; white-space: nowrap;">
+            <label style="font-size: 13px; color: var(--muted);">Занятие</label>
+            <input type="number" name="session" value="{{ item.session }}" min="1" style="width: 70px;">
+            <label style="font-size: 13px; color: var(--muted);">Порядок</label>
+            <input type="number" name="order" value="{{ item.order }}" min="1" style="width: 70px;">
+            <button type="submit" name="save" style="padding: 6px 14px; background: var(--dark); color: white; border: none; border-radius: 4px; font-size: 13px; font-weight: 600; cursor: pointer;">Сохранить</button>
+            <button type="submit" name="delete" onclick="return confirm('Убрать блок из программы?')" style="background: none; border: none; color: var(--red); font: 500 14px 'Montserrat', sans-serif; cursor: pointer; padding: 0;">Убрать</button>
+          </div>
+        </form>
+      {% endfor %}
+    </div>
+  {% empty %}
+    <p>В программе пока нет блоков. Добавьте первый с помощью формы выше.</p>
+  {% endfor %}
+</div>
+{% endblock %}

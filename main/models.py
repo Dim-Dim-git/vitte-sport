@@ -234,3 +234,34 @@ class TrainingBlock(models.Model):
 
     def __str__(self):
         return self.title
+
+
+# Программа тренировок: курс внутри секции, состоит из занятий
+class TrainingProgram(models.Model):
+    title       = models.CharField(max_length=200, verbose_name='Название')
+    sport       = models.ForeignKey(Sport, on_delete=models.CASCADE, related_name='programs', verbose_name='Секция')
+    description = models.TextField(verbose_name='Описание')
+
+    class Meta:
+        verbose_name        = 'Программа тренировок'
+        verbose_name_plural = 'Программы тренировок'
+        ordering            = ['sport__name', 'title']
+
+    def __str__(self):
+        return self.title
+
+
+# Блок в составе программы: какое занятие, какой блок, в каком порядке
+class ProgramBlock(models.Model):
+    program = models.ForeignKey(TrainingProgram, on_delete=models.CASCADE, related_name='items', verbose_name='Программа')
+    block   = models.ForeignKey(TrainingBlock, on_delete=models.PROTECT, verbose_name='Блок')
+    session = models.PositiveIntegerField(default=1, verbose_name='Занятие')
+    order   = models.PositiveIntegerField(default=1, verbose_name='Порядок в занятии')
+
+    class Meta:
+        verbose_name        = 'Блок программы'
+        verbose_name_plural = 'Блоки программы'
+        ordering            = ['session', 'order']
+
+    def __str__(self):
+        return f'{self.program.title}: занятие {self.session} - {self.block.title}'

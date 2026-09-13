@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block title %}Программы тренировок - МУИВ Спорт{% endblock %}
+
+{% block breadcrumbs %}
+  <a href="/" style="color: var(--muted); font-weight: 500;">Главная</a>
+  <span style="color: var(--border); margin: 0 8px;">/</span>
+  <a href="/profile/coach/" style="color: var(--muted); font-weight: 500;">Кабинет тренера</a>
+  <span style="color: var(--border); margin: 0 8px;">/</span>
+  <span style="color: var(--dark); font-weight: 600;">Программы тренировок</span>
+{% endblock %}
+
+{% block content %}
+<div style="max-width: 900px; margin: 40px auto; padding: 0 20px;">
+  <a href="/profile/coach/" style="font-size: 14px;">- Кабинет тренера</a>
+
+  <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-top: 16px;">
+    <h2 style="margin: 0;">Программы тренировок</h2>
+    <a href="/profile/coach/programs/add/" style="padding: 10px 20px; background: var(--red); color: white; border-radius: 4px; font-size: 14px; font-weight: 600;">Новая программа</a>
+  </div>
+  <p style="margin-top: 8px;">Курсы занятий, собранные из блоков.</p>
+
+  <div style="margin-top: 20px;">
+    {% for p in programs %}
+      <div style="background: var(--white); border: 1px solid var(--border); border-radius: 6px; padding: 16px; margin-bottom: 8px;">
+        <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 16px;">
+          <div>
+            <div style="font-weight: 600;">{{ p.title }}</div>
+            <div style="font-size: 13px; color: var(--muted);">{{ p.sport.name }} / блоков: {{ p.items.count }}</div>
+          </div>
+          <div style="display: flex; align-items: center; gap: 12px; white-space: nowrap;">
+            <a href="/profile/coach/programs/{{ p.pk }}/" style="font-size: 14px;">Состав</a>
+            <a href="/profile/coach/programs/{{ p.pk }}/edit/" style="font-size: 14px;">Изменить</a>
+            <form method="post" action="/profile/coach/programs/{{ p.pk }}/delete/" style="display: inline;" onsubmit="return confirm('Удалить программу «{{ p.title }}»?')">
+              {% csrf_token %}
+              <button type="submit" style="background: none; border: none; color: var(--red); font: 500 14px 'Montserrat', sans-serif; cursor: pointer; padding: 0;">Удалить</button>
+            </form>
+          </div>
+        </div>
+        <div style="font-size: 14px; color: var(--muted); margin-top: 8px;">{{ p.description|truncatewords:25 }}</div>
+      </div>
+    {% empty %}
+      <p>Программ пока нет</p>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

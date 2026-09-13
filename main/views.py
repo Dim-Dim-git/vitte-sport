@@ -5,8 +5,8 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from django.http import HttpResponse
-from .models import Sport, News, UserProfile, Training, Feedback, TrainingRecord, Gallery, Tournament, TournamentParticipant, Achievement, TrainingNote, TrainingBlock
-from .forms import TrainingBlockForm
+from .models import Sport, News, UserProfile, Training, Feedback, TrainingRecord, Gallery, Tournament, TournamentParticipant, Achievement, TrainingNote, TrainingBlock, TrainingProgram, ProgramBlock
+from .forms import TrainingBlockForm, TrainingProgramForm, ProgramBlockForm
 
 # Главная страница
 def index(request):
@@ -533,3 +533,90 @@ def block_delete(request, pk):
     if role in ('coach', 'portal_admin') and request.method == 'POST':
         TrainingBlock.objects.filter(pk=pk).delete()
     return redirect('/profile/coach/blocks/')
+
+
+# Список программ тренировок в кабинете тренера
+@login_required
+def coach_programs(request):
+    role = getattr(request.user.userprofile, 'role', None)
+    if role not in ('coach', 'portal_admin'):
+        return redirect('/profile/')
+
+    programs = TrainingProgram.objects.select_related('sport')
+    return render(request, 'profile/programs.html', {'programs': programs})
+
+
+# Создание и редактирование программы
+@login_required
+def program_edit(request, pk=None):
+    role = getattr(request.user.userprofile, 'role', None)
+    if role not in ('coach', 'portal_admin'):
+        return redirect('/profile/')
+
+    program = get_object_or_404(TrainingProgram, pk=pk) if pk else None
+
+    if request.method == 'POST':
+        form = TrainingProgramForm(request.POST, instance=program)
+        if form.is_valid():
+            program = form.save()
+            return redirect(f'/profile/coach/programs/{program.pk}/')
+    else:
+        form = TrainingProgramForm(instance=program)
+
+    return render(request, 'profile/program_form.html', {
+        'form': form,
+        'training_program': program,
+    })
+
+
+# Удаление программы
+@login_required
+def program_delete(request, pk):
+    role = getattr(request.user.userprofile, 'role', None)
+    if role in ('coach', 'portal_admin') and request.method == 'POST':
+        TrainingProgram.objects.filter(pk=pk).delete()
+    return redirect('/profile/coach/programs/')
+
+# Состав программы: блоки по занятиям и форма добавления
+@login_required
+def program_items(request, pk):
+    role = getattr(request.user.userprofile, 'role', None)
+    if role not in ('coach', 'portal_admin'):
+        return redirect('/profile/')
+
+    program = get_object_or_404(TrainingProgram, pk=pk)
+
+    if request.method == 'POST':
+        # Правка номеров или удаление: строка списка присылает item_id
+        item_id = request.POST.get('item_id')
+        if item_id:
+            item = get_object_or_404(ProgramBlock, pk=item_id, program=program)
+            if 'delete' in request.POST:
+                item.delete()
+            else:
+                session = request.POST.get('session', '')
+                order   = request.POST.get('order', '')
+                if session.isdigit() and order.isdigit():
+                    item.session = int(session)
+                    item.order   = int(order)
+                    item.save()
+            return redirect(f'/profile/coach/programs/{program.pk}/')
+        form = ProgramBlockForm(request.POST, program=program)
+        if form.is_valid():
+            item = form.save(commit=False)
+            item.program = program
+            item.save()
+            return redirect(f'/profile/coach/programs/{program.pk}/')
+    else:
+        form = ProgramBlockForm(program=program)
+
+    # Группируем блоки по номеру занятия
+    sessions = {}
+    for item in program.items.select_related('block'):
+        sessions.setdefault(item.session, []).append(item)
+
+    return render(request, 'profile/program_items.html', {
+        'program': program,
+        'sessions': sorted(sessions.items()),
+        'form': form,
+    })
