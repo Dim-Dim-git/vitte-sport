@@ -2,6 +2,14 @@
 
 {% block title %}Редактирование профиля — МУИВ Спорт{% endblock %}
 
+{% block breadcrumbs %}
+  <a href="/" style="color: var(--muted); font-weight: 500;">Главная</a>
+  <span style="color: var(--border); margin: 0 8px;">/</span>
+  <a href="/profile/" style="color: var(--muted); font-weight: 500;">Личный кабинет</a>
+  <span style="color: var(--border); margin: 0 8px;">/</span>
+  <span style="color: var(--dark); font-weight: 600;">Редактирование профиля</span>
+{% endblock %}
+
 {% block content %}
 <div style="max-width: 600px; margin: 40px auto; padding: 0 20px;">
   <a href="/profile/" style="font-size: 14px;">← Личный кабинет</a>
