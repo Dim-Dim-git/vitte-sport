@@ -118,7 +118,7 @@ class TrainingRecord(models.Model):
 # Фото с тренировок
 class Gallery(models.Model):
     title   = models.CharField(max_length=200, verbose_name='Подпись')
-    image = models.URLField(verbose_name='Ссылка на фото')
+    image   = models.ImageField(upload_to='gallery/', verbose_name='Фотография')
     sport   = models.ForeignKey(Sport, on_delete=models.SET_NULL, null=True, blank=True, verbose_name='Вид спорта')
     created = models.DateTimeField(auto_now_add=True, verbose_name='Дата загрузки')
 

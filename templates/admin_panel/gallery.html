@@ -24,7 +24,7 @@
 
 
 
-  <form method="post" action="/admin_panel/gallery/add/" style="margin-bottom: 24px;">
+  <form method="post" action="/admin_panel/gallery/add/" enctype="multipart/form-data" style="margin-bottom: 24px; display: flex; flex-wrap: wrap; gap: 8px; align-items: center;">
     {% csrf_token %}
     <input name="title" placeholder="Название" required style="padding: 6px 10px; border: 1px solid var(--border); border-radius: 4px;">
     <select name="sport" style="padding: 6px 10px; border: 1px solid var(--border); border-radius: 4px;">
@@ -32,7 +32,7 @@
         <option value="{{ sport.id }}">{{ sport.name }}</option>
       {% endfor %}
     </select>
-    <input type="url" name="image" placeholder="Прямая ссылка на фото" required style="padding: 6px 10px; border: 1px solid var(--border); border-radius: 4px; width: 300px;">
+    <input type="file" name="image" accept="image/*" required style="width: auto; padding: 6px 10px;">
     <button type="submit" style="padding: 8px 16px; background: var(--dark); color: var(--white); border: none; border-radius: 4px; cursor: pointer;">Добавить</button>
   </form>
 
@@ -41,7 +41,7 @@
     {% for photo in photos %}
       <div style="display: flex; align-items: center; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid var(--border);">
         <span>{{ photo.title }} - {{ photo.created|date:"d.m.Y" }}</span>
-        <img src="{{ photo.image }}" style="width: 60px; height: 40px; object-fit: cover; border-radius: 4px;">
+        <img src="{{ photo.image.url }}" style="width: 60px; height: 40px; object-fit: cover; border-radius: 4px;">
         <form method="post" action="/admin_panel/gallery/{{ photo.pk }}/delete/" style="display:inline;">
         {% csrf_token %}
         <button type="submit" style="padding: 4px 10px; background: var(--red); color: var(--white); border: none; border-radius: 4px; cursor: pointer;">Удалить</button>

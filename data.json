@@ -22,7 +22,7 @@
   "pk": 2,
   "fields": {
     "password": "pbkdf2_sha256$1000000$4xbNXySQ7A96Mwyt1Ymt3n$ROgi9iyNelnhAsaDXsu7st1fXP1hHSIgowpnq9J5qoY=",
-    "last_login": "2026-09-12T13:07:57.149Z",
+    "last_login": "2026-09-14T11:16:22.988Z",
     "is_superuser": false,
     "username": "portal_admin",
     "first_name": "",
@@ -40,7 +40,7 @@
   "pk": 3,
   "fields": {
     "password": "pbkdf2_sha256$1000000$WJJpVWd2P9CGa01kL4lg2e$wOpRceDfPOz1vmG5GAoorVVQSDEi8afOX60pOp7I6FA=",
-    "last_login": "2026-09-13T10:59:03.621Z",
+    "last_login": "2026-09-13T12:07:42.768Z",
     "is_superuser": false,
     "username": "coach",
     "first_name": "",
@@ -58,7 +58,7 @@
   "pk": 4,
   "fields": {
     "password": "pbkdf2_sha256$1000000$v2ucTwP5rWFFbjqn6QOAbh$b+1Ud40Mnbpu+CxNmCyoKRt23+NFb6xdHDZAs0vdRUM=",
-    "last_login": "2026-09-12T13:06:46.065Z",
+    "last_login": "2026-09-13T12:07:13.619Z",
     "is_superuser": false,
     "username": "student",
     "first_name": "",
@@ -73,10 +73,10 @@
 },
 {
   "model": "sessions.session",
-  "pk": "g153p78ckw2s4k9yh1jrtzoedc72wpvu",
+  "pk": "qff11dnv08zzhwlzcj0fbo68f57obtls",
   "fields": {
-    "session_data": ".eJxVjEEOwiAQRe_C2hBgoAMu3XuGZhgmUjU0Ke3KeHdt0oVu_3vvv9RI21rHrcsyTkWdFajT75aJH9J2UO7UbrPmua3LlPWu6IN2fZ2LPC-H-3dQqddv7WQAYzi5ISKZaHL04MRBSIjsMSIwAxNKCjZbskUChmS82ADieVDvD6-yNrg:1x5hvL:lYgleqffLWG77P4n9MiJdvxOeroqJB-3Lqw7Dz22X8A",
-    "expire_date": "2026-09-27T10:59:03.624Z"
+    "session_data": ".eJxVjDsOwjAQBe_iGlmJf7Ip6TmDtX67JgGUSHFSIe4OkVJA-2bmvVSmbR3y1mTJI6uzMur0uxXCQ6Yd8J2m26wxT-syFr0r-qBNX2eW5-Vw_w4GasO3hgQO7FC7QD1QYL1J6KrYztVKCN5ULgIbXW-rR-KE2EdKxjsTQer9ARugOPE:1x64fe:ZFHSoH-9pZWDBeThStX1eq7TAWQDP6a4JHKO5XEe9mI",
+    "expire_date": "2026-09-28T11:16:22.992Z"
   }
 },
 {
@@ -323,22 +323,22 @@
 },
 {
   "model": "main.gallery",
-  "pk": 1,
+  "pk": 3,
   "fields": {
-    "title": "Студенты готовятся к забегу",
+    "title": "Разминка перед соревнованиями",
     "image": "gallery/1.png",
     "sport": 1,
-    "created": "2026-05-28T21:06:41.821Z"
+    "created": "2026-09-14T11:17:01.749Z"
   }
 },
 {
   "model": "main.gallery",
-  "pk": 2,
+  "pk": 5,
   "fields": {
-    "title": "Разминка",
-    "image": "gallery/2.png",
+    "title": "Готовы к забегу",
+    "image": "gallery/2_YkwFlrZ.png",
     "sport": 1,
-    "created": "2026-05-28T21:08:03.330Z"
+    "created": "2026-09-14T11:18:15.072Z"
   }
 },
 {
@@ -392,9 +392,9 @@
     "title": "Ведение мяча между стойками",
     "sport": 4,
     "kind": "main",
-    "duration_min": 10,
-    "equipment": "Мяч",
-    "description": "Ведение мяча между стойками",
+    "duration_min": 12,
+    "equipment": "5 стоек, мяч",
+    "description": "Стойки расставляются в линию через два метра. Игрок ведёт мяч змейкой, обходя каждую стойку попеременно с правой и левой стороны, и возвращается назад тем же способом. Мяч держится близко к ноге, касания частые и мягкие, выполняются внутренней и внешней стороной стопы. Голова поднята: игрок смотрит вперёд, а не под ноги. Три подхода, отдых между ними минута.",
     "scheme": "schemes/football/dribbling-cones.svg"
   }
 },
@@ -405,10 +405,114 @@
     "title": "Передачи в парах в движении",
     "sport": 4,
     "kind": "main",
-    "duration_min": 10,
-    "equipment": "Мяч",
-    "description": "Передачи в парах в движении",
+    "duration_min": 15,
+    "equipment": "мячи, один на пару",
+    "description": "Игроки располагаются парами на расстоянии пятнадцати метров друг от друга и двигаются вперёд параллельными коридорами, отдавая мяч друг другу на ходу. Передача выполняется внутренней стороной стопы на ход партнёру, то есть чуть впереди него, чтобы он не сбавлял скорость. Принимающий обрабатывает мяч первым касанием в направлении движения и сразу готовит передачу. Упражнение выполняется от одной штрафной площади до другой, затем пары меняются сторонами.",
     "scheme": "schemes/football/passing-pairs.svg"
+  }
+},
+{
+  "model": "main.trainingblock",
+  "pk": 4,
+  "fields": {
+    "title": "Разминка в движении",
+    "sport": 4,
+    "kind": "warmup",
+    "duration_min": 10,
+    "equipment": "конусы",
+    "description": "Группа движется по периметру площадки: бег в лёгком темпе, приставные шаги правым и левым боком, бег спиной вперёд, ускорения на отрезках десять метров. Между сериями — вращения в голеностопных, коленных и тазобедренных суставах. Задача — поднять пульс и подготовить связки к работе с мячом.",
+    "scheme": "schemes/football/warmup-lap.svg"
+  }
+},
+{
+  "model": "main.trainingblock",
+  "pk": 5,
+  "fields": {
+    "title": "Разминка с мячом",
+    "sport": 4,
+    "kind": "warmup",
+    "duration_min": 8,
+    "equipment": "мячи, один на игрока",
+    "description": "Каждый игрок работает с мячом на месте и в движении: перекаты подошвой, касания внутренней и внешней стороной стопы, ведение по восьмёрке вокруг двух конусов. Темп постепенно растёт от медленного к соревновательному. Тренер следит, чтобы игроки держали голову поднятой.",
+    "scheme": "schemes/football/warmup-ball.svg"
+  }
+},
+{
+  "model": "main.trainingblock",
+  "pk": 6,
+  "fields": {
+    "title": "Приём и обработка мяча",
+    "sport": 4,
+    "kind": "main",
+    "duration_min": 12,
+    "equipment": "мячи, один на пару",
+    "description": "Пары стоят в восьми метрах друг от друга. Один набрасывает мяч руками, второй принимает его внутренней стороной стопы, бедром или грудью и опускает под себя одним касанием, после чего возвращает передачу низом. По десять приёмов каждой частью тела, затем игроки меняются ролями. Главное требование — гасить скорость мяча, а не отбивать его.",
+    "scheme": "schemes/football/receiving.svg"
+  }
+},
+{
+  "model": "main.trainingblock",
+  "pk": 7,
+  "fields": {
+    "title": "Удары по воротам с линии штрафной",
+    "sport": 4,
+    "kind": "main",
+    "duration_min": 15,
+    "equipment": "мячи, ворота",
+    "description": "Игроки по очереди наносят удары с линии штрафной площади из трёх позиций: справа, по центру и слева. Мяч подаётся партнёром в одно касание, бьющий работает без остановки. Удар выполняется внутренней стороной стопы или подъёмом, опорная нога ставится рядом с мячом, корпус над мячом. В воротах стоит вратарь или ассистент. По пять ударов с каждой позиции.",
+    "scheme": "schemes/football/shooting-box.svg"
+  }
+},
+{
+  "model": "main.trainingblock",
+  "pk": 8,
+  "fields": {
+    "title": "Игра в квадрате 4 на 2",
+    "sport": 4,
+    "kind": "main",
+    "duration_min": 15,
+    "equipment": "мячи, 4 конуса",
+    "description": "Четверо игроков располагаются по углам квадрата десять на десять метров и держат мяч в два касания. Двое внутри квадрата отбирают. Отобравший меняется местами с тем, кто потерял мяч. Упражнение развивает скорость принятия решений и точность коротких передач. Тренер ограничивает число касаний по мере роста подготовленности группы.",
+    "scheme": "schemes/football/rondo-4v2.svg"
+  }
+},
+{
+  "model": "main.trainingblock",
+  "pk": 9,
+  "fields": {
+    "title": "Отбор мяча и опека игрока",
+    "sport": 4,
+    "kind": "main",
+    "duration_min": 12,
+    "equipment": "мячи, конусы",
+    "description": "Пары работают в коридоре шириной пять метров: атакующий пытается провести мяч до линии, защитник перекрывает направление и выбирает момент для отбора. Защитник движется приставными шагами, не бросается в подкат, держит дистанцию около метра. Смена ролей каждые полторы минуты.",
+    "scheme": "schemes/football/duel-channel.svg"
+  }
+},
+{
+  "model": "main.trainingblock",
+  "pk": 10,
+  "fields": {
+    "title": "Двусторонняя игра",
+    "sport": 4,
+    "kind": "main",
+    "duration_min": 20,
+    "equipment": "мячи, манишки, ворота",
+    "description": "Учебная игра составами от пяти до восьми человек на половине поля. Тренер останавливает игру для разбора отдельных эпизодов и напоминает о задачах занятия — например, обязательная передача после приёма или игра в два касания. Счёт ведётся, но результат вторичен по отношению к выполнению задания.",
+    "scheme": "schemes/football/small-sided-game.svg"
+  }
+},
+{
+  "model": "main.trainingblock",
+  "pk": 11,
+  "fields": {
+    "title": "Заминка и растяжка",
+    "sport": 4,
+    "kind": "final",
+    "duration_min": 10,
+    "equipment": "коврики",
+    "description": "Медленный бег три минуты, затем статическая растяжка основных групп мышц: задняя и передняя поверхность бедра, икроножные мышцы, приводящие, мышцы спины. Каждое положение удерживается тридцать секунд без пружинящих движений. Завершается занятие короткими дыхательными упражнениями.",
+    "scheme": "schemes/football/cooldown.svg"
   }
 },
 {
@@ -418,6 +522,24 @@
     "title": "Введение в футбол",
     "sport": 4,
     "description": "тест1"
+  }
+},
+{
+  "model": "main.trainingprogram",
+  "pk": 2,
+  "fields": {
+    "title": "Футбол с нуля",
+    "sport": 4,
+    "description": "Курс для студентов без опыта игры. За четыре занятия осваиваются базовые навыки владения мячом: ведение, передача, приём и удар по воротам. Каждое занятие строится по одной схеме — разминка, работа над техникой, игровая часть и заминка."
+  }
+},
+{
+  "model": "main.trainingprogram",
+  "pk": 3,
+  "fields": {
+    "title": "Подготовка к межфакультетскому турниру",
+    "sport": 4,
+    "description": "Программа для игроков с опытом, рассчитанная на три занятия перед турниром. Основной упор сделан на скорость передач, завершение атак и командное взаимодействие в игровых условиях."
   }
 },
 {
@@ -438,6 +560,286 @@
     "block": 2,
     "session": 1,
     "order": 1
+  }
+},
+{
+  "model": "main.programblock",
+  "pk": 31,
+  "fields": {
+    "program": 2,
+    "block": 4,
+    "session": 1,
+    "order": 1
+  }
+},
+{
+  "model": "main.programblock",
+  "pk": 32,
+  "fields": {
+    "program": 2,
+    "block": 1,
+    "session": 1,
+    "order": 2
+  }
+},
+{
+  "model": "main.programblock",
+  "pk": 33,
+  "fields": {
+    "program": 2,
+    "block": 8,
+    "session": 1,
+    "order": 3
+  }
+},
+{
+  "model": "main.programblock",
+  "pk": 34,
+  "fields": {
+    "program": 2,
+    "block": 11,
+    "session": 1,
+    "order": 4
+  }
+},
+{
+  "model": "main.programblock",
+  "pk": 35,
+  "fields": {
+    "program": 2,
+    "block": 5,
+    "session": 2,
+    "order": 1
+  }
+},
+{
+  "model": "main.programblock",
+  "pk": 36,
+  "fields": {
+    "program": 2,
+    "block": 2,
+    "session": 2,
+    "order": 2
+  }
+},
+{
+  "model": "main.programblock",
+  "pk": 37,
+  "fields": {
+    "program": 2,
+    "block": 6,
+    "session": 2,
+    "order": 3
+  }
+},
+{
+  "model": "main.programblock",
+  "pk": 38,
+  "fields": {
+    "program": 2,
+    "block": 11,
+    "session": 2,
+    "order": 4
+  }
+},
+{
+  "model": "main.programblock",
+  "pk": 39,
+  "fields": {
+    "program": 2,
+    "block": 4,
+    "session": 3,
+    "order": 1
+  }
+},
+{
+  "model": "main.programblock",
+  "pk": 40,
+  "fields": {
+    "program": 2,
+    "block": 7,
+    "session": 3,
+    "order": 2
+  }
+},
+{
+  "model": "main.programblock",
+  "pk": 41,
+  "fields": {
+    "program": 2,
+    "block": 10,
+    "session": 3,
+    "order": 3
+  }
+},
+{
+  "model": "main.programblock",
+  "pk": 42,
+  "fields": {
+    "program": 2,
+    "block": 11,
+    "session": 3,
+    "order": 4
+  }
+},
+{
+  "model": "main.programblock",
+  "pk": 43,
+  "fields": {
+    "program": 2,
+    "block": 5,
+    "session": 4,
+    "order": 1
+  }
+},
+{
+  "model": "main.programblock",
+  "pk": 44,
+  "fields": {
+    "program": 2,
+    "block": 9,
+    "session": 4,
+    "order": 2
+  }
+},
+{
+  "model": "main.programblock",
+  "pk": 45,
+  "fields": {
+    "program": 2,
+    "block": 10,
+    "session": 4,
+    "order": 3
+  }
+},
+{
+  "model": "main.programblock",
+  "pk": 46,
+  "fields": {
+    "program": 2,
+    "block": 11,
+    "session": 4,
+    "order": 4
+  }
+},
+{
+  "model": "main.programblock",
+  "pk": 47,
+  "fields": {
+    "program": 3,
+    "block": 5,
+    "session": 1,
+    "order": 1
+  }
+},
+{
+  "model": "main.programblock",
+  "pk": 48,
+  "fields": {
+    "program": 3,
+    "block": 8,
+    "session": 1,
+    "order": 2
+  }
+},
+{
+  "model": "main.programblock",
+  "pk": 49,
+  "fields": {
+    "program": 3,
+    "block": 7,
+    "session": 1,
+    "order": 3
+  }
+},
+{
+  "model": "main.programblock",
+  "pk": 50,
+  "fields": {
+    "program": 3,
+    "block": 11,
+    "session": 1,
+    "order": 4
+  }
+},
+{
+  "model": "main.programblock",
+  "pk": 51,
+  "fields": {
+    "program": 3,
+    "block": 4,
+    "session": 2,
+    "order": 1
+  }
+},
+{
+  "model": "main.programblock",
+  "pk": 52,
+  "fields": {
+    "program": 3,
+    "block": 2,
+    "session": 2,
+    "order": 2
+  }
+},
+{
+  "model": "main.programblock",
+  "pk": 53,
+  "fields": {
+    "program": 3,
+    "block": 10,
+    "session": 2,
+    "order": 3
+  }
+},
+{
+  "model": "main.programblock",
+  "pk": 54,
+  "fields": {
+    "program": 3,
+    "block": 11,
+    "session": 2,
+    "order": 4
+  }
+},
+{
+  "model": "main.programblock",
+  "pk": 55,
+  "fields": {
+    "program": 3,
+    "block": 5,
+    "session": 3,
+    "order": 1
+  }
+},
+{
+  "model": "main.programblock",
+  "pk": 56,
+  "fields": {
+    "program": 3,
+    "block": 9,
+    "session": 3,
+    "order": 2
+  }
+},
+{
+  "model": "main.programblock",
+  "pk": 57,
+  "fields": {
+    "program": 3,
+    "block": 10,
+    "session": 3,
+    "order": 3
+  }
+},
+{
+  "model": "main.programblock",
+  "pk": 58,
+  "fields": {
+    "program": 3,
+    "block": 11,
+    "session": 3,
+    "order": 4
   }
 }
 ]

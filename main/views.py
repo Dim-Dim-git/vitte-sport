@@ -421,11 +421,11 @@ def coach_note_add(request):
 def admin_panel_gallery_add(request):
     if not is_portal_admin(request.user):
         return redirect('/profile/')
-    if request.method == 'POST':
+    if request.method == 'POST' and request.FILES.get('image'):
         Gallery.objects.create(
-            title=request.POST.get('title'),      
-            sport_id=request.POST.get('sport'),   
-            image=request.POST.get('image')    
+            title=request.POST.get('title'),
+            sport_id=request.POST.get('sport'),
+            image=request.FILES['image'],
         )
     return redirect('/admin_panel/gallery/')
 
